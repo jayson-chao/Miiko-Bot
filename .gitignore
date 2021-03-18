@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specified files
-./Miiko Bot/.env
+Miiko Bot\.env
 
 # User-specific files
 *.rsuser
@@ -341,3 +341,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Miiko Bot/.env
