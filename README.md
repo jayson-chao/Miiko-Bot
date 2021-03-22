@@ -7,6 +7,9 @@ A novelty Discord bot created for the purpose of learning to code Discord bots.
 A .env file should be created in the Miiko Bot directory
 with the value DISCORD_TOKEN set to the bot token
 
+### DB initialization
+An init_db.py file is required to initialize the database (WIP)
+
 ## Planned Features
 
 ### D4DJ Information Database

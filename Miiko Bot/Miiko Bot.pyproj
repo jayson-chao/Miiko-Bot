@@ -25,12 +25,25 @@
     <Compile Include="bot.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="commands\music.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="commands\utility.py" />
+    <Compile Include="init_db.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="main.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include=".env" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

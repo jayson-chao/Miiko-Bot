@@ -15,6 +15,7 @@ bot = MiikoBot(command_prefix=CMD_PREFIX)
 
 # load extra extensions for bot
 bot.load_extension('commands.utility')
+bot.load_extension('commands.music')
 
 @bot.event
 async def on_ready():

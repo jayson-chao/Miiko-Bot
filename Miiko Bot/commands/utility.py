@@ -11,16 +11,15 @@ class Utility(commands.Cog):
         self.bot = bot
 
     @commands.command(name='ping', help='test command & response')
-    async def shh_nano(ctx):
-        response = 'pong, nano!'
-        await ctx.send(response)
+    async def ping(self, ctx):
+        await ctx.send('pong, nano!')
 
     @commands.command(name='admin', help='test admin-only command')
     @commands.has_permissions(administrator=True)
-    async def admin_ping(ctx):
+    async def admin_ping(self, ctx):
         response = 'admin, nano!'
         await ctx.send(response)
 
-# required for adding cog to bot, MiikoBot's load_extension expects it
+# expected by load_extension in bot
 def setup(bot):
     bot.add_cog(Utility(bot))
