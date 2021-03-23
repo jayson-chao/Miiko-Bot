@@ -1,6 +1,7 @@
 # utility.py
 # Utility Commands for Miiko Bot
 
+import discord
 from discord.ext import commands
 from bot import MiikoBot
 
@@ -19,6 +20,11 @@ class Utility(commands.Cog):
     async def admin_ping(self, ctx):
         response = 'admin, nano!'
         await ctx.send(response)
+
+    @commands.command(name='info', help='information on MiikoBot')
+    async def info_embed(self, ctx):
+        infoEmbed=discord.Embed(title="MiikoBot", url="https://github.com/jayson-chao/Miiko-Bot", description="A D4DJ utility bot. Currently in development!")
+        await ctx.send(embed=infoEmbed)
 
 # expected by load_extension in bot
 def setup(bot):

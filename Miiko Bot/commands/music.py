@@ -10,6 +10,12 @@ FFMPEG_PATH="C:\\Program Files\\FFmpeg\\bin\\ffmpeg.exe" # change to users' ffmp
 class VoiceError(Exception):
     pass
 
+# 2021-03-23 issue encountered (unreplicated after 4 attempts)
+# Encountered issue where having Miiko join two VCs in two different servers led to the Miiko
+# instance in the second server to malfunction on join/leave commands (thought she wasn't in
+# a VC) and ignore play commands completely. Might've been an issue of two Miiko main.py commands
+# running in parallel?
+
 class Music (commands.Cog):
     bot: MiikoBot
 
@@ -22,8 +28,13 @@ class Music (commands.Cog):
             raise VoiceError('You are not connected to a voice channel')
 
         channel = ctx.author.voice.channel
-        await channel.connect()
-        await ctx.send('Connected, nano!')
+        if not ctx.voice_client:
+            await channel.connect()
+            await ctx.send('Connected, nano!')
+            return
+        await ctx.voice_client.move_to(channel)
+        await ctx.send('Moved channels, nano!')
+        
 
     @commands.command(name='leave', help='has Miiko leave voice channel')
     async def leave(self, ctx):
@@ -37,10 +48,11 @@ class Music (commands.Cog):
     # currently plays though to end, does not allow more play commands
     @commands.command(name='play', help='has Miiko play her favorite song!')
     async def play(self, ctx):
+        # current issue - if bot program was halted while in VC, does not automatically leave.
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel, nano!')
             raise VoiceError('play: Bot is not connected to any voice channel')
-        audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source='nyan.mp3')
+        audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source="nyan.mp3")
         ctx.voice_client.play(audio)
 
 # expected by load_extension in bot
