@@ -1,0 +1,37 @@
+[
+  {
+    "name": "D4DJ 1ST LIVE",
+    "session": "1",
+    "eventdate": "2019-07-20",
+    "livestream": "None",
+    "archive": "YT Clips"
+  },
+  {
+    "name": "D4DJ 1ST LIVE",
+    "session": "2",
+    "eventdate": "2019-07-21",
+    "livestream": "None",
+    "archive": "YT Clips"
+  },
+  {
+    "name": "D4DJ 2ND LIVE -Day Party-",
+    "session": "1",
+    "eventdate": "2019-10-14",
+    "livestream": "None",
+    "archive": "BD"
+  },
+  {
+    "name": "D4DJ 2ND LIVE -Nonstop Night-",
+    "session": "2",
+    "eventdate": "2019-10-14",
+    "livestream": "None",
+    "archive": "BD"
+  },
+  {
+    "name": "D4DJ D4 FES -Departure-",
+    "session": "1",
+    "eventdate": "2020-01-31",
+    "livestream": "None",
+    "archive": "YT Edited Rebroadcast"
+  }
+]

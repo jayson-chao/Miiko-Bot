@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".env" />
+    <Content Include="Master\EventMaster.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="commands\" />
+    <Folder Include="Master\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

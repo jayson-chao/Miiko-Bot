@@ -8,7 +8,7 @@ A .env file should be created in the Miiko Bot directory
 with the value DISCORD_TOKEN set to the bot token
 
 ### DB initialization
-An init_db.py file is required to initialize the database (WIP)
+An init_db.py file is required to initialize the database and models using Tortoise ORM (WIP)
 
 ## Planned Features
 
