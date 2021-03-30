@@ -18,6 +18,7 @@ bot = MiikoBot(command_prefix=CMD_PREFIX)
 # load extra extensions for bot
 bot.load_extension('commands.utility')
 bot.load_extension('commands.music')
+bot.load_extension('commands.preference')
 
 @bot.event
 async def on_ready():
@@ -44,8 +45,10 @@ async def on_message(message):
         return
 
     # if not bot command and contains 'nano', echo 'nano'
-    if re.search('nano', message.content.lower()) and message.content[0] != CMD_PREFIX: 
-        await message.channel.send('nano!')
+    guild = await models.Guild.get_or_none(id=message.guild.id)
+    if guild and guild.basic_pref:
+        if re.search('nano', message.content.lower()) and message.content[0] != CMD_PREFIX: 
+            await message.channel.send('nano!')
 
     await bot.process_commands(message) # process commands, need bc on_message override
 
