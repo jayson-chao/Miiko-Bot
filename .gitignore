@@ -342,5 +342,3 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 Miiko Bot/.env
-Miiko Bot/init_db.py
-Miiko Bot/nyan.mp3

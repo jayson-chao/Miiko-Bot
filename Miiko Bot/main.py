@@ -3,9 +3,11 @@
 
 import os
 import re
-from bot import MiikoBot
 from dotenv import load_dotenv
 from discord.ext import commands
+
+from bot import MiikoBot
+import models
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN') # Hidden
@@ -20,6 +22,21 @@ bot.load_extension('commands.music')
 @bot.event
 async def on_ready():
     print(f'{bot.user} is connected to Discord.')
+    print(f'Server count: {len(bot.guilds)}')
+    for guild in bot.guilds:
+        await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
+
+@bot.listen()
+async def on_guild_join(guild):
+    await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
+
+@bot.listen()
+async def on_guild_remove(guild):
+    await (await models.Guild.get(id=guild.id)).delete()
+
+@bot.listen()
+async def on_guild_update(before, after):
+    await models.Guild.update_or_create(id=after.id, defaults={'name': after.name})
 
 @bot.event
 async def on_message(message):

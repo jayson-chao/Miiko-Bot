@@ -2,6 +2,9 @@
 # main MiikoBot class
 
 from discord.ext import commands
+from tortoise import Tortoise
+
+from tortoise_config import TORTOISE_ORM
 
 class MiikoBot(commands.Bot):
     def __init__(self, *args, **kwargs):
@@ -15,3 +18,8 @@ class MiikoBot(commands.Bot):
     def unload_extension(self, name):
         self.extension_names.remove(name)
         super(MiikoBot, self).unload_extension(name)
+
+    # override bot login to init tortoise orm connection on start
+    async def login(self, token, *, bot=True):
+        await Tortoise.init(TORTOISE_ORM)
+        await super(MiikoBot, self).login(token, bot=bot)
