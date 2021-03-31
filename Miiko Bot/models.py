@@ -20,7 +20,8 @@ class D4DJEvent(Model):
 class Guild(Model):
     id = fields.BigIntField(pk=True)
     name = fields.TextField(max_length=255)
-    basic_pref = fields.BooleanField(default=True)
+    response_pref = fields.BooleanField(default=True)
+    react_pref = fields.BooleanField(default=False)
 
     class Meta:
         table = "Guilds/Servers"

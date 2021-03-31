@@ -46,9 +46,18 @@ async def on_message(message):
 
     # if not bot command and contains 'nano', echo 'nano'
     guild = await models.Guild.get_or_none(id=message.guild.id)
-    if guild and guild.basic_pref:
-        if re.search('nano', message.content.lower()) and message.content[0] != CMD_PREFIX: 
-            await message.channel.send('nano!')
+    if guild and guild.response_pref:
+        if (re.search('ssh|ssh|quiet', message.content.lower())) and message.content[0] != CMD_PREFIX: 
+            await message.channel.send('<:sshnano:822256196575559720>')
+        elif re.search('nano', message.content.lower()) and message.content[0] != CMD_PREFIX: 
+            if guild.react_pref:
+                await message.add_reaction('🇳')
+                await message.add_reaction('🇦')
+                await message.add_reaction('<:another_n:826923642264092682>')
+                await message.add_reaction('🇴')
+                await message.add_reaction('‼️')
+            else:
+                await message.channel.send('nano!')
 
     await bot.process_commands(message) # process commands, need bc on_message override
 
