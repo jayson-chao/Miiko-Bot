@@ -3,9 +3,11 @@
 
 import os
 import re
+import random
 from dotenv import load_dotenv
 from discord.ext import commands
 
+from emoji import miiko_emoji
 from bot import MiikoBot
 import models
 
@@ -47,7 +49,11 @@ async def on_message(message):
     # if not bot command and contains 'nano', echo 'nano'
     guild = await models.Guild.get_or_none(id=message.guild.id)
     if guild and guild.response_pref:
-        if (re.search('ssh|ssh|quiet', message.content.lower())) and message.content[0] != CMD_PREFIX: 
+        if message.content == 'shut up, miiko':
+            await models.Guild.update_or_create(id=message.guild.id, defaults={'response_pref':False})
+            await message.channel.send('Set message response preference, nano!')
+            return
+        elif (re.search('ssh|ssh|quiet|shut up', message.content.lower())) and message.content[0] != CMD_PREFIX: 
             await message.channel.send('<:sshnano:822256196575559720>')
         elif re.search('nano', message.content.lower()) and message.content[0] != CMD_PREFIX: 
             if guild.react_pref:
@@ -58,6 +64,12 @@ async def on_message(message):
                 await message.add_reaction('‼️')
             else:
                 await message.channel.send('nano!')
+    if re.search('miiko', message.content.lower()) and message.content[0] != CMD_PREFIX: 
+        eid = random.choice(list(miiko_emoji.values()))
+        await message.add_reaction(str(bot.get_emoji(eid)))
+    elif re.search('haruna', message.content.lower()) and message.content[0] != CMD_PREFIX: 
+        await message.add_reaction(str(bot.get_emoji(768398466753757214)))
+        await message.add_reaction(str(bot.get_emoji(768398467005153322)))
 
     await bot.process_commands(message) # process commands, need bc on_message override
 

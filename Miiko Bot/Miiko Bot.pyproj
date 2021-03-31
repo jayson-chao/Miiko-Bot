@@ -25,7 +25,13 @@
     <Compile Include="bot.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="emoji.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="commands\music.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="commands\preference.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="commands\utility.py" />
@@ -36,6 +42,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tortoise_config.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
