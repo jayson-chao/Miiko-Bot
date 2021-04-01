@@ -22,6 +22,7 @@ class Guild(Model):
     name = fields.TextField(max_length=255)
     response_pref = fields.BooleanField(default=True)
     react_pref = fields.BooleanField(default=False)
+    msg_channel = fields.BigIntField(null=True, default=None)
 
     class Meta:
         table = "Guilds/Servers"

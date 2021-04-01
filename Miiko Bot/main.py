@@ -46,24 +46,25 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    # if not bot command and contains 'nano', echo 'nano'
     guild = await models.Guild.get_or_none(id=message.guild.id)
     if guild and guild.response_pref:
-        if message.content == 'shut up, miiko':
+        if message.content == 'shut up, miiko': # a little easter egg command
             await models.Guild.update_or_create(id=message.guild.id, defaults={'response_pref':False})
             await message.channel.send('Set message response preference, nano!')
             return
+        # some reactions to responses
         elif (re.search('ssh|ssh|quiet|shut up', message.content.lower())) and message.content[0] != CMD_PREFIX: 
-            await message.channel.send('<:sshnano:822256196575559720>')
+            await message.channel.send(str(bot.get_emoji(822256196575559720)))
         elif re.search('nano', message.content.lower()) and message.content[0] != CMD_PREFIX: 
             if guild.react_pref:
                 await message.add_reaction('🇳')
                 await message.add_reaction('🇦')
-                await message.add_reaction('<:another_n:826923642264092682>')
+                await message.add_reaction(str(bot.get(826923642264092682)))
                 await message.add_reaction('🇴')
                 await message.add_reaction('‼️')
             else:
                 await message.channel.send('nano!')
+    # emote reacts to character names, always on
     if re.search('miiko', message.content.lower()) and message.content[0] != CMD_PREFIX: 
         eid = random.choice(list(miiko_emoji.values()))
         await message.add_reaction(str(bot.get_emoji(eid)))
