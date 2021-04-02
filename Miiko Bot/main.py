@@ -59,7 +59,7 @@ async def on_message(message):
             if guild.react_pref:
                 await message.add_reaction('🇳')
                 await message.add_reaction('🇦')
-                await message.add_reaction(str(bot.get(826923642264092682)))
+                await message.add_reaction(str(bot.get_emoji(826923642264092682)))
                 await message.add_reaction('🇴')
                 await message.add_reaction('‼️')
             else:
