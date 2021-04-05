@@ -25,6 +25,12 @@
     <Compile Include="bot.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="archive\apr_fools.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="commands\event.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="emoji.py">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +61,7 @@
   <ItemGroup>
     <Folder Include="commands\" />
     <Folder Include="Master\" />
+    <Folder Include="archive\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

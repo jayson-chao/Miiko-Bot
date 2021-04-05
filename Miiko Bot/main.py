@@ -1,6 +1,7 @@
 # main.py
 # main executable for bot
 
+import json
 import os
 import re
 import random
@@ -17,10 +18,19 @@ CMD_PREFIX = '&'
 
 bot = MiikoBot(command_prefix=CMD_PREFIX)
 
+# load db func to load/reload json data
+async def load_db():
+    with open('Master/EventMaster.json') as f:
+        data = json.load(f)
+
+    for live in data:
+        await models.D4DJEvent.update_or_create(id=live, defaults=data[live])
+
 # load extra extensions for bot
 bot.load_extension('commands.utility')
 bot.load_extension('commands.music')
 bot.load_extension('commands.preference')
+bot.load_extension('commands.event')
 
 @bot.event
 async def on_ready():
@@ -28,6 +38,7 @@ async def on_ready():
     print(f'Server count: {len(bot.guilds)}')
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
+    await load_db()
 
 @bot.listen()
 async def on_guild_join(guild):

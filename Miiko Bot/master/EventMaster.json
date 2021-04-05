@@ -1,37 +1,30 @@
-[
-  {
-    "name": "D4DJ 1ST LIVE",
-    "session": "1",
+{
+  "1": {
+    "name": "D4DJ 1ST LIVE Day 1",
     "eventdate": "2019-07-20",
     "livestream": "None",
-    "archive": "YT Clips"
+    "archive": "https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/bmu-new-corp-production-public/c8506641-c92a-4948-9820-03f394632b67.png"
   },
-  {
-    "name": "D4DJ 1ST LIVE",
-    "session": "2",
+  "2": {
+    "name": "D4DJ 1ST LIVE Day 2",
     "eventdate": "2019-07-21",
     "livestream": "None",
-    "archive": "YT Clips"
+    "archive": "https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/bmu-new-corp-production-public/c8506641-c92a-4948-9820-03f394632b67.png"
   },
-  {
+  "3": {
     "name": "D4DJ 2ND LIVE -Day Party-",
-    "session": "1",
     "eventdate": "2019-10-14",
     "livestream": "None",
-    "archive": "BD"
+    "archive": "https://drive.google.com/drive/folders/1NHINoq8Ot-XjMWM2hWWgVrlTypU4PoeG?usp=sharing",
+    "logo": "https://static.wikia.nocookie.net/d4dj/images/9/96/D4DJ_2nd_LIVE_Day_Party_logo.png/revision/latest/scale-to-width-down/200?cb=20200818020336"
   },
-  {
+  "4": {
     "name": "D4DJ 2ND LIVE -Nonstop Night-",
-    "session": "2",
     "eventdate": "2019-10-14",
     "livestream": "None",
-    "archive": "BD"
-  },
-  {
-    "name": "D4DJ D4 FES -Departure-",
-    "session": "1",
-    "eventdate": "2020-01-31",
-    "livestream": "None",
-    "archive": "YT Edited Rebroadcast"
+    "archive": "https://drive.google.com/drive/folders/1SDxOcg1JA0nT12u2QjRH8LCYwk0ZvUYR?usp=sharing",
+    "logo": "https://static.wikia.nocookie.net/d4dj/images/2/26/D4DJ_2nd_LIVE_Nonstop_Night_logo.png/revision/latest/scale-to-width-down/160?cb=20200818020403"
   }
-]
+}

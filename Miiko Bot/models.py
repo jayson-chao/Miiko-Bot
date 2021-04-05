@@ -8,9 +8,11 @@ from tortoise.models import ModelMeta
 # model for event db
 class D4DJEvent(Model):
     id = fields.IntField(pk=True)
-    name = fields.TextField()
-    event_time = fields.DatetimeField()
-    main_artist = fields.IntField() # in six digit format, 0 or 1 to rep. each performing artist. 
+    name = fields.CharField(255)
+    eventdate = fields.CharField(255)
+    livestream = fields.CharField(255)
+    archive = fields.CharField(255, default=None, null=True)
+    logo = fields.TextField(default=None, null=True)
 
     class Meta:
         table = "Events"

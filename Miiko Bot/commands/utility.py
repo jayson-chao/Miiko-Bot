@@ -25,7 +25,7 @@ class Utility(commands.Cog):
 
     @commands.command(name='info', help='information on MiikoBot')
     async def info_embed(self, ctx):
-        infoEmbed=discord.Embed(title="MiikoBot", description="A D4DJ utility bot. Currently in development!")
+        infoEmbed = discord.Embed(title="MiikoBot", description="A D4DJ utility bot. Currently in development!")
         await ctx.send(embed=infoEmbed)
 
 # expected by load_extension in bot
