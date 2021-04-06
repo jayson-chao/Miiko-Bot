@@ -1,30 +1,93 @@
 {
   "1": {
     "name": "D4DJ 1ST LIVE Day 1",
-    "eventdate": "2019-07-20",
+    "artist": "111110",
+    "eventdate": "2019-07-20T17:00:00",
     "livestream": "None",
     "archive": "https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing",
-    "logo": "https://s3-ap-northeast-1.amazonaws.com/bmu-new-corp-production-public/c8506641-c92a-4948-9820-03f394632b67.png"
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/bmu-new-corp-production-public/c8506641-c92a-4948-9820-03f394632b67.png",
+    "guests": "ARGONAVIS, Raychell, Kohara Riko, Natsume"
   },
   "2": {
     "name": "D4DJ 1ST LIVE Day 2",
-    "eventdate": "2019-07-21",
-    "livestream": "None",
+    "artist": "111110",
+    "eventdate": "2019-07-21T16:00:00",
     "archive": "https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing",
-    "logo": "https://s3-ap-northeast-1.amazonaws.com/bmu-new-corp-production-public/c8506641-c92a-4948-9820-03f394632b67.png"
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/bmu-new-corp-production-public/c8506641-c92a-4948-9820-03f394632b67.png",
+    "guests": "Raise A Suilen"
   },
   "3": {
     "name": "D4DJ 2ND LIVE -Day Party-",
-    "eventdate": "2019-10-14",
-    "livestream": "None",
+    "artist": "111110",
+    "eventdate": "2019-10-14T15:00:00",
     "archive": "https://drive.google.com/drive/folders/1NHINoq8Ot-XjMWM2hWWgVrlTypU4PoeG?usp=sharing",
-    "logo": "https://static.wikia.nocookie.net/d4dj/images/9/96/D4DJ_2nd_LIVE_Day_Party_logo.png/revision/latest/scale-to-width-down/200?cb=20200818020336"
+    "logo": "https://static.wikia.nocookie.net/d4dj/images/9/96/D4DJ_2nd_LIVE_Day_Party_logo.png"
   },
   "4": {
     "name": "D4DJ 2ND LIVE -Nonstop Night-",
-    "eventdate": "2019-10-14",
-    "livestream": "None",
+    "artist": "111110",
+    "eventdate": "2019-10-14T19:00:00",
     "archive": "https://drive.google.com/drive/folders/1SDxOcg1JA0nT12u2QjRH8LCYwk0ZvUYR?usp=sharing",
-    "logo": "https://static.wikia.nocookie.net/d4dj/images/2/26/D4DJ_2nd_LIVE_Nonstop_Night_logo.png/revision/latest/scale-to-width-down/160?cb=20200818020403"
+    "logo": "https://static.wikia.nocookie.net/d4dj/images/2/26/D4DJ_2nd_LIVE_Nonstop_Night_logo.png"
+  },
+  "5": {
+    "name": "Gekirock DJ Party 19th ANNIVERSARY PARTY & HALLOWEEN SPECIAL EDGE-CRUSHER Vol. 139",
+    "embedname": "Gekirock DJ Party HALLOWEEN 2019",
+    "artist": "000100",
+    "eventdate": "2019-10-27T15:00:00"
+  },
+  "6": {
+    "name": "Space Shower Festival Kyouka Suigetsu",
+    "artist": "000010",
+    "eventdate": "2019-10-14T19:30:00",
+    "archive": "https://drive.google.com/drive/folders/1n4NzwcOxOR-K_ymuMeKjPp8az9BnQtOe?usp=sharing"
+  },
+  "7": {
+    "name": "TOKYO MIX JUICE -Super Fusion Music Festival-",
+    "artist": "000100",
+    "eventdate": "2020-01-25T13:00:00"
+  },
+  "8": {
+    "name": "D4DJ D4 Fes -Departure-",
+    "artist": "111110",
+    "eventdate": "2020-01-31T19:00:00",
+    "archive": "https://drive.google.com/drive/folders/1anOVaBdkgt54rsUUzAIiA_luhcFWWV5A?usp=sharing",
+    "logo": "https://static.wikia.nocookie.net/d4dj/images/c/c8/D4DJ_D4_FES_Departure_logo.png"
+  },
+  "9": {
+    "name": "Lost Decade & D4DJ Groovy Mix Presents ONLINE LIVE",
+    "embedname": "D4DJ ONLINE LIVE",
+    "artist": "111110",
+    "eventdate": "2020-03-27T20:00:00",
+    "archive": "https://drive.google.com/drive/folders/1swywdw6t_Y67gd-n_Br_sL_xw4n03jW1?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/04/200407_ONLINE_LIVE_rogo.png"
+  },
+  "10": {
+    "name": "D4DJ SOUND ONLY LIVE DAY 1",
+    "artist": "111111",
+    "eventdate": "2020-06-20T18:00:00",
+    "archive": "https://drive.google.com/drive/folders/1T8y-1BgcNoaKKLVIPHGIn29byxEBW5kH?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/06/D4DJ_SOL_vol1_logo_rgb_day1.jpg"
+  },
+  "11": {
+    "name": "D4DJ SOUND ONLY LIVE DAY 2",
+    "artist": "111111",
+    "eventdate": "2020-06-21T18:00:00",
+    "archive": "https://drive.google.com/drive/folders/1T8y-1BgcNoaKKLVIPHGIn29byxEBW5kH?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/06/D4DJ_SOL_vol1_logo_rgb_day1.jpg"
+  },
+  "12": {
+    "name": "MixChannel Presents D4DJ CONNECT LIVE",
+    "artist": "111111",
+    "eventdate": "2020-07-26T19:00:00",
+    "archive": "https://drive.google.com/drive/folders/1TwN43NNxqVWZW7Erwg1JgQtWTdSIHSqD?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/01/DJ_CLIVE_LOGO_rgb_NML.png"
+  },
+  "100": {
+    "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Afternoon Session",
+    "embedname": "NYAN-NYAN SHAKE! Afternoon Session",
+    "artist": "000101",
+    "eventdate": "2021-04-24T14:00:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/03/NNS_logo_rgb_re.png"
   }
 }

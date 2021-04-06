@@ -31,6 +31,9 @@
     <Compile Include="commands\event.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="commands\react_msg.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="emoji.py">
       <SubType>Code</SubType>
     </Compile>

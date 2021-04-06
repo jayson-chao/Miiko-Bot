@@ -1,6 +1,7 @@
 # utility.py
 # Utility Commands for Miiko Bot
 
+import os
 import discord
 from discord.ext import commands
 
@@ -27,6 +28,14 @@ class Utility(commands.Cog):
     async def info_embed(self, ctx):
         infoEmbed = discord.Embed(title="MiikoBot", description="A D4DJ utility bot. Currently in development!")
         await ctx.send(embed=infoEmbed)
+
+    @commands.command(name='shutdown', help='shuts down MiikoBot', hidden=True)
+    async def shutdown(self, ctx):
+        TOKEN = os.getenv('BOT_OWNER')
+        if ctx.author.id == int(TOKEN):
+            await ctx.send('Shutting down, nano!')
+            await self.bot.logout() # will throw Runtime Error - apparently this is a known bug on their end
+        await ctx.send('I don\'t take orders from you, nano!')
 
 # expected by load_extension in bot
 def setup(bot):

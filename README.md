@@ -3,8 +3,10 @@ A novelty Discord bot created for the purpose of learning to code Discord bots.
 
 ## Setup
 
-### Bot Token
-A .env file should be created in the Miiko Bot directory with the value DISCORD_TOKEN set to the bot token
+### .env file
+A .env file should be created in the Miiko Bot directory. It should have the following values:
+ - DISCORD_TOKEN set to the bot token
+ - BOT_OWNER set to the user ID of the owner of the bot
 
 ### DB initialization
 init_db.py needs to be run before main.py to generate models/schema on postgres db.
