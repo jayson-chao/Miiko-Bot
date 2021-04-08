@@ -14,11 +14,11 @@ class Utility(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='ping', help='test command & response')
+    @commands.command(name='ping', help='test command & response', hidden=True)
     async def ping(self, ctx):
         await ctx.send('pong, nano!')
 
-    @commands.command(name='admin', help='test admin-only command')
+    @commands.command(name='admin', help='test admin-only command', hidden=True)
     @commands.has_permissions(administrator=True)
     async def admin_ping(self, ctx):
         response = 'admin, nano!'

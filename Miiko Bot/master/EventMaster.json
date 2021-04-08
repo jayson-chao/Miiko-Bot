@@ -48,11 +48,11 @@
     "eventdate": "2020-01-25T13:00:00"
   },
   "8": {
-    "name": "D4DJ D4 Fes -Departure-",
+    "name": "D4DJ D4 FES. -Departure-",
     "artist": "111110",
     "eventdate": "2020-01-31T19:00:00",
     "archive": "https://drive.google.com/drive/folders/1anOVaBdkgt54rsUUzAIiA_luhcFWWV5A?usp=sharing",
-    "logo": "https://static.wikia.nocookie.net/d4dj/images/c/c8/D4DJ_D4_FES_Departure_logo.png"
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2019/10/D4DJ_FES_LOGO_191014_2L_RGB%E9%9D%9E%E9%80%8F%E9%81%8E.png.png"
   },
   "9": {
     "name": "Lost Decade & D4DJ Groovy Mix Presents ONLINE LIVE",
@@ -83,11 +83,122 @@
     "archive": "https://drive.google.com/drive/folders/1TwN43NNxqVWZW7Erwg1JgQtWTdSIHSqD?usp=sharing",
     "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/01/DJ_CLIVE_LOGO_rgb_NML.png"
   },
-  "100": {
+  "13": {
+    "name": "Groovy Mix Presents D4DJ D4 FES. ~LOVE!HUG!GROOVY!!~",
+    "embedname": "D4DJ D4 FES. ~LOVE!HUG!GROOVY!!~",
+    "artist": "111111",
+    "eventdate": "2020-10-11T18:30:00",
+    "archive": "https://drive.google.com/drive/folders/1fcqycfhVvvTqT5ixC_ukiQ5CjXUMkYCX?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/08/D4DJ_FES_LOGOvol3_RGB_2L.png"
+  },
+  "14": {
+    "name": "EJ ANIME MUSIC FESTIVAL 2020",
+    "artist": "100000",
+    "eventdate": "2020-10-18T18:00:00",
+    "logo": "https://ej-music.jp/2020/img/logo.png"
+  },
+  "15": {
+    "name": "ANIMAX MUSIX NEXTAGE ONLINE supported by U-NEXT",
+    "embedname": "ANIMAX MUSIX NEXTAGE ONLINE 2020",
+    "artist": "100000",
+    "eventdate": "2020-10-31T17:30:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/10/animaxnextage_logo.png"
+  },
+  "16": {
+    "name": "Happy Around! 1st LIVE Minna ni Hapiare♪ Afternoon Session",
+    "embedname": "Hapiara 1st LIVE Afternoon Session",
+    "artist": "100000",
+    "eventdate": "2020-12-13T15:30:00",
+    "archive": "https://drive.google.com/drive/folders/1XUlDqmlSrBVfA4nuS7Q29yL45mXbkR7W?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/10/HA_1stLIVE_logo.png"
+  },
+  "17": {
+    "name": "Happy Around! 1st LIVE Minna ni Hapiare♪ Evening Session",
+    "embedname": "Hapiara 1st LIVE Evening Session",
+    "artist": "100000",
+    "eventdate": "2020-12-13T19:00:00",
+    "archive": "https://drive.google.com/drive/folders/1XUlDqmlSrBVfA4nuS7Q29yL45mXbkR7W?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/10/HA_1stLIVE_logo.png"
+  },
+  "18": {
+    "name": "ANIMAX MUSIX 2021 ONLINE supported by U-NEXT Day 1",
+    "embedname": "ANIMAX MUSIX 2021 ONLINE Day 1",
+    "artist": "100000",
+    "eventdate": "2021-01-30T18:00:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/10/animaxnextage_logo.png"
+  },
+  "19": {
+    "name": "Happy Around! 2nd LIVE Minna ni Hapiyane♪ Afternoon Session",
+    "embedname": "Hapiara 2nd LIVE Afternoon Session",
+    "artist": "100000",
+    "eventdate": "2021-03-14T14:30:00",
+    "archive": "https://drive.google.com/drive/folders/1e3VnCg2zsvFPp_qWkzKuCFX3X5ZCzyko?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/01/HA2ndLV_logo_RGB_resize.png"
+  },
+  "20": {
+    "name": "Happy Around! 2nd LIVE Minna ni Hapiyane♪ Evening Session",
+    "embedname": "Hapiara 2nd LIVE Evening Session",
+    "artist": "100000",
+    "eventdate": "2021-03-14T18:00:00",
+    "archive": "https://drive.google.com/drive/folders/1e3VnCg2zsvFPp_qWkzKuCFX3X5ZCzyko?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/01/HA2ndLV_logo_RGB_resize.png"
+  },
+  "21": {
+    "name": "SPACE SHOWER TV Plus PRESENTS RONDO 1st LIVE [Re] incarnation at Zepp Haneda",
+    "embedname": "RONDO 1st Live [Re] incarnation",
+    "artist": "000010",
+    "eventdate": "2021-03-23T18:30:00",
+    "archive": "https://drive.google.com/drive/folders/15dge_KwqmIQ3YfbSpDpFFVlK3wxbstet?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/02/%E7%87%90%E8%88%9E%E6%9B%B2_Reincarnation_LOGO_color.png_Reincarnation_LOGO_color.png"
+  },
+  "22": {
+    "name": "Merm4id 1st LIVE Luv♡4U supported by Singapore Tourism Board Afternoon Session",
+    "embedname": "Merm4id 1st LIVE Afternoon Session",
+    "artist": "000100",
+    "eventdate": "2021-04-02T14:30:00",
+    "archive": "https://drive.google.com/drive/folders/1GmgC6HB6MmtqoyTgxhKPDFczN6M6BsHF?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/02/Merm4id_1stlogo_210202_RGB_re.png"
+  },
+  "23": {
+    "name": "Merm4id 1st LIVE Luv♡4U supported by Singapore Tourism Board Evening Session",
+    "embedname": "Merm4id 1st LIVE Evening Session",
+    "artist": "000100",
+    "eventdate": "2021-04-02T18:00:00",
+    "archive": "https://drive.google.com/drive/folders/1GmgC6HB6MmtqoyTgxhKPDFczN6M6BsHF?usp=sharing",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/02/Merm4id_1stlogo_210202_RGB_re.png"
+  },
+  "24": {
     "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Afternoon Session",
     "embedname": "NYAN-NYAN SHAKE! Afternoon Session",
     "artist": "000101",
     "eventdate": "2021-04-24T14:00:00",
     "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/03/NNS_logo_rgb_re.png"
+  },
+  "25": {
+    "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Evening Session",
+    "embedname": "NYAN-NYAN SHAKE! Evening Session",
+    "artist": "000101",
+    "eventdate": "2021-04-24T18:00:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/03/NNS_logo_rgb_re.png"
+  },
+  "26": {
+    "name": "Lyrical Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Afternoon Session",
+    "embedname": "Ultimate Melodies Afternoon Session",
+    "artist": "011000",
+    "eventdate": "2021-04-30T14:00:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/01/UM_logo_210208_rgb_NML_re.png"
+  },
+  "27": {
+    "name": "Lyrical Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Evening Session",
+    "embedname": "Ultimate Melodies Evening Session",
+    "artist": "011000",
+    "eventdate": "2021-04-30T18:00:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2021/01/UM_logo_210208_rgb_NML_re.png"
+  },
+  "28": {
+    "name": "D4DJ D4 FES. -Be Happy- REMIX",
+    "artist": "111111",
+    "eventdate": "2021-05-29T15:30:00",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/d4dj-pj.com/wordpress/wp-content/uploads/2020/10/REMIX_logo_201224_RGB_1L.png"
   }
 }

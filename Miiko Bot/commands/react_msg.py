@@ -49,5 +49,5 @@ async def run_paged_message(ctx: Context, embed_pages):
             await message.remove_reaction(reaction, user)
         except asyncio.TimeoutError:
             for e in emojis:
-                await message.remove_reaction(emoji, ctx.bot.user)
+                await message.remove_reaction(e, ctx.bot.user)
             break

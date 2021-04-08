@@ -5,6 +5,7 @@ import json
 import os
 import re
 import random
+import discord
 from dotenv import load_dotenv
 from discord.ext import commands
 
@@ -39,6 +40,7 @@ async def on_ready():
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
     await load_db()
+    await bot.change_presence(activity=discord.Game(name="Surprise, nano!"))
 
 @bot.listen()
 async def on_guild_join(guild):
