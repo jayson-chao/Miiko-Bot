@@ -13,8 +13,9 @@ class D4DJEvent(Model):
     embedname = fields.CharField(255, default=None, null=True) # shortened name for embed list
     artist = fields.CharField(6) # 6 digit binary, [HA|PK|PM|M4|RD|LL] w/ 1 indicating main performer
     eventdate = fields.CharField(255)
-    livestream = fields.CharField(255, default=None, null=True)
-    archive = fields.CharField(255, default=None, null=True)
+    # livestream and archive expected in the form "[text](link)" for links
+    livestream = fields.TextField(default=None, null=True)
+    archive = fields.TextField(default=None, null=True)
     logo = fields.TextField(default=None, null=True)
     guests = fields.TextField(default=None, null=True) # using this only for main D4DJ events, if part of a split/guesting will leave blank
 

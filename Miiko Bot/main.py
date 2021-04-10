@@ -21,6 +21,7 @@ bot = MiikoBot(command_prefix=CMD_PREFIX)
 
 # load db func to load/reload json data (might need to clear db? unsure if to do that here or on shutdown)
 async def load_db():
+    await models.D4DJEvent.all().delete() # clear data for fresh load
     with open('Master/EventMaster.json') as f:
         data = json.load(f)
 

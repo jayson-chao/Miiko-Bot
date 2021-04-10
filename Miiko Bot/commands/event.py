@@ -59,14 +59,14 @@ class Event(commands.Cog):
                 timestr = e_time.strftime('%Y-%m-%d @ %H:%M JST') + f'\nIn: {delta.days}d {delta.seconds//3600}h {(delta.seconds//60)%60}m'
                 infoEmbed.add_field(name='Event Date', value=timestr)
                 livestr = 'Unconfirmed'
-                if e.livestream: # don't know how to distiguish paid and free livestreams yet - might need separate fields
-                    archivestr = '[Link](' + e.livestream + ')'
+                if e.livestream:
+                    livestr = e.livestream
                 infoEmbed.add_field(name='Livestream', value=livestr)
             else:
                 infoEmbed.add_field(name='Event Date', value=e_time.strftime('%Y-%m-%d @ %H:%M JST'))
                 archivestr = 'None'
                 if e.archive: 
-                    archivestr = '[Link](' + e.archive + ')' # might edit these strings to do the hyperlink directly in the db
+                    archivestr = e.archive
                 infoEmbed.add_field(name='Archive', value=archivestr)
             infoEmbed.add_field(name='Main Artists', value=process_artist(e.artist), inline=False)
             if e.guests:

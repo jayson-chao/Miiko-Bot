@@ -1,6 +1,7 @@
 # utility.py
 # Utility Commands for Miiko Bot
 
+import json
 import os
 import discord
 from discord.ext import commands
@@ -36,6 +37,16 @@ class Utility(commands.Cog):
             await ctx.send('Shutting down, nano!')
             await self.bot.logout() # will throw Runtime Error - apparently this is a known bug on their end
         await ctx.send('I don\'t take orders from you, nano!')
+
+    # this is specific to reloading the event db for now but will need to make more general for all master
+    @commands.command(name='refresh', help='reloads all data', hidden=True)
+    async def refresh_db(self, ctx):
+        await models.D4DJEvent.all().delete()
+        with open('Master/EventMaster.json') as f: # loop into a 'for []master' file, then load into 'd4dj[]' model. eval() for models?
+            data = json.load(f)
+        for live in data:
+            await models.D4DJEvent.update_or_create(id=live, defaults=data[live])
+        await ctx.send('Reloaded data, nano!')
 
 # expected by load_extension in bot
 def setup(bot):
