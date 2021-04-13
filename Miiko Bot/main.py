@@ -9,7 +9,7 @@ import discord
 from dotenv import load_dotenv
 from discord.ext import commands
 
-from emoji import miiko_emoji
+from common.emoji import miiko_emoji
 from bot import MiikoBot
 import models
 
@@ -19,7 +19,7 @@ CMD_PREFIX = '&'
 
 bot = MiikoBot(command_prefix=CMD_PREFIX)
 
-# load db func to load/reload json data (might need to clear db? unsure if to do that here or on shutdown)
+# load db func to load/reload json data (might need to clear db here as extra preventative measure)
 async def load_db():
     await models.D4DJEvent.all().delete() # clear data for fresh load
     with open('Master/EventMaster.json') as f:
@@ -41,7 +41,7 @@ async def on_ready():
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
     await load_db()
-    await bot.change_presence(activity=discord.Game(name="Surprise, nano!"))
+    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="&help for help, nano!"))
 
 @bot.listen()
 async def on_guild_join(guild):

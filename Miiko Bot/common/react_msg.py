@@ -6,20 +6,25 @@ import discord
 from discord.ext.commands import Context
 
 # assumes page content was already sorted out beforehand
-async def run_paged_message(ctx: Context, embed_pages):
-    message = await ctx.send(embed=embed_pages[0])
+async def run_paged_message(ctx: Context, embed_pages, *, start=0):
+    index = min(start, len(embed_pages)-1)
+    message = await ctx.send(embed=embed_pages[index])
     
     double_left_arrow = '⏪'
     double_right_arrow = '⏩'
     left_arrow = '◀'
     right_arrow = '▶'
     delete = '❎'
-    emojis = [double_left_arrow, left_arrow, right_arrow, double_right_arrow, delete]
-    
-    index = 0
-    
-    for e in emojis:
-        await message.add_reaction(e)
+    page_emojis = [double_left_arrow, left_arrow, right_arrow, double_right_arrow]
+    emojis = []
+
+    # quick fix for if embed only has single page
+    if len(embed_pages) > 1:
+        for e in page_emojis:
+            emojis.append(e)
+            await message.add_reaction(e)
+    await message.add_reaction(delete)
+    emojis.append(delete)
 
     def check(react, user):
         return user == ctx.author and react.emoji in emojis and react.message.id == message.id
@@ -32,6 +37,7 @@ async def run_paged_message(ctx: Context, embed_pages):
                 return
             
             new_index = index
+            # don't need to do if statement on emoji here bc wait_for check automatically checks 
             if reaction.emoji == double_left_arrow:
                 new_index = 0
             elif reaction.emoji == left_arrow:

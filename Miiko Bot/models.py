@@ -11,7 +11,7 @@ class D4DJEvent(Model):
     id = fields.IntField(pk=True)
     name = fields.CharField(255)
     embedname = fields.CharField(255, default=None, null=True) # shortened name for embed list
-    artist = fields.CharField(6) # 6 digit binary, [HA|PK|PM|M4|RD|LL] w/ 1 indicating main performer
+    artist = fields.CharField(6) # include number corresponding to each artist (see artist array in aliases.py)
     eventdate = fields.CharField(255)
     # livestream and archive expected in the form "[text](link)" for links
     livestream = fields.TextField(default=None, null=True)
