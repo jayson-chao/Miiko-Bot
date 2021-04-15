@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 from bot import MiikoBot
 
-FFMPEG_PATH="C:\\Program Files\\FFmpeg\\bin\\ffmpeg.exe" # change to users' ffmpeg path
+FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
 
 class VoiceError(Exception):
     pass
@@ -36,7 +36,7 @@ class Music (commands.Cog):
         await ctx.send('Moved channels, nano!')
         
 
-    @commands.command(name='leave', help='has Miiko leave voice channel')
+    @commands.command(name='leave', aliases=['disconnect', 'dc'], help='has Miiko leave voice channel')
     async def leave(self, ctx):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel, nano!')
@@ -52,7 +52,7 @@ class Music (commands.Cog):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel, nano!')
             raise VoiceError('play: Bot is not connected to any voice channel')
-        audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source="nyan.mp3")
+        audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source="common/assets/music/502.mp3")
         ctx.voice_client.play(audio)
 
 # expected by load_extension in bot

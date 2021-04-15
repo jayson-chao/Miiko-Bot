@@ -8,6 +8,7 @@ import pytz
 import re
 from discord.ext import commands
 from tortoise.queryset import QuerySet
+from tortoise.query_utils import Q
 
 from bot import MiikoBot
 import models
@@ -15,7 +16,7 @@ from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists
 
-event_aliases = {
+event_aliases = { 
     'first': '1st',
     'second': '2nd',
     'night': 'evening'
@@ -36,14 +37,17 @@ class Event(commands.Cog):
             return [await models.D4DJEvent.get_or_none(id=int(args.text))]
         else:
             events = models.D4DJEvent.all().order_by('id')
-            for alias in unit_aliases:
-                if alias in args.text:
-                    events = events.filter(artist__contains=str(unit_aliases[alias]))
+            for word in args.words: # if any word doesn't match, will return empty query
+                if word in unit_aliases:
+                    events = events.filter(artist__contains=str(unit_aliases[word]))
+                elif word in event_aliases: # manually catch some possible conversion/matching problems
+                    events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
+                else:
+                    events = events.filter(name__icontains=word)
+
             return await events
 
-    # gives single event embed for now, may look into expanding into multi-paged embed for getting events by relevance and/or
-    # 5 closest events before/after next event
-    @commands.command(name='event', help='&event [id] to get event by id, &event [artist] to filter by artist')
+    @commands.command(name='event', help='&event [id] to get event by id, &event [keywords] to filter by artist/live name')
     async def get_event(self, ctx, *, args=None):
         # parse args into most relevant event based on tags/args, else get next event
         if args:
@@ -59,7 +63,7 @@ class Event(commands.Cog):
             for i, e in enumerate(events):
                 infoEmbed = discord.Embed(title=e.name)
                 if len(events) > 1:
-                    infoEmbed.set_footer(text=f'Page {i+1}/{len(events)}')
+                    infoEmbed.set_footer(text=f'Event ID: {e.id}\nPage {i+1}/{len(events)}')
                 if e.logo: # logos are just pulled from online right now, will need to go through and standardize format later
                     infoEmbed.set_thumbnail(url=e.logo)
                 e_time = pytz.timezone('Asia/Tokyo').localize(datetime.strptime(e.eventdate, '%Y-%m-%dT%H:%M:%S'))
@@ -102,12 +106,11 @@ class Event(commands.Cog):
             else:
                 eventlist.append(f'`{e.id}.{" " * (5-len(str(e.id)))}{e.name}`')
 
-        PAGE_SIZE = 10
+        PAGE_SIZE = 10 # defining here temporarily, can make a preference
         page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
         embeds = [discord.Embed(title='Events', description=f'`ID    EVENT`\n'+'\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
         
         asyncio.ensure_future(run_paged_message(ctx, embeds))
-        # await ctx.send('Work in progress, nano!')
 
 def setup(bot):
     bot.add_cog(Event(bot))

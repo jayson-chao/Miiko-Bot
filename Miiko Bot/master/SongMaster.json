@@ -1,0 +1,45 @@
+{
+  "001": {
+    "name": "Dig Delight!",
+    "artist": "0",
+    "length": 255
+  },
+  "101": {
+    "name": "Electric Chaos★Countdown",
+    "jpname": "電乱★カウントダウン",
+    "romanizedname": "Denran★Countdown",
+    "artist": "1",
+    "length": 265
+  },
+  "201": {
+    "name": "Photon Melodies",
+    "artist": "2",
+    "length": 238
+  },
+  "301": {
+    "name": "Floor Killer",
+    "artist": "3",
+    "length": 338
+  },
+  "401": {
+    "name": "Movement",
+    "jpname": "\"瞬動-movement-",
+    "romanizedname": "shundou-movement-",
+    "artist": "4",
+    "length": 239
+  },
+  "501": {
+    "name": "The Color of Tainted Sorrow",
+    "jpname": "汚れっちまった悲しみの色",
+    "romanizedname": "Yogorecchimatta Kanashimi no Iro",
+    "artist": "5",
+    "length": 270
+  },
+  "502": {
+    "name": "I Shall Be a Cat",
+    "jpname": "吾輩よ猫であれ",
+    "romanizedname": "Wagahai yo Neko de Are",
+    "artist": "5",
+    "length": 226
+  }
+}

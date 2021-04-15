@@ -12,7 +12,8 @@ class D4DJEvent(Model):
     name = fields.CharField(255)
     embedname = fields.CharField(255, default=None, null=True) # shortened name for embed list
     artist = fields.CharField(6) # include number corresponding to each artist (see artist array in aliases.py)
-    eventdate = fields.CharField(255)
+    eventdate = fields.CharField(19) # expected in "[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]" form
+
     # livestream and archive expected in the form "[text](link)" for links
     livestream = fields.TextField(default=None, null=True)
     archive = fields.TextField(default=None, null=True)
@@ -21,6 +22,17 @@ class D4DJEvent(Model):
 
     class Meta:
         table = "Events"
+
+# model for song management
+class D4DJSong(Model):
+    id = fields.IntField(pk=True) # id determined by group id + song num (i.e. 405 would be RONDO's 5th song)
+    name = fields.CharField(255)
+    jpname = fields.CharField(255)
+    romanizedname = fields.CharField(255) # might replace with pykakasi conversion
+    artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
+    artiststr = fields.CharField(255, defualt=None, null=True)
+    length = fields.IntField() # time in seconds
+    original = fields.BooleanField(default=True)
 
 # model for guild/channel pref management. 
 # will likely need base class for guild/channel, just doing this for now so i can learn to use the orm...

@@ -33,13 +33,13 @@ unit_aliases = {
     'maid': 3,
 
     'rondo': 4,
-    'rnd': 4,
     '燐舞曲': 4,
 
     'lyrical lily': 5,
     'riri': 5,
     'lili': 5,
     'ri4': 5,
+    'li4': 5,
     'riririri': 5,
     'lily': 5,
     'lyricallily': 5

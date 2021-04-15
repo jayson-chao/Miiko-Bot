@@ -7,7 +7,7 @@ from discord.ext.commands import Context
 
 # assumes page content was already sorted out beforehand
 async def run_paged_message(ctx: Context, embed_pages, *, start=0):
-    index = min(start, len(embed_pages)-1)
+    index = min(start, max(len(embed_pages)-1, 0))
     message = await ctx.send(embed=embed_pages[index])
     
     double_left_arrow = '⏪'
