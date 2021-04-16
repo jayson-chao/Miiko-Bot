@@ -27,12 +27,15 @@ class D4DJEvent(Model):
 class D4DJSong(Model):
     id = fields.IntField(pk=True) # id determined by group id + song num (i.e. 405 would be RONDO's 5th song)
     name = fields.CharField(255)
-    jpname = fields.CharField(255)
-    romanizedname = fields.CharField(255) # might replace with pykakasi conversion
+    jpname = fields.CharField(255, default=None, null=True)
+    romanizedname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
     artiststr = fields.CharField(255, defualt=None, null=True)
     length = fields.IntField() # time in seconds
     original = fields.BooleanField(default=True)
+
+    class Meta:
+        table = "Songs"
 
 # model for guild/channel pref management. 
 # will likely need base class for guild/channel, just doing this for now so i can learn to use the orm...
@@ -42,12 +45,6 @@ class Guild(Model):
 
     class Meta:
         table = "Guilds/Servers"
-
-    @classmethod
-    async def get_from_context(cls, ctx):
-        if not ctx.guild:
-            return None
-        return (await cls.update_or_create(id=ctx.guild.id, name=ctx.guild.name))[0]
 
     def __str__(self):
         return f'{self.name} ({self.id})'

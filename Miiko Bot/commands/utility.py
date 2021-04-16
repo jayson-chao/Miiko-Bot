@@ -6,6 +6,7 @@ import os
 import discord
 from discord.ext import commands
 
+from masters import dbs
 from bot import MiikoBot
 import models
 
@@ -45,11 +46,13 @@ class Utility(commands.Cog):
     # this is specific to reloading the event db for now but will need to make more general for all master
     @commands.command(name='refresh', help='reloads all data', hidden=True)
     async def refresh_db(self, ctx):
-        await models.D4DJEvent.all().delete()
-        with open('Master/EventMaster.json') as f: # loop into a 'for []master' file, then load into 'd4dj[]' model. eval() for models?
-            data = json.load(f)
-        for live in data:
-            await models.D4DJEvent.update_or_create(id=live, defaults=data[live])
+        for m in dbs:
+            mtype = getattr(models, f'D4DJ{c}')
+            await mtype.all().delete()
+            with open(f'Master/{c}Master.json') as f:
+                data = json.load(f)
+            for item in data:
+                await mtype.update_or_create(id=item, defaults=data[item])
         await ctx.send('Reloaded data, nano!')
 
 # expected by load_extension in bot

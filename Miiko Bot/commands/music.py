@@ -3,6 +3,7 @@
 
 import discord
 from discord.ext import commands
+from discord import ClientException
 from bot import MiikoBot
 
 FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
@@ -22,7 +23,7 @@ class Music (commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='join', help='has Miiko join user\'s voice channel')
+    @commands.command(name='join', help='has Miiko join and lurk in user\'s voice channel')
     async def join(self, ctx):
         if not ctx.author.voice:
             raise VoiceError('You are not connected to a voice channel')
@@ -46,14 +47,21 @@ class Music (commands.Cog):
         await ctx.send('Disconnected, nano!')
 
     # currently plays though to end, does not allow more play commands
-    @commands.command(name='play', help='has Miiko play her favorite song!')
-    async def play(self, ctx):
-        # current issue - if bot program was halted while in VC, does not automatically leave.
+    @commands.command(name='play', hidden=True, help='has Miiko play her favorite song!')
+    async def play(self, ctx, id):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel, nano!')
             raise VoiceError('play: Bot is not connected to any voice channel')
-        audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source="common/assets/music/502.mp3")
-        ctx.voice_client.play(audio)
+        try:
+            audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'common/assets/music/{id}.mp3')
+        except:
+            await ctx.send('Invalid song ID, nano!')
+            raise VoiceError('play: Invalid song ID was passed')
+        try:
+            ctx.voice_client.play(audio)
+        except ClientException as err:
+            errstr = str(err)
+            await ctx.send(f'Error: {err}')
 
 # expected by load_extension in bot
 def setup(bot):

@@ -5,10 +5,12 @@ import json
 import os
 import re
 import random
+import sys
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
 
+from masters import dbs, exts
 from common.emoji import miiko_emoji
 from bot import MiikoBot
 import models
@@ -19,20 +21,25 @@ CMD_PREFIX = '&'
 
 bot = MiikoBot(command_prefix=CMD_PREFIX)
 
+def str_to_cls(str):
+    try:
+        return getattr(sys.modules[__name__], str)
+    except AttributeError:
+        raise NameError(f'CLASS({str}) does not exist')
+
 # load db func to load/reload json data (might need to clear db here as extra preventative measure)
 async def load_db():
-    await models.D4DJEvent.all().delete() # clear data for fresh load
-    with open('Master/EventMaster.json') as f:
-        data = json.load(f)
-
-    for live in data:
-        await models.D4DJEvent.update_or_create(id=live, defaults=data[live])
+    for m in dbs:
+        mtype = getattr(models, f'D4DJ{m}')
+        await mtype.all().delete()
+        with open(f'Master/{m}Master.json') as f:
+            data = json.load(f)
+        for item in data:
+            await mtype.update_or_create(id=item, defaults=data[item])
 
 # load extra extensions for bot
-bot.load_extension('commands.utility')
-bot.load_extension('commands.music')
-bot.load_extension('commands.preference')
-bot.load_extension('commands.event')
+for e in exts:
+    bot.load_extension(f'commands.{e}')
 
 @bot.event
 async def on_ready():
