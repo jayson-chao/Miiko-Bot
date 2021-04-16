@@ -342,3 +342,6 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 Miiko Bot/.env
+Miiko Bot/common/assets/music/2.mp3
+Miiko Bot/common/assets/music/1.mp3
+Miiko Bot/common/assets/music/3.mp3

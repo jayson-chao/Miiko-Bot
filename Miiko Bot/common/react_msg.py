@@ -57,3 +57,7 @@ async def run_paged_message(ctx: Context, embed_pages, *, start=0):
             for e in emojis:
                 await message.remove_reaction(e, ctx.bot.user)
             break
+
+# placeholder for a music player idea, going to experiment with commands first
+async def run_music_embed(ctx: Context):
+    return

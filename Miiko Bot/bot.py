@@ -1,12 +1,16 @@
 # bot.py
 # main MiikoBot class
 
+from queue import Queue
 from discord.ext import commands
 from tortoise import Tortoise
 
 from tortoise_config import TORTOISE_ORM
 
 class MiikoBot(commands.Bot):
+    player = {}
+    playing = None
+
     def __init__(self, *args, **kwargs):
         self.extension_names = set()
         super().__init__(*args, **kwargs)

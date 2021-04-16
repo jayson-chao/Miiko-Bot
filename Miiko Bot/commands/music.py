@@ -1,6 +1,8 @@
 # music.py
 # music commands for bot
 
+from queue import SimpleQueue
+import asyncio
 import discord
 from discord.ext import commands
 from discord import ClientException
@@ -27,15 +29,16 @@ class Music (commands.Cog):
     async def join(self, ctx):
         if not ctx.author.voice:
             raise VoiceError('You are not connected to a voice channel')
-
+        if ctx.guild.id not in self.bot.player:
+            self.bot.player[ctx.guild.id] = SimpleQueue()
         channel = ctx.author.voice.channel
         if not ctx.voice_client:
             await channel.connect()
-            await ctx.send('Connected, nano!')
+            await ctx.send("Connected, nano!")
             return
-        await ctx.voice_client.move_to(channel)
-        await ctx.send('Moved channels, nano!')
-        
+        if ctx.voice_client.channel is not channel:
+            await ctx.voice_client.move_to(channel)
+            await ctx.send("Moved, nano!")
 
     @commands.command(name='leave', aliases=['disconnect', 'dc'], help='has Miiko leave voice channel')
     async def leave(self, ctx):
@@ -47,21 +50,50 @@ class Music (commands.Cog):
         await ctx.send('Disconnected, nano!')
 
     # currently plays though to end, does not allow more play commands
-    @commands.command(name='play', hidden=True, help='has Miiko play her favorite song!')
-    async def play(self, ctx, id):
+    @commands.command(name='play', hidden=True, help='play song')
+    async def play(self, ctx, id=None):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel, nano!')
             raise VoiceError('play: Bot is not connected to any voice channel')
-        try:
-            audio = discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'common/assets/music/{id}.mp3')
-        except:
-            await ctx.send('Invalid song ID, nano!')
-            raise VoiceError('play: Invalid song ID was passed')
-        try:
-            ctx.voice_client.play(audio)
-        except ClientException as err:
-            errstr = str(err)
-            await ctx.send(f'Error: {err}')
+        if ctx.voice_client.is_paused() and not id:
+            ctx.voice_client.resume()
+            return
+        # need a none check against audio
+        self.bot.player[ctx.guild.id].put((id, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'common/assets/music/{id}.mp3')))
+        if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
+            await ctx.send(f'{id} placed in song queue')
+        else:
+            self.play_next(ctx)
+
+    def play_next(self, ctx):
+        if self.bot.player[ctx.guild.id].empty():
+            ctx.voice_client.stop() # need to stop for good - was running into glitch where if queue stopped then refilled, the first added song would trip an error
+            asyncio.run_coroutine_threadsafe(ctx.send("Queue finished, nano!"), self.bot.loop)
+            return
+        next_song = self.bot.player[ctx.guild.id].get()
+        asyncio.run_coroutine_threadsafe(ctx.send(f'Now playing {next_song[0]}'), self.bot.loop)
+        ctx.voice_client.play(next_song[1], after=lambda e:self.play_next(ctx))
+
+    @commands.command(name='pause', hidden=True, help='pause the song')
+    async def pause(self, ctx):
+        if not ctx.voice_client:
+            await ctx.send('Not connected to any voice channel, nano!')
+            raise VoiceError('pause: Bot is not connected to any voice channel')
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.pause()
+
+    @commands.command(name='stop', hidden=True, help='stop playing song')
+    async def stop(self, ctx):
+        if not ctx.voice_client:
+            await ctx.send('Not connected to any voice channel, nano!')
+            raise VoiceError('stop: Bot is not connected to any voice channel')
+        if ctx.voice_client.is_playing():
+            ctx.voice_client.stop()
+
+
+
+
+
 
 # expected by load_extension in bot
 def setup(bot):

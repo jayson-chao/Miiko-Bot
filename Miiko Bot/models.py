@@ -34,6 +34,8 @@ class D4DJSong(Model):
     length = fields.IntField() # time in seconds
     original = fields.BooleanField(default=True)
 
+    # playable songs in common/assets/music (instr. tracks planned to be same id + 'i')
+
     class Meta:
         table = "Songs"
 

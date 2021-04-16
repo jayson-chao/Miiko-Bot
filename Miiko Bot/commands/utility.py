@@ -39,6 +39,8 @@ class Utility(commands.Cog):
     @commands.command(name='shutdown', help='shuts down MiikoBot', hidden=True)
     @commands.is_owner()
     async def shutdown(self, ctx):
+        if ctx.voice_client:
+            await ctx.voice_client.disconnect()
         await ctx.send('Shutting down, nano!')
         await self.bot.change_presence(status=discord.Status.offline)
         await self.bot.logout() # will throw Runtime Error - apparently this is a known bug on their end
