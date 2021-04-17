@@ -9,7 +9,7 @@ from tortoise_config import TORTOISE_ORM
 
 class MiikoBot(commands.Bot):
     player = {}
-    playing = None
+    playing = {}
 
     def __init__(self, *args, **kwargs):
         self.extension_names = set()

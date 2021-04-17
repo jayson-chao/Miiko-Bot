@@ -29,7 +29,7 @@ class Music (commands.Cog):
     async def join(self, ctx):
         if not ctx.author.voice:
             raise VoiceError('You are not connected to a voice channel')
-        if ctx.guild.id not in self.bot.player:
+        if ctx.guild.id not in self.bot.player: # reset queue if there is none
             self.bot.player[ctx.guild.id] = SimpleQueue()
         channel = ctx.author.voice.channel
         if not ctx.voice_client:
@@ -67,12 +67,22 @@ class Music (commands.Cog):
 
     def play_next(self, ctx):
         if self.bot.player[ctx.guild.id].empty():
+            self.bot.playing[ctx.guild.id] = None
             ctx.voice_client.stop() # need to stop for good - was running into glitch where if queue stopped then refilled, the first added song would trip an error
             asyncio.run_coroutine_threadsafe(ctx.send("Queue finished, nano!"), self.bot.loop)
             return
         next_song = self.bot.player[ctx.guild.id].get()
         asyncio.run_coroutine_threadsafe(ctx.send(f'Now playing {next_song[0]}'), self.bot.loop)
+        self.bot.playing[ctx.guild.id] = next_song[0]
         ctx.voice_client.play(next_song[1], after=lambda e:self.play_next(ctx))
+
+    @commands.command(name='skip', hidden=True, help='skip the current song')
+    async def skip(self, ctx):
+        if not ctx.voice_client:
+            await ctx.send('Not connected to any voice channel, nano!')
+            raise VoiceError('pause: Bot is not connected to any voice channel')
+        if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
+            ctx.voice_client.stop() # don't need play_next, stop() will trigger vc.play.after
 
     @commands.command(name='pause', hidden=True, help='pause the song')
     async def pause(self, ctx):
@@ -88,9 +98,15 @@ class Music (commands.Cog):
             await ctx.send('Not connected to any voice channel, nano!')
             raise VoiceError('stop: Bot is not connected to any voice channel')
         if ctx.voice_client.is_playing():
+            self.bot.player[ctx.guild.id] = SimpleQueue() # empty queue before triggering vc.play.after
             ctx.voice_client.stop()
 
-
+    @commands.command(name='np', aliases=['nowplaying'], hidden=True, help='display info for current song')
+    async def now_playing(self, ctx):
+        if ctx.voice_client.is_playing():
+            await ctx.send(f'PLAYING: {self.bot.playing[ctx.guild.id]}')
+        else:
+            await ctx.send('Not playing anything, nano!')
 
 
 

@@ -22,6 +22,7 @@ class D4DJEvent(Model):
 
     class Meta:
         table = "Events"
+        ordering = ["id"]
 
 # model for song management
 class D4DJSong(Model):
@@ -30,7 +31,7 @@ class D4DJSong(Model):
     jpname = fields.CharField(255, default=None, null=True)
     romanizedname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
-    artiststr = fields.CharField(255, defualt=None, null=True)
+    artiststr = fields.CharField(255, default=None, null=True)
     length = fields.IntField() # time in seconds
     original = fields.BooleanField(default=True)
 
@@ -38,6 +39,7 @@ class D4DJSong(Model):
 
     class Meta:
         table = "Songs"
+        ordering = ["id"]
 
 # model for guild/channel pref management. 
 # will likely need base class for guild/channel, just doing this for now so i can learn to use the orm...
@@ -47,6 +49,7 @@ class Guild(Model):
 
     class Meta:
         table = "Guilds/Servers"
+        ordering = ["id"]
 
     def __str__(self):
         return f'{self.name} ({self.id})'

@@ -64,6 +64,8 @@ class Event(commands.Cog):
                 infoEmbed = discord.Embed(title=e.name)
                 if len(events) > 1:
                     infoEmbed.set_footer(text=f'Event ID: {e.id}\nPage {i+1}/{len(events)}')
+                else:
+                    infoEmbed.set_footer(text=f'Event ID: {e.id}')
                 if e.logo: # logos are just pulled from online right now, will need to go through and standardize format later
                     infoEmbed.set_thumbnail(url=e.logo)
                 e_time = pytz.timezone('Asia/Tokyo').localize(datetime.strptime(e.eventdate, '%Y-%m-%dT%H:%M:%S'))
