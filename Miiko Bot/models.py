@@ -34,11 +34,24 @@ class D4DJSong(Model):
     artiststr = fields.CharField(255, default=None, null=True)
     length = fields.IntField() # time in seconds
     original = fields.BooleanField(default=True)
+    album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
 
     # playable songs in common/assets/music (instr. tracks planned to be same id + 'i')
 
     class Meta:
         table = "Songs"
+        ordering = ["id"]
+
+class D4DJAlbum(Model):
+    id = fields.IntField(pk=True)
+    name = fields.CharField(255)
+    jpname = fields.CharField(255, default=None, null=True)
+    romanizedname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
+    artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
+    artiststr = fields.CharField(255, default=None, null=True)
+
+    class Meta:
+        table = "Albums"
         ordering = ["id"]
 
 # model for guild/channel pref management. 

@@ -31,10 +31,13 @@
     <Compile Include="commands\event.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="commands\react_msg.py">
+    <Compile Include="common\react_msg.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="emoji.py">
+    <Compile Include="common\aliases.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="common\emoji.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="commands\music.py">
@@ -50,7 +53,13 @@
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="masters.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="common\parse_args.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tortoise_config.py">
@@ -59,12 +68,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".env" />
+    <Content Include="Master\AlbumMaster.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Master\EventMaster.json" />
+    <Content Include="Master\SongMaster.json">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="commands\" />
+    <Folder Include="common\assets\" />
+    <Folder Include="common\assets\music\" />
+    <Folder Include="common\assets\album\" />
     <Folder Include="Master\" />
     <Folder Include="archive\" />
+    <Folder Include="common\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

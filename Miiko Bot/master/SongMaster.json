@@ -2,31 +2,36 @@
   "001": {
     "name": "Dig Delight!",
     "artist": "0",
-    "length": 255
+    "length": 255,
+    "album_id": "901"
   },
   "101": {
     "name": "Electric Chaos★Countdown",
     "jpname": "電乱★カウントダウン",
     "romanizedname": "Denran★Countdown",
     "artist": "1",
-    "length": 265
+    "length": 265,
+    "album_id": "901"
   },
   "201": {
     "name": "Photon Melodies",
     "artist": "2",
-    "length": 238
+    "length": 238,
+    "album_id": "901"
   },
   "301": {
     "name": "Floor Killer",
     "artist": "3",
-    "length": 338
+    "length": 338,
+    "album_id": "901"
   },
   "401": {
     "name": "Movement",
     "jpname": "瞬動-movement-",
     "romanizedname": "shundou-movement-",
     "artist": "4",
-    "length": 239
+    "length": 239,
+    "album_id": "901"
   },
   "501": {
     "name": "The Color of Tainted Sorrow",

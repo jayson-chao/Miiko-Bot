@@ -14,7 +14,7 @@ from bot import MiikoBot
 import models
 from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
-from common.aliases import unit_aliases, artists
+from common.aliases import unit_aliases, artists, process_artist
 
 event_aliases = { 
     'first': '1st',
@@ -24,12 +24,6 @@ event_aliases = {
 
 class Event(commands.Cog):
     bot: MiikoBot
-
-    def process_artist(self, a: str) -> str:
-        perf_a = []
-        for i, artist in enumerate(a):
-            perf_a.append(artists[i])
-        return ', '.join(perf_a)
 
     # returns array of relevant events
     async def match_events(self, args: ParsedArguments):
@@ -85,7 +79,7 @@ class Event(commands.Cog):
                     if e.archive: 
                         archivestr = e.archive
                     infoEmbed.add_field(name='Archive', value=archivestr)
-                infoEmbed.add_field(name='Main Artists', value=self.process_artist(e.artist), inline=False)
+                infoEmbed.add_field(name='Main Artists', value=process_artist(e.artist), inline=False)
                 if e.guests:
                     infoEmbed.add_field(name='Guests', value=e.guests)
                 embeds.append(infoEmbed)

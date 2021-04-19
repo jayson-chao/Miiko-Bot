@@ -6,7 +6,11 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord import ClientException
+
+import models
 from bot import MiikoBot
+from common.react_msg import run_paged_message
+from common.aliases import unit_aliases, artists, process_artist
 
 FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
 
@@ -45,7 +49,8 @@ class Music (commands.Cog):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel, nano!')
             raise VoiceError('leave: Bot is not connected to any voice channel')
-
+        self.bot.player[ctx.guild.id] = SimpleQueue()
+        ctx.voice_client.stop()
         await ctx.voice_client.disconnect()
         await ctx.send('Disconnected, nano!')
 
@@ -66,8 +71,9 @@ class Music (commands.Cog):
             self.play_next(ctx)
 
     def play_next(self, ctx):
+        if not ctx.voice_client: 
+            return # disconnect handles stop()
         if self.bot.player[ctx.guild.id].empty():
-            self.bot.playing[ctx.guild.id] = None
             ctx.voice_client.stop() # need to stop for good - was running into glitch where if queue stopped then refilled, the first added song would trip an error
             asyncio.run_coroutine_threadsafe(ctx.send("Queue finished, nano!"), self.bot.loop)
             return
@@ -108,7 +114,43 @@ class Music (commands.Cog):
         else:
             await ctx.send('Not playing anything, nano!')
 
+    def song_name(self, s):
+        if s.jpname: # change to guild preference later between en/jp/romanize
+            return s.jpname
+        return s.name
+    
+    def album_name(self, a):
+        if a.jpname:
+            return a.jpname
+        return a.name
 
+    @commands.command(name='song', help='gives info on song by id')
+    async def song(self, ctx, sid):
+        s = await models.D4DJSong.get_or_none(id=sid)
+        if s:
+            infoEmbed = discord.Embed(title=self.song_name(s))
+            if s.album_id:
+                a = await s.album.first()
+                infoEmbed.add_field(name='Album', value=a.name)
+            infoEmbed.add_field(name='Main Artists', value=process_artist(s.artist), inline=False)
+            infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60}', inline=False)
+            asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
+        else:
+            await ctx.send('song id not found')
+
+    @commands.command(name='album', help='gives info on album by id')
+    async def album(self, ctx, aid):
+        a = await models.D4DJAlbum.get_or_none(id=aid)
+        if a:
+            await a.fetch_related('songs')
+            songlist = []
+            for s in a.songs:
+                songlist.append(f'`{self.song_name(s)}`')
+            infoEmbed = discord.Embed(title=self.album_name(a))
+            infoEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
+            asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
+        else:
+            await ctx.send('album id not found')
 
 
 # expected by load_extension in bot

@@ -8,7 +8,7 @@ from tortoise import Tortoise
 from tortoise_config import TORTOISE_ORM
 
 class MiikoBot(commands.Bot):
-    player = {}
+    player = {} # might move to models to better manage large queues, keep from clogging mem
     playing = {}
 
     def __init__(self, *args, **kwargs):

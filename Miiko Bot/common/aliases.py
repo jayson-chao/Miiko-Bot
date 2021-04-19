@@ -44,3 +44,9 @@ unit_aliases = {
     'lily': 5,
     'lyricallily': 5
 }
+
+def process_artist(a: str) -> str:
+    perf_a = []
+    for i in a:
+        perf_a.append(artists[int(i)])
+    return ', '.join(perf_a)
