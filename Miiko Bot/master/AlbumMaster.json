@@ -16,5 +16,93 @@
     "artist": "0123459",
     "artiststr": "D4DJ",
     "releasedate": "2020-06-24"
+  },
+  "904": {
+    "name": "WOW WAR TONIGHT ~Toki ni wa Okose yo Movement~",
+    "jpname": "WOW WAR TONIGHT～時には起こせよムーヴメント～",
+    "artist": "09",
+    "artiststr": "天野愛莉 (CV: 水樹奈々) ＆ 姫神紗乃 (CV: Raychell)",
+    "releasedate": "2021-02-24"
+  },
+  "905": {
+    "name": "D4DJ Special Disc",
+    "artist": "0129",
+    "artiststr": "D4DJ",
+    "releasedate": "2021-02-24"
+  },
+  "000": {
+    "name": "Happy Music♪",
+    "artist": "0",
+    "releasedate": "2020-11-04"
+  },
+  "001": {
+    "name": "Guruguru DJ TURN!!",
+    "jpname": "ぐるぐるDJ TURN!!",
+    "artist": "0",
+    "releasedate": "2021-03-17"
+  },
+  "002": {
+    "name": "SHUFFLE HEART BEAT",
+    "artist": "0",
+    "releasedate": "2021-03-17"
+  },
+  "100": {
+    "name": "Peak Peaky&Peaky!!",
+    "jpname": "最頂点Peaky&Peaky!!",
+    "romanizedname": "Saichouten Peaky&Peaky!!",
+    "artist": "1",
+    "releasedate": "2021-01-06"
+  },
+  "101": {
+    "name": "INVINCIBLE☆moment",
+    "jpname": "無敵☆moment",
+    "romanizedname": "MUTEKI☆moment",
+    "artist": "1",
+    "releasedate": "2021-04-14"
+  },
+  "200": {
+    "name": "Discover Universe",
+    "artist": "2",
+    "releasedate": "2020-10-21"
+  },
+  "201": {
+    "name": "Be with the world",
+    "artist": "2",
+    "releasedate": "2020-05-09"
+  },
+  "300": {
+    "name": "4U",
+    "artist": "3",
+    "releasedate": "2020-12-02"
+  },
+  "301": {
+    "name": "BOOM-BOOM SHAKE!",
+    "artist": "3",
+    "releasedate": "2021-06-16"
+  },
+  "400": {
+    "name": "Nirvana",
+    "jpname": "ニルヴァナ",
+    "artist": "4",
+    "releasedate": "2020-12-02"
+  },
+  "401": {
+    "name": "Crinoid",
+    "jpname": "クライノイド",
+    "artist": "4",
+    "releasedate": "2021-07-21"
+  },
+  "500": {
+    "name": "I Shall Be a Cat",
+    "jpname": "吾輩よ猫であれ",
+    "romanizedname": "Wagahai yo Neko de Are",
+    "artist": "5",
+    "releasedate": "2020-12-16"
+  },
+  "501": {
+    "name": "Petit Prince",
+    "jpname": "プティプランス",
+    "artist": "5",
+    "releasedate": "2021-08-16"
   }
 }

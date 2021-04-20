@@ -64,7 +64,7 @@ class Music (commands.Cog):
             ctx.voice_client.resume()
             return
         # need a none check against audio
-        self.bot.player[ctx.guild.id].put((id, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'common/assets/music/{id}.mp3')))
+        self.bot.player[ctx.guild.id].put((id, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id}.mp3?raw=true')))
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
             await ctx.send(f'{id} placed in song queue')
         else:
@@ -148,6 +148,7 @@ class Music (commands.Cog):
                 songlist.append(f'`{i+1}.{" " * (4-len(str(i)))}{self.song_name(s)}`')
             infoEmbed = discord.Embed(title=self.album_name(a))
             infoEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
+            infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{aid}.png')
             asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
         else:
             await ctx.send('album id not found')

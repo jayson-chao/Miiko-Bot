@@ -26,14 +26,13 @@ class D4DJEvent(Model):
 
 # model for song management
 class D4DJSong(Model):
-    id = fields.IntField(pk=True) # id determined by group id + song num (i.e. 405 would be RONDO's 5th song)
+    id = fields.IntField(pk=True) # id determined by group id (1) + orig/cover (1) + song num (3) (i.e. 40005 would be rondo's 5th original)
     name = fields.CharField(255)
     jpname = fields.CharField(255, default=None, null=True)
     romanizedname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
     artiststr = fields.CharField(255, default=None, null=True)
-    length = fields.IntField() # time in seconds
-    original = fields.BooleanField(default=True)
+    length = fields.IntField(null=True, default=None) # time in seconds
     album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
     track = fields.IntField(null=True, default=None) # related to album
 

@@ -1,26 +1,126 @@
 {
-  "000": {
+  "00000": {
     "name": "Dig Delight!",
     "artist": "0",
     "length": 255,
     "album_id": "900",
     "track": 1
   },
-  "001": {
+  "00001": {
     "name": "Direct Drive!",
     "artist": "0",
     "length": 301,
     "album_id": "901",
     "track": 1
   },
-  "002": {
+  "00002": {
     "name": "Cosmic CoaSTAR",
     "artist": "0",
     "length": 287,
     "album_id": "902",
     "track": 1
   },
-  "100": {
+  "00004": {
+    "name": "Happy Music♪",
+    "artist": "0",
+    "length": 234,
+    "album_id": "000",
+    "track": 1
+  },
+  "00005": {
+    "name": "Happiness to you♪",
+    "jpname": "君にハピあれ♪",
+    "romanizedname": "Kimi ni Hapi Are♪",
+    "artist": "0",
+    "length": 278,
+    "album_id": "000",
+    "track": 2
+  },
+  "00006": {
+    "name": "Guruguru DJ TURN!! (Anime OP Ver.)",
+    "jpname": "ぐるぐるDJ TURN!! (アニメOP Ver.)",
+    "artist": "09",
+    "artiststr": "Happy Around! feat. Yamate Kyoko & Izumo Saki",
+    "length": 278,
+    "album_id": "001",
+    "track": 1
+  },
+  "00007": {
+    "name": "SHUFFLE HEART BEAT",
+    "artist": "0",
+    "length": 262,
+    "album_id": "002",
+    "track": 1
+  },
+  "00008": {
+    "name": "Make My Style",
+    "artist": "0",
+    "length": 275,
+    "album_id": "905",
+    "track": 7
+  },
+  "00009": {
+    "name": "Give Me Awesome!!!!",
+    "jpname": "ぎぶみーAwesome!!!!",
+    "artist": "0",
+    "length": 220,
+    "album_id": "905",
+    "track": 2
+  },
+  "00010": {
+    "name": "Happy Around Days",
+    "artist": "0",
+    "length": 281,
+    "album_id": "905",
+    "track": 1
+  },
+  "00011": {
+    "name": "Yes☆FORTUNE!",
+    "jpname": "はぁ～い☆FORTUNE！",
+    "romanizedname": "Ha~i☆FORTUNE!",
+    "artist": "0",
+    "length": 278,
+    "album_id": "002",
+    "track": 2
+  },
+  "00012": {
+    "name": "Brand New World",
+    "artist": "0",
+    "length": 246,
+    "album_id": "905",
+    "track": 6
+  },
+  "00013": {
+    "name": "HONEST -conflict01-",
+    "artist": "0"
+  },
+  "00014": {
+    "name": "HONEST -happy a word-",
+    "artist": "0",
+    "length": 247,
+    "album_id": "905",
+    "track": 4
+  },
+  "00015": {
+    "name": "Petit Mix Party Night!",
+    "jpname": "ぷっちみくパーチナィ！",
+    "artist": "09",
+    "artiststr": "Happy Around! feat. Kyoko, Saki, Rika, Tsubaki, Miyu"
+  },
+  "00016": {
+    "name": "Hey! Be Ambitious!",
+    "artist": "0"
+  },
+  "01012": {
+    "name": "Feeling Good↑↑",
+    "jpname": "気分上々↑↑",
+    "romanizedname": "Kibun Joujou ↑↑",
+    "artist": "0",
+    "length": 203,
+    "album_id": "904",
+    "track": 2
+  },
+  "10000": {
     "name": "Electric Chaos★Countdown",
     "jpname": "電乱★カウントダウン",
     "romanizedname": "Denran★Countdown",
@@ -29,63 +129,174 @@
     "album_id": "900",
     "track": 2
   },
-  "101": {
+  "10001": {
     "name": "Let's do the 'Big-Bang!'",
     "artist": "1",
     "length": 240,
     "album_id": "901",
     "track": 2
   },
-  "102": {
+  "10002": {
     "name": "Gonna be right",
     "artist": "1",
     "length": 275,
     "album_id": "902",
     "track": 2
   },
-  "200": {
+  "10003": {
+    "name": "Peak Peaky&Peaky!!",
+    "jpname": "最頂点Peaky&Peaky!!",
+    "romanizedname": "Saichouten Peaky&Peaky!!",
+    "artist": "1",
+    "length": 287,
+    "album_id": "100",
+    "track": 1
+  },
+  "10004": {
+    "name": "Wish You Luck",
+    "artist": "1",
+    "length": 275,
+    "album_id": "100",
+    "track": 2
+  },
+  "10005": {
+    "name": "INVINCIBLE☆moment",
+    "jpname": "無敵☆moment",
+    "romanizedname": "MUTEKI☆moment",
+    "artist": "1",
+    "length": 293,
+    "album_id": "101",
+    "track": 1
+  },
+  "10006": {
+    "name": "Ultimate Vista",
+    "artist": "1",
+    "length": 258,
+    "album_id": "101",
+    "track": 2
+  },
+  "10007": {
+    "name": "ABSOLUTE",
+    "artist": "1",
+    "length": 264,
+    "album_id": "905",
+    "track": 3
+  },
+  "20000": {
     "name": "Photon Melodies",
     "artist": "2",
     "length": 238,
     "album_id": "900",
     "track": 3
   },
-  "201": {
+  "20001": {
     "name": "Here's the light",
     "artist": "2",
     "length": 291,
     "album_id": "901",
     "track": 3
   },
-  "202": {
+  "20002": {
     "name": "\"What\" are you?",
     "artist": "2",
     "length": 208,
     "album_id": "902",
     "track": 3
   },
-  "300": {
+  "20003": {
+    "name": "Discover Universe",
+    "artist": "2",
+    "length": 366,
+    "album_id": "200",
+    "track": 1
+  },
+  "20004": {
+    "name": "A lot of life",
+    "artist": "2",
+    "length": 240,
+    "album_id": "200",
+    "track": 2
+  },
+  "20005": {
+    "name": "Be with the world",
+    "artist": "2",
+    "album_id": "201",
+    "track": 1
+  },
+  "20006": {
+    "name": "Akatsuki",
+    "jpname": "暁",
+    "artist": "2",
+    "length": 231,
+    "album_id": "905",
+    "track": 5
+  },
+  "20007": {
+    "name": "Wonder Wonder Trip",
+    "artist": "2",
+    "album_id": "201",
+    "track": 2
+  },
+  "20008": {
+    "name": "4 Challenges",
+    "artist": "2"
+  },
+  "30000": {
     "name": "Floor Killer",
     "artist": "3",
     "length": 338,
     "album_id": "900",
     "track": 4
   },
-  "301": {
+  "30001": {
     "name": "ING",
     "artist": "3",
     "length": 281,
     "album_id": "901",
     "track": 4
   },
-  "302": {
+  "30002": {
     "name": "round and round",
     "artist": "3",
     "length": 292,
     "album_id": "902",
     "track": 4
   },
-  "400": {
+  "30003": {
+    "name": "4U",
+    "artist": "3",
+    "length": 416,
+    "album_id": "300",
+    "track": 1
+  },
+  "30004": {
+    "name": "Make some noise!",
+    "artist": "3",
+    "length": 271,
+    "album_id": "300",
+    "track": 2
+  },
+  "30005": {
+    "name": "BOOM-BOOM SHAKE!",
+    "artist": "3",
+    "album_id": "301",
+    "track": 1
+  },
+  "30006": {
+    "name": "Princess advent",
+    "artist": "3",
+    "album_id": "301",
+    "track": 2
+  },
+  "30007": {
+    "name": "High tension BPM",
+    "artist": "3"
+  },
+  "30008": {
+    "name": "S.T.O.P.",
+    "artist": "3"
+  },
+  "40000": {
     "name": "Movement",
     "jpname": "瞬動-movement-",
     "artist": "4",
@@ -93,7 +304,7 @@
     "album_id": "900",
     "track": 5
   },
-  "401": {
+  "40001": {
     "name": "Calendula",
     "jpname": "カレンデュラ",
     "artist": "4",
@@ -101,14 +312,55 @@
     "album_id": "901",
     "track": 5
   },
-  "402": {
+  "40002": {
     "name": "Horizontal Oath",
     "artist": "4",
     "length": 231,
     "album_id": "902",
     "track": 5
   },
-  "500": {
+  "40003": {
+    "name": "Nirvana",
+    "jpname": "ニルヴァナ",
+    "artist": "4",
+    "length": 258,
+    "album_id": "400",
+    "track": 2
+  },
+  "40004": {
+    "name": "prayer[s]",
+    "artist": "4",
+    "length": 246,
+    "album_id": "400",
+    "track": 1
+  },
+  "40005": {
+    "name": "prayer",
+    "artist": "4"
+  },
+  "40006": {
+    "name": "Crinoid",
+    "jpname": "クライノイド",
+    "artist": "4",
+    "album_id": "401",
+    "track": 1
+  },
+  "40007": {
+    "name": "Gunjou no Flor Seca",
+    "jpname": "群青のフローセカ",
+    "artist": "4",
+    "album_id": "401",
+    "track": 2
+  },
+  "40008": {
+    "name": "Celcius",
+    "artist": "4"
+  },
+  "40009": {
+    "name": "[Re] termination",
+    "artist": "4"
+  },
+  "50000": {
     "name": "The Color of Tainted Sorrow",
     "jpname": "汚れっちまった悲しみの色",
     "romanizedname": "Yogorecchimatta Kanashimi no Iro",
@@ -117,11 +369,64 @@
     "album_id": "902",
     "track": 6
   },
-  "501": {
+  "50001": {
     "name": "I Shall Be a Cat",
     "jpname": "吾輩よ猫であれ",
     "romanizedname": "Wagahai yo Neko de Are",
     "artist": "5",
-    "length": 226
+    "length": 226,
+    "album_id": "500",
+    "track": 1
+  },
+  "50002": {
+    "name": "At Night on the Galactic Railroad",
+    "jpname": "銀河鉄道の夜に",
+    "romanizedname": "Ginga Tetsudō no Yoru ni",
+    "artist": "5",
+    "length": 250,
+    "album_id": "500",
+    "track": 2
+  },
+  "50003": {
+    "name": "Petit Prince",
+    "jpname": "プティプランス",
+    "artist": "5",
+    "album_id": "501",
+    "track": 1
+  },
+  "50004": {
+    "name": "Gift of the Magi",
+    "jpname": "Magiの贈り物",
+    "romanizedname": "Magi no Okurimono",
+    "artist": "5",
+    "album_id": "501",
+    "track": 2
+  },
+  "50005": {
+    "name": "Tsuki ni Moeru",
+    "jpname": "月に萌える",
+    "artist": "5"
+  },
+  "50006": {
+    "name": "Ningen Goukaku!!!!",
+    "jpname": "人間合格!!!!",
+    "artist": "5"
+  },
+  "90000": {
+    "name": "LOVE!HUG!GROOVY!!",
+    "artist": "0123459",
+    "artiststr": "D4DJ ALL STARS",
+    "length": 391,
+    "album_id": "001",
+    "track": 2
+  },
+  "91000": {
+    "name": "WOW WAR TONIGHT ~Toki ni wa Okose yo Movement~",
+    "jpname": "WOW WAR TONIGHT～時には起こせよムーヴメント～",
+    "artist": "9",
+    "artiststr": "天野愛莉 (CV: 水樹奈々) ＆ 姫神紗乃 (CV: Raychell)",
+    "length": 325,
+    "album_id": "904",
+    "track": 1
   }
 }
