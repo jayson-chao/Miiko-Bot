@@ -1,7 +1,20 @@
 {
+  "900": {
+    "name": "Dig Delight!",
+    "artist": "012349",
+    "artiststr": "D4DJ",
+    "releasedate": "2020-01-29"
+  },
   "901": {
-    "name": "Dig Delight!/Direct Drive!",
-    "artist": "9",
-    "artiststr": "D4DJ"
+    "name": "Direct Drive!",
+    "artist": "012349",
+    "artiststr": "D4DJ",
+    "releasedate": "2020-04-22"
+  },
+  "902": {
+    "name": "Cosmic CoaSTAR",
+    "artist": "0123459",
+    "artiststr": "D4DJ",
+    "releasedate": "2020-06-24"
   }
 }

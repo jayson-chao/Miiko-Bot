@@ -144,8 +144,8 @@ class Music (commands.Cog):
         if a:
             await a.fetch_related('songs')
             songlist = []
-            for s in a.songs:
-                songlist.append(f'`{self.song_name(s)}`')
+            for i, s in enumerate(await a.songs.order_by('track')):
+                songlist.append(f'`{i+1}.{" " * (4-len(str(i)))}{self.song_name(s)}`')
             infoEmbed = discord.Embed(title=self.album_name(a))
             infoEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
             asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
