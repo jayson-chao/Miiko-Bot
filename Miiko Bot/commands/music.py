@@ -6,10 +6,12 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord import ClientException
+from tortoise.query_utils import Q
 
 import models
 from bot import MiikoBot
-from common.react_msg import run_paged_message
+from common.react_msg import run_paged_message, run_swap_message
+from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist
 
 FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
@@ -114,44 +116,93 @@ class Music (commands.Cog):
         else:
             await ctx.send('Not playing anything, nano!')
 
-    def song_name(self, s):
-        if s.jpname: # change to guild preference later between en/jp/romanize
-            return s.jpname
-        return s.name
-    
-    def album_name(self, a):
+    def media_name(self, a): # album & song have same name fields in model
         if a.jpname:
             return a.jpname
         return a.name
 
-    @commands.command(name='song', help='gives info on song by id')
-    async def song(self, ctx, sid):
-        s = await models.D4DJSong.get_or_none(id=sid)
-        if s:
-            infoEmbed = discord.Embed(title=self.song_name(s))
-            if s.album_id:
-                a = await s.album.first()
-                infoEmbed.add_field(name='Album', value=a.name)
-            infoEmbed.add_field(name='Main Artists', value=process_artist(s.artist), inline=False)
-            infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60}', inline=False)
-            asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
+    async def match_songs(self, args: ParsedArguments):
+        if args.text.isdigit():
+            return[await models.D4DJSong.get_or_none(id=int(args.text))]
         else:
-            await ctx.send('song id not found')
+            songs = models.D4DJSong.all().order_by('id')
+            for word in args.words:
+                if word in unit_aliases:
+                    songs = songs.filter(artist__contains=str(unit_aliases[word]))
+                else:
+                    songs = songs.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(romanizedname__icontains=word))
+            return await songs
 
-    @commands.command(name='album', help='gives info on album by id')
-    async def album(self, ctx, aid):
-        a = await models.D4DJAlbum.get_or_none(id=aid)
-        if a:
-            await a.fetch_related('songs')
-            songlist = []
-            for i, s in enumerate(await a.songs.order_by('track')):
-                songlist.append(f'`{i+1}.{" " * (4-len(str(i)))}{self.song_name(s)}`')
-            infoEmbed = discord.Embed(title=self.album_name(a))
-            infoEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
-            infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{aid}.png')
-            asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
+    async def match_albums(self, args: ParsedArguments):
+        if args.text.isdigit():
+            return[await models.D4DJAlbum.get_or_none(id=int(args.text))]
         else:
-            await ctx.send('album id not found')
+            albums = models.D4DJAlbum.all().order_by('id')
+            for word in args.words:
+                if word in unit_aliases:
+                    albums = albums.filter(artist__contains=str(unit_aliases[word]))
+                else:
+                    albums = albums.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(romanizedname__icontains=word))
+            return await albums
+
+    @commands.command(name='song', help='gives info on song')
+    async def song(self, ctx, *, args=None):
+        if not args:
+            await ctx.send('need argument')
+            return
+        arguments = parse_arguments(args)
+        songs = await self.match_songs(arguments)
+        if len(songs) > 0:
+            embeds = []
+            for i, s in enumerate(songs):
+                infoEmbed = discord.Embed(title=self.media_name(s))
+                if len(songs) > 1:
+                    infoEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
+                if s.album_id:
+                    a = await s.album.first()
+                    infoEmbed.add_field(name='Album', value=self.media_name(a))
+                    infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                infoEmbed.add_field(name='Artist(s)', value=process_artist(s.artist), inline=False)
+                if s.length:
+                    infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
+                embeds.append(infoEmbed)
+            asyncio.ensure_future(run_paged_message(ctx, embeds))
+        else:
+            await ctx.send('no relevant songs found')
+
+    @commands.command(name='album', help='gives info on album')
+    async def album(self, ctx, *, args=None):
+        if not args:
+            await ctx.send('need argument')
+            return
+        arguments = parse_arguments(args)
+        albums = await self.match_albums(arguments)
+        if len(albums) > 0:
+            albumembeds = []
+            tracklistings = [] # plan is to have button to swap between album basic info/track listing
+            for i, a in enumerate(albums):
+                await a.fetch_related('songs')
+                songlist = []
+                for i, s in enumerate(await a.songs.order_by('track')):
+                    songlist.append(f'`{i+1}.{" " * (4-len(str(i)))}{self.media_name(s)}`')
+                albumEmbed = discord.Embed(title=self.media_name(a))
+                if a.artiststr:
+                    albumEmbed.add_field(name='Artist(s)', value=a.artiststr, inline=False)
+                else:
+                    albumEmbed.add_field(name='Artist(s)', value=process_artist(a.artist), inline=False)
+                albumEmbed.add_field(name='Release Date', value=a.releasedate)
+                trackEmbed = discord.Embed(title=self.media_name(a))
+                trackEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
+                if len(albums) > 1:
+                    albumEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')
+                    trackEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')
+                albumEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                albumembeds.append(albumEmbed)
+                tracklistings.append(trackEmbed)
+            asyncio.ensure_future(run_swap_message(ctx, [albumembeds, tracklistings]))
+        else:
+            await ctx.send('no relevant albums found')
 
 
 # expected by load_extension in bot

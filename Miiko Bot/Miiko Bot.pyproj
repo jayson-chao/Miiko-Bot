@@ -81,6 +81,7 @@
     <Folder Include="common\assets\" />
     <Folder Include="common\assets\music\" />
     <Folder Include="common\assets\album\" />
+    <Folder Include="common\assets\event\" />
     <Folder Include="Master\" />
     <Folder Include="archive\" />
     <Folder Include="common\" />

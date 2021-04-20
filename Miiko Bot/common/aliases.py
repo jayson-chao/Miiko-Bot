@@ -48,5 +48,8 @@ unit_aliases = {
 def process_artist(a: str) -> str:
     perf_a = []
     for i in a:
-        perf_a.append(artists[int(i)])
+        try:
+            perf_a.append(artists[int(i)])
+        except: # in place in the event that code with a 9 artist for some reason tries to access this
+            pass
     return ', '.join(perf_a)

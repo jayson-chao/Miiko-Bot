@@ -7,7 +7,6 @@ from datetime import datetime
 import pytz
 import re
 from discord.ext import commands
-from tortoise.queryset import QuerySet
 from tortoise.query_utils import Q
 
 from bot import MiikoBot
