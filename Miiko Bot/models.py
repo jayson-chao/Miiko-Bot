@@ -4,7 +4,8 @@
 from discord.ext import commands
 from tortoise import Model, fields
 from tortoise.models import ModelMeta
-from enum import Enum
+
+from common.aliases import LangPref
 
 # model for event db
 class D4DJEvent(Model):
@@ -62,6 +63,7 @@ class D4DJAlbum(Model):
 class Guild(Model):
     id = fields.BigIntField(pk=True)
     name = fields.TextField(max_length=255)
+    langpref = fields.IntEnumField(LangPref, default=LangPref.JP)
 
     class Meta:
         table = "Guilds/Servers"

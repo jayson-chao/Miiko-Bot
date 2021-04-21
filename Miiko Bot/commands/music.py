@@ -12,18 +12,12 @@ import models
 from bot import MiikoBot
 from common.react_msg import run_paged_message, run_swap_message
 from common.parse_args import ParsedArguments, parse_arguments
-from common.aliases import unit_aliases, artists, process_artist
+from common.aliases import unit_aliases, artists, process_artist, LangPref
 
 FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
 
 class VoiceError(Exception):
     pass
-
-# 2021-03-23 issue encountered (unreplicated after 4 attempts)
-# Encountered issue where having Miiko join two VCs in two different servers led to the Miiko
-# instance in the second server to malfunction on join/leave commands (thought she wasn't in
-# a VC) and ignore play commands completely. Might've been an issue of two Miiko main.py commands
-# running in parallel?
 
 class Music (commands.Cog):
     bot: MiikoBot
@@ -56,7 +50,6 @@ class Music (commands.Cog):
         await ctx.voice_client.disconnect()
         await ctx.send('Disconnected!')
 
-    # currently plays though to end, does not allow more play commands
     @commands.command(name='play', hidden=True, help='play song')
     async def play(self, ctx, id=None):
         if not ctx.voice_client:
@@ -116,9 +109,12 @@ class Music (commands.Cog):
         else:
             await ctx.send('Not playing anything!')
 
-    def media_name(self, a): # album & song have same name fields in model
-        if a.jpname:
+    async def media_name(self, a, guild): # album & song have same name fields in model
+        g = await models.Guild.get_or_none(id=guild)
+        if g is None or (g.langpref == LangPref.JP and a.jpname):
             return a.jpname
+        elif g.langpref == LangPref.RO and a.romanizedname:
+            return a.romanizedname
         return a.name
 
     async def match_songs(self, args: ParsedArguments):
@@ -155,14 +151,14 @@ class Music (commands.Cog):
         if len(songs) > 0:
             embeds = []
             for i, s in enumerate(songs):
-                infoEmbed = discord.Embed(title=self.media_name(s))
+                infoEmbed = discord.Embed(title=await self.media_name(s, ctx.guild.id))
                 if len(songs) > 1:
                     infoEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
                 if s.album:
                     a = await s.album.first()
-                    infoEmbed.add_field(name='Album', value=self.media_name(a))
+                    infoEmbed.add_field(name='Album', value=await self.media_name(a, ctx.guild.id))
                     infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-                infoEmbed.add_field(name='Artist(s)', value=process_artist(s.artist), inline=False)
+                infoEmbed.add_field(name='Artist(s)', value=(s.artiststr if s.artiststr else process_artist(s.artist)), inline=False)
                 if s.length:
                     infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
                 infoEmbed.add_field(name='Type', value=('Original' if s.original else 'Cover'))
@@ -185,11 +181,12 @@ class Music (commands.Cog):
                 await a.fetch_related('songs')
                 songlist = []
                 for j, s in enumerate(await a.songs.order_by('track')):
-                    songlist.append(f'`{j+1}.{" " * (4-len(str(j)))}{self.media_name(s)}`')
-                albumEmbed = discord.Embed(title=self.media_name(a))
+                    songlist.append(f'`{j+1}.{" " * (4-len(str(j)))}{await self.media_name(s, ctx.guild.id)}`')
+                albumtitle = await self.media_name(a, ctx.guild.id)
+                albumEmbed = discord.Embed(title=albumtitle)
                 albumEmbed.add_field(name='Artist(s)', value=(a.artiststr if a.artiststr else process_artist(a.artist)), inline=False)
                 albumEmbed.add_field(name='Release Date', value=a.releasedate)
-                trackEmbed = discord.Embed(title=self.media_name(a))
+                trackEmbed = discord.Embed(title=albumtitle)
                 trackEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
                 if len(albums) > 1:
                     albumEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')

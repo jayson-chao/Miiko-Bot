@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 
 from bot import MiikoBot
+from common.aliases import pref_aliases, pref_settings
 import models
 
 bool_true_strings = {'True', 'true', 'on'}
@@ -23,6 +24,15 @@ class Preference(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command(name='setpref', help='change miiko preference settings')
+    @commands.has_permissions(administrator=True)
+    async def set_preference(self, ctx, pref, setting):
+        if pref in pref_aliases and setting in pref_settings[pref_aliases[pref]]:
+            await models.Guild.get(id=ctx.guild.id).update(**{pref_aliases[pref]:pref_settings[pref_aliases[pref]][setting]})
+            await ctx.send(f'Preference {pref_aliases[pref]} changed.')
+            return
+        await ctx.send('Invalid preference arguments')
 
 # expected by load_extension in bot
 def setup(bot):
