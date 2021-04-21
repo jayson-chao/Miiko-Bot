@@ -33,6 +33,7 @@ class D4DJSong(Model):
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
     artiststr = fields.CharField(255, default=None, null=True)
     length = fields.IntField(null=True, default=None) # time in seconds
+    original = fields.BooleanField(default=True)
     album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
     track = fields.IntField(null=True, default=None) # related to album
 

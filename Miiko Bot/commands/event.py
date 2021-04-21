@@ -40,7 +40,7 @@ class Event(commands.Cog):
 
             return await events
 
-    @commands.command(name='event', help='&event [id] to get event by id, &event [keywords] to filter by artist/live name')
+    @commands.command(name='event', help='&event [id | keywords] to filter by artist/live name or id')
     async def get_event(self, ctx, *, args=None):
         # parse args into most relevant event based on tags/args, else get next event
         if args:
@@ -84,7 +84,7 @@ class Event(commands.Cog):
                 embeds.append(infoEmbed)
             asyncio.ensure_future(run_paged_message(ctx, embeds, start=index))
         else:
-            await ctx.send('No relevant events found, nano!')
+            await ctx.send('No relevant events found.')
 
     @commands.command(name='events', help='get list of events ordered by id, &events [artist] to filter by artist')
     async def event_list(self, ctx, *, args=None): # plan to add list filtering based off of unit keyword later

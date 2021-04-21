@@ -18,13 +18,7 @@ class Utility(commands.Cog):
 
     @commands.command(name='ping', help='test command & response', hidden=True)
     async def ping(self, ctx):
-        await ctx.send('pong, nano!')
-
-    @commands.command(name='admin', help='test admin-only command', hidden=True)
-    @commands.has_permissions(administrator=True)
-    async def admin_ping(self, ctx):
-        response = 'admin, nano!'
-        await ctx.send(response)
+        await ctx.send('Pong, nano!')
 
     @commands.command(name='info', help='information on MiikoBot')
     async def info_embed(self, ctx):
@@ -45,7 +39,6 @@ class Utility(commands.Cog):
         await self.bot.change_presence(status=discord.Status.offline)
         await self.bot.logout() # will throw Runtime Error - apparently this is a known bug on their end
 
-    # this is specific to reloading the event db for now but will need to make more general for all master
     @commands.command(name='refresh', help='reloads all data', hidden=True)
     async def refresh_db(self, ctx):
         for m in dbs:
@@ -55,7 +48,12 @@ class Utility(commands.Cog):
                 data = json.load(f)
             for item in data:
                 await mtype.update_or_create(id=item, defaults=data[item])
-        await ctx.send('Reloaded data, nano!')
+        await ctx.send('Reloaded data!')
+
+    @commands.command(name='reload', help='reloads all extensions', hidden=True)
+    async def reload_bot(self, ctx):
+        self.bot.reload_all_extensions()
+        await ctx.send('Bot has been reloaded!')
 
 # expected by load_extension in bot
 def setup(bot):

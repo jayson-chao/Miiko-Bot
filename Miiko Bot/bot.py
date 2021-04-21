@@ -23,6 +23,10 @@ class MiikoBot(commands.Bot):
         self.extension_names.remove(name)
         super(MiikoBot, self).unload_extension(name)
 
+    def reload_all_extensions(self):
+        for ext in self.extension_names:
+            self.reload_extension(ext)
+
     # override bot login to init tortoise orm connection on start
     async def login(self, token, *, bot=True):
         await Tortoise.init(TORTOISE_ORM)
