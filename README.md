@@ -16,7 +16,8 @@ Change TORTOISE_ORM in tortoise_config.py to your needs before running.
 ### D4DJ Information Database
 - Event info commands which feature event information embeds that show info including  
   timing to upcoming events and links to streams/archives
-- [50% Done] Music info commands including basic song information and album track listings
+- [60% Done] Music info commands including basic song information and album track listings,  
+  now with server-scoped preference settings to show names in EN/JP/Romanized
 
 ### Music Player
 - [90% Done] Allows for Miiko Bot to join voice channels and play released D4DJ songs.  
@@ -33,3 +34,7 @@ Change TORTOISE_ORM in tortoise_config.py to your needs before running.
 ### Music Player
 - Feature "now playing" embeds and song queueing directly from song info embeds
 - Allow for playback of past live events/sets with track listing and scene selection
+
+## Contact
+A running instance of Miiko can be tested over on the [Miiko Bot Discord server](https://discord.gg/HChrpwVVHU).
+
