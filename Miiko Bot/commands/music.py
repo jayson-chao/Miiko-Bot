@@ -105,7 +105,22 @@ class Music (commands.Cog):
     @commands.command(name='np', aliases=['nowplaying'], hidden=True, help='display info for current song')
     async def now_playing(self, ctx):
         if ctx.voice_client.is_playing():
-            await ctx.send(f'PLAYING: {self.bot.playing[ctx.guild.id]}')
+            g = await models.Guild.get_or_none(id=ctx.guild.id)
+            sid = self.bot.playing[ctx.guild.id]
+            s = await models.D4DJSong.get_or_none(id=sid)
+            if not s:
+                await ctx.send(f'PLAYING: {self.bot.playing[ctx.guild.id]}')
+                return
+            infoEmbed = discord.Embed(title=await self.media_name(s, g.langpref))
+            if s.album:
+                a = await s.album.first()
+                infoEmbed.add_field(name='Album', value=await self.media_name(a, g.langpref))
+                infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+            infoEmbed.add_field(name='Artist(s)', value=(s.artiststr if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
+            if s.length:
+                infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
+            infoEmbed.add_field(name='Type', value=(f'Cover ({await self.media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
+            asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
         else:
             await ctx.send('Not playing anything!')
 

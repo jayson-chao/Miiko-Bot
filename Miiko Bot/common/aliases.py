@@ -80,7 +80,7 @@ def process_artist(a: str, lang: LangPref) -> str:
     perf_a = []
     for i in a:
         try:
-            if i == 4 and lang == LangPref.JP:
+            if int(i) == 4 and lang == LangPref.JP:
                 perf_a.append('燐舞曲')
             else:
                 perf_a.append(artists[int(i)])

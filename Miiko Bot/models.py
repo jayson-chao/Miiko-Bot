@@ -18,7 +18,6 @@ class D4DJEvent(Model):
     # livestream and archive expected in the form "[text](link)" for links
     livestream = fields.TextField(default=None, null=True)
     archive = fields.TextField(default=None, null=True)
-    logo = fields.TextField(default=None, null=True)
     guests = fields.TextField(default=None, null=True) # using this only for main D4DJ events, if part of a split/guesting will leave blank
 
     class Meta:
@@ -32,7 +31,7 @@ class D4DJSong(Model):
     jpname = fields.CharField(255, default=None, null=True)
     roname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
-    artiststr = fields.CharField(255, default=None, null=True)
+    artiststr = fields.CharField(255, default=None, null=True) # move to new table that references songs?
     orartist = fields.ForeignKeyField('models.OtherArtist', related_name='by', null=True, default=None)
     length = fields.IntField(null=True, default=None) # time in seconds
     album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
