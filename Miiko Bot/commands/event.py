@@ -49,6 +49,7 @@ class Event(commands.Cog):
         else:
             events = await models.D4DJEvent.all()
         
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
         # make array of embeds
         if len(events) > 0:
             index = 0
@@ -78,7 +79,7 @@ class Event(commands.Cog):
                     if e.archive: 
                         archivestr = e.archive
                     infoEmbed.add_field(name='Archive', value=archivestr)
-                infoEmbed.add_field(name='Main Artists', value=process_artist(e.artist), inline=False)
+                infoEmbed.add_field(name='Main Artists', value=process_artist(e.artist, g.langpref), inline=False)
                 if e.guests:
                     infoEmbed.add_field(name='Guests', value=e.guests)
                 embeds.append(infoEmbed)

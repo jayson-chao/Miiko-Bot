@@ -30,7 +30,7 @@
   "00005": {
     "name": "Happiness to you♪",
     "jpname": "君にハピあれ♪",
-    "romanizedname": "Kimi ni Hapi Are♪",
+    "roname": "Kimi ni Hapi Are♪",
     "artist": "0",
     "length": 278,
     "album_id": "001",
@@ -77,7 +77,7 @@
   "00011": {
     "name": "Yes☆FORTUNE!",
     "jpname": "はぁ～い☆FORTUNE！",
-    "romanizedname": "Ha~i☆FORTUNE!",
+    "roname": "Ha~i☆FORTUNE!",
     "artist": "0",
     "length": 278,
     "album_id": "003",
@@ -111,20 +111,110 @@
     "name": "Hey! Be Ambitious!",
     "artist": "0"
   },
-  "01013": {
+  "01001": {
+    "name": "Poppin' Shuffle",
+    "jpname": "ぽっぴん’しゃっふる",
+    "artist": "0",
+    "orartist_id": "Poppin' Party"
+  },
+  "01002": {
+    "name": "Kokoro Odoru",
+    "jpname": "ココロオドル",
+    "artist": "0",
+    "orartist_id": "nobodyknows+"
+  },
+  "01003": {
+    "name": "Moonlight Densetsu",
+    "jpname": "ムーンライト伝説",
+    "artist": "0",
+    "orartist_id": "DALI"
+  },
+  "01004": {
+    "name": "Renai Revolution 21",
+    "jpname": "恋愛レボリューション21",
+    "artist": "0",
+    "orartist_id": "Morning Musume.",
+    "length": 314,
+    "album_id": "904",
+    "track": 1
+  },
+  "01005": {
+    "name": "DAYS",
+    "artist": "0",
+    "orartist_id": "FLOW",
+    "length": 265,
+    "album_id": "904",
+    "track": 2
+  },
+  "01006": {
+    "name": "DIVE TO WORLD",
+    "artist": "0",
+    "orartist_id": "CHERRYBLOSSOM"
+  },
+  "01007": {
+    "name": "Ikuze! Kaitou Shoujo",
+    "jpname": "行くぜっ!怪盗少女",
+    "artist": "0",
+    "orartist_id": "Momoiro Clover"
+  },
+  "01008": {
+    "name": "Yes! BanG_Dream!",
+    "artist": "0",
+    "orartist_id": "Poppin' Party"
+  },
+  "01009": {
+    "name": "Balalaika",
+    "jpname": "バラライカ",
+    "artist": "0",
+    "orartist_id": "Kirari Tsukishima starring Koharu Kusumi (Morning Musume)"
+  },
+  "01010": {
+    "name": "PARTY☆NIGHT",
+    "artist": "0",
+    "orartist_id": "D.U.P."
+  },
+  "01011": {
+    "name": "H-A-J-I-M-A-R-I-U-T-A-!!",
+    "artist": "0",
+    "orartist_id": "777☆SISTERS"
+  },
+  "01012": {
     "name": "Feeling Good↑↑",
     "jpname": "気分上々↑↑",
-    "romanizedname": "Kibun Joujou ↑↑",
+    "roname": "Kibun Joujou ↑↑",
     "artist": "0",
+    "orartist_id": "mihimaru GT",
     "length": 203,
-    "original": 0,
     "album_id": "905",
     "track": 2
+  },
+  "01013": {
+    "name": "Seikai wa Hitotsu! Janai!!",
+    "jpname": "正解はひとつ!じゃない!!",
+    "artist": "0",
+    "orartist_id": "Milky Holmes"
+  },
+  "01014": {
+    "name": "Mezase Pokemon Master",
+    "jpname": "めざせポケモンマスター",
+    "artist": "0",
+    "orartist_id": "Matsumoto Rica"
+  },
+  "01015": {
+    "name": "Neppu Kairiku Bushiroad ~Atsuki Houkou~",
+    "jpname": "熱風海陸ブシロード～熱き咆哮～",
+    "artist": "0",
+    "orartist_id": "Ono Masatoshi"
+  },
+  "01016": {
+    "name": "Help me, ERINNNNNN!!",
+    "artist": "0",
+    "orartist_id": "COOL&CREATE"
   },
   "10001": {
     "name": "Electric Chaos★Countdown",
     "jpname": "電乱★カウントダウン",
-    "romanizedname": "Denran★Countdown",
+    "roname": "Denran★Countdown",
     "artist": "1",
     "length": 265,
     "album_id": "901",
@@ -147,7 +237,7 @@
   "10004": {
     "name": "Peak Peaky&Peaky!!",
     "jpname": "最頂点Peaky&Peaky!!",
-    "romanizedname": "Saichouten Peaky&Peaky!!",
+    "roname": "Saichouten Peaky&Peaky!!",
     "artist": "1",
     "length": 287,
     "album_id": "101",
@@ -163,7 +253,7 @@
   "10006": {
     "name": "INVINCIBLE☆moment",
     "jpname": "無敵☆moment",
-    "romanizedname": "MUTEKI☆moment",
+    "roname": "MUTEKI☆moment",
     "artist": "1",
     "length": 293,
     "album_id": "102",
@@ -364,7 +454,7 @@
   "50001": {
     "name": "The Color of Tainted Sorrow",
     "jpname": "汚れっちまった悲しみの色",
-    "romanizedname": "Yogorecchimatta Kanashimi no Iro",
+    "roname": "Yogorecchimatta Kanashimi no Iro",
     "artist": "5",
     "length": 270,
     "album_id": "903",
@@ -373,7 +463,7 @@
   "50002": {
     "name": "I Shall Be a Cat",
     "jpname": "吾輩よ猫であれ",
-    "romanizedname": "Wagahai yo Neko de Are",
+    "roname": "Wagahai yo Neko de Are",
     "artist": "5",
     "length": 226,
     "album_id": "501",
@@ -382,7 +472,7 @@
   "50003": {
     "name": "At Night on the Galactic Railroad",
     "jpname": "銀河鉄道の夜に",
-    "romanizedname": "Ginga Tetsudō no Yoru ni",
+    "roname": "Ginga Tetsudō no Yoru ni",
     "artist": "5",
     "length": 250,
     "album_id": "501",
@@ -398,7 +488,7 @@
   "50005": {
     "name": "Gift of the Magi",
     "jpname": "Magiの贈り物",
-    "romanizedname": "Magi no Okurimono",
+    "roname": "Magi no Okurimono",
     "artist": "5",
     "album_id": "502",
     "track": 2
@@ -427,7 +517,6 @@
     "artist": "9",
     "artiststr": "天野愛莉 (CV: 水樹奈々) ＆ 姫神紗乃 (CV: Raychell)",
     "length": 325,
-    "original": 0,
     "album_id": "905",
     "track": 1
   }

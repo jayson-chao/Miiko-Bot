@@ -30,13 +30,14 @@ class D4DJSong(Model):
     id = fields.IntField(pk=True) # id determined by group id (1) + orig/cover (1) + song num (3) (i.e. 40005 would be rondo's 5th original)
     name = fields.CharField(255)
     jpname = fields.CharField(255, default=None, null=True)
-    romanizedname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
+    roname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
     artiststr = fields.CharField(255, default=None, null=True)
+    orartist = fields.ForeignKeyField('models.OtherArtist', related_name='by', null=True, default=None)
     length = fields.IntField(null=True, default=None) # time in seconds
-    original = fields.BooleanField(default=True)
     album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
     track = fields.IntField(null=True, default=None) # related to album
+    # add: fks to staff
 
     # playable songs in common/assets/music (instr. tracks planned to be same id + 'i')
 
@@ -49,7 +50,7 @@ class D4DJAlbum(Model):
     id = fields.IntField(pk=True)
     name = fields.CharField(255)
     jpname = fields.CharField(255, default=None, null=True)
-    romanizedname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
+    roname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist. will override artist embed output with custom string
     artiststr = fields.CharField(255, default=None, null=True)
     releasedate = fields.CharField(10) # YYYY-MM-DD format
@@ -57,6 +58,22 @@ class D4DJAlbum(Model):
     class Meta:
         table = "Albums"
         ordering = ["id"]
+
+class OtherArtist(Model):
+    name = fields.CharField(255, pk=True)
+    jpname = fields.CharField(255, default=None, null=True)
+    assc = fields.CharField(255, default=None, null=True)
+
+    class Meta:
+        table = "Misc. Artists"
+
+class D4DJStaff(Model):
+    name = fields.CharField(255, pk=True)
+    jpname = fields.CharField(255, default=None, null=True)
+    company = fields.CharField(255, default=None, null=True)
+    
+    class Meta:
+        table = "Staff Members"
 
 # model for guild/channel pref management. 
 # will likely need base class for guild/channel, just doing this for now so i can learn to use the orm...

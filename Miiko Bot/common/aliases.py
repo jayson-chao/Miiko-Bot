@@ -76,11 +76,14 @@ pref_settings = {
     'langpref': _lang_aliases
 }
 
-def process_artist(a: str) -> str:
+def process_artist(a: str, lang: LangPref) -> str:
     perf_a = []
     for i in a:
         try:
-            perf_a.append(artists[int(i)])
+            if i == 4 and lang == LangPref.JP:
+                perf_a.append('燐舞曲')
+            else:
+                perf_a.append(artists[int(i)])
         except: # in place in the event that code with a 9 artist for some reason tries to access this
             pass
     return ', '.join(perf_a)

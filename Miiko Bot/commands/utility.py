@@ -6,8 +6,8 @@ import os
 import discord
 from discord.ext import commands
 
-from masters import dbs
 from bot import MiikoBot
+from load_db import load_db
 import models
 
 class Utility(commands.Cog):
@@ -41,13 +41,7 @@ class Utility(commands.Cog):
 
     @commands.command(name='refresh', help='reloads all data', hidden=True)
     async def refresh_db(self, ctx):
-        for m in dbs:
-            mtype = getattr(models, f'D4DJ{c}')
-            await mtype.all().delete()
-            with open(f'Master/{c}Master.json') as f:
-                data = json.load(f)
-            for item in data:
-                await mtype.update_or_create(id=item, defaults=data[item])
+        await load_db()
         await ctx.send('Reloaded data!')
 
     @commands.command(name='reload', help='reloads all extensions', hidden=True)

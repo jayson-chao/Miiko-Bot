@@ -109,12 +109,11 @@ class Music (commands.Cog):
         else:
             await ctx.send('Not playing anything!')
 
-    async def media_name(self, a, guild): # album & song have same name fields in model
-        g = await models.Guild.get_or_none(id=guild)
-        if g is None or (g.langpref == LangPref.JP and a.jpname):
+    async def media_name(self, a, langpref: LangPref): # album & song have same name fields in model
+        if langpref == LangPref.JP and a.jpname:
             return a.jpname
-        elif g.langpref == LangPref.RO and a.romanizedname:
-            return a.romanizedname
+        elif langpref == LangPref.RO and a.roname:
+            return a.roname
         return a.name
 
     async def match_songs(self, args: ParsedArguments):
@@ -126,7 +125,7 @@ class Music (commands.Cog):
                 if word in unit_aliases:
                     songs = songs.filter(artist__contains=str(unit_aliases[word]))
                 else:
-                    songs = songs.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(romanizedname__icontains=word))
+                    songs = songs.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
             return await songs
 
     async def match_albums(self, args: ParsedArguments):
@@ -138,7 +137,7 @@ class Music (commands.Cog):
                 if word in unit_aliases:
                     albums = albums.filter(artist__contains=str(unit_aliases[word]))
                 else:
-                    albums = albums.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(romanizedname__icontains=word))
+                    albums = albums.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
             return await albums
 
     @commands.command(name='song', help='gives info on song based off search terms')
@@ -146,22 +145,23 @@ class Music (commands.Cog):
         if not args:
             await ctx.send('No relevant songs found')
             return
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
         arguments = parse_arguments(args)
         songs = await self.match_songs(arguments)
         if len(songs) > 0:
             embeds = []
             for i, s in enumerate(songs):
-                infoEmbed = discord.Embed(title=await self.media_name(s, ctx.guild.id))
+                infoEmbed = discord.Embed(title=await self.media_name(s, g.langpref))
                 if len(songs) > 1:
                     infoEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
                 if s.album:
                     a = await s.album.first()
-                    infoEmbed.add_field(name='Album', value=await self.media_name(a, ctx.guild.id))
+                    infoEmbed.add_field(name='Album', value=await self.media_name(a, g.langpref))
                     infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-                infoEmbed.add_field(name='Artist(s)', value=(s.artiststr if s.artiststr else process_artist(s.artist)), inline=False)
+                infoEmbed.add_field(name='Artist(s)', value=(s.artiststr if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
                 if s.length:
                     infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
-                infoEmbed.add_field(name='Type', value=('Original' if s.original else 'Cover'))
+                infoEmbed.add_field(name='Type', value=(f'Cover ({await self.media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
                 embeds.append(infoEmbed)
             asyncio.ensure_future(run_paged_message(ctx, embeds))
         else:
@@ -172,6 +172,7 @@ class Music (commands.Cog):
         if not args:
             await ctx.send('No relevant albums found')
             return
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
         arguments = parse_arguments(args)
         albums = await self.match_albums(arguments)
         if len(albums) > 0:
@@ -181,10 +182,10 @@ class Music (commands.Cog):
                 await a.fetch_related('songs')
                 songlist = []
                 for j, s in enumerate(await a.songs.order_by('track')):
-                    songlist.append(f'`{j+1}.{" " * (4-len(str(j)))}{await self.media_name(s, ctx.guild.id)}`')
-                albumtitle = await self.media_name(a, ctx.guild.id)
+                    songlist.append(f'`{j+1}.{" " * (4-len(str(j)))}{await self.media_name(s, g.langpref)}`')
+                albumtitle = await self.media_name(a, g.langpref)
                 albumEmbed = discord.Embed(title=albumtitle)
-                albumEmbed.add_field(name='Artist(s)', value=(a.artiststr if a.artiststr else process_artist(a.artist)), inline=False)
+                albumEmbed.add_field(name='Artist(s)', value=(a.artiststr if a.artiststr else process_artist(a.artist, g.langpref)), inline=False)
                 albumEmbed.add_field(name='Release Date', value=a.releasedate)
                 trackEmbed = discord.Embed(title=albumtitle)
                 trackEmbed.add_field(name='Track Listing', value='\n'.join(songlist))

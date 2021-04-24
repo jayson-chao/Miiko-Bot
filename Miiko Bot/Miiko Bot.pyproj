@@ -68,11 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".env" />
-    <Content Include="Master\AlbumMaster.json">
+    <Content Include="Master\D4DJAlbumMaster.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Master\EventMaster.json" />
-    <Content Include="Master\SongMaster.json">
+    <Content Include="Master\D4DJEventMaster.json" />
+    <Content Include="Master\D4DJSongMaster.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Master\OtherArtistsMaster.json">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
