@@ -50,10 +50,10 @@
     <Compile Include="init_db.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="main.py">
+    <Compile Include="load_db.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="masters.py">
+    <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models.py">
@@ -75,7 +75,7 @@
     <Content Include="Master\D4DJSongMaster.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Master\OtherArtistsMaster.json">
+    <Content Include="Master\OtherArtistMaster.json">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>

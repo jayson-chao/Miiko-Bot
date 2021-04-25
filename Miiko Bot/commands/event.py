@@ -26,21 +26,24 @@ class Event(commands.Cog):
 
     # returns array of relevant events
     async def match_events(self, args: ParsedArguments):
-        if args.text.isdigit():
-            return [await models.D4DJEvent.get_or_none(id=int(args.text))]
-        else:
-            events = models.D4DJEvent.all().order_by('id')
-            for word in args.words: # if any word doesn't match, will return empty query
-                if word in unit_aliases:
-                    events = events.filter(artist__contains=str(unit_aliases[word]))
-                elif word in event_aliases: # manually catch some possible conversion/matching problems
-                    events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
-                else:
-                    events = events.filter(name__icontains=word)
-
+        events = models.D4DJEvent.all().order_by('id')
+        if 'all' in args.tags:
             return await events
+        for tag in args.tags:
+            if tag.isdigit():
+                events = events.filter(id=tag)
+            elif tag in unit_aliases:
+                events = events.filter(artist__contains=str(unit_aliases[tag]))
+            else: # bad tag - give empty
+                return []
+        for word in args.words:
+            if word in event_aliases: # manually catch some possible conversion/matching problems
+                events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
+            else:
+                events = events.filter(name__icontains=word)
+        return await events
 
-    @commands.command(name='event', help='&event [id | keywords] to filter by artist/live name or id')
+    @commands.command(name='event', help='get event based off search terms')
     async def get_event(self, ctx, *, args=None):
         # parse args into most relevant event based on tags/args, else get next event
         if args:

@@ -6,13 +6,13 @@ from enum import IntEnum
 artists = ["Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily"]
 
 unit_aliases = {
-    'happy around!': 0,
+    'happy_around!': 0,
     'ha': 0,
     'hapiara': 0,
-    'happy around': 0,
+    'happy_around': 0,
     'happyaround': 0,
 
-    'peaky p-key': 1,
+    'peaky_p-key': 1,
     'pk': 1,
     'pkey': 1,
     'peaky': 1,
@@ -20,7 +20,7 @@ unit_aliases = {
     'pkpk': 1,
     'p-key': 1,
 
-    'photon maiden': 2,
+    'photon_maiden': 2,
     'pm': 2,
     'photon': 2,
     'maiden': 2,
@@ -37,7 +37,7 @@ unit_aliases = {
     'rondo': 4,
     '燐舞曲': 4,
 
-    'lyrical lily': 5,
+    'lyrical_lily': 5,
     'riri': 5,
     'lili': 5,
     'ri4': 5,

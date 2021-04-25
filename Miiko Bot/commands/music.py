@@ -7,6 +7,7 @@ import discord
 from discord.ext import commands
 from discord import ClientException
 from tortoise.query_utils import Q
+from fuzzywuzzy import process
 
 import models
 from bot import MiikoBot
@@ -50,18 +51,44 @@ class Music (commands.Cog):
         await ctx.voice_client.disconnect()
         await ctx.send('Disconnected!')
 
+    # unlike match_songs for embeds, has to pick a single song to play 
+    async def choose_song(self, args: ParsedArguments):
+        songs = models.D4DJSong.all()
+        for tag in args.tags: # no $all tag since need a single result
+            if tag.isdigit():
+                media = media.filter(id=tag)
+            elif tag in unit_aliases:
+                media = media.filter(artist__contains=str(unit_aliases[tag]))
+            else: # bad tag - give empty
+                return []
+        for word in args.words:
+            songs = songs.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
+        songs = await songs.values_list('name', 'jpname', 'roname', 'id')
+        best = (0, -1)
+        for n, j, r, i in songs:
+            ratio = process.extractOne(args.text, [n, j, r])
+            if ratio[1] > best[1]:
+                best = (i, ratio[1])
+        return best[0]
+
     @commands.command(name='play', hidden=True, help='play song')
-    async def play(self, ctx, id=None):
+    async def play(self, ctx, *, args=None):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel!')
             raise VoiceError('play: Bot is not connected to any voice channel')
-        if ctx.voice_client.is_paused() and not id:
+        if ctx.voice_client.is_paused() and not args:
             ctx.voice_client.resume()
             return
-        # need a none check against audio
-        self.bot.player[ctx.guild.id].put((id, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id}.mp3?raw=true')))
+        arguments = parse_arguments(args)
+        id = await self.choose_song(arguments)
+        if id is None:
+            ctx.send('No relevant song found!')
+            return
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        name = await self.media_name(await models.D4DJSong.get_or_none(id=id), g.langpref)
+        self.bot.player[ctx.guild.id].put((id, name, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
-            await ctx.send(f'{id} placed in song queue')
+            await ctx.send(f'{name} placed in song queue')
         else:
             self.play_next(ctx)
 
@@ -73,9 +100,9 @@ class Music (commands.Cog):
             asyncio.run_coroutine_threadsafe(ctx.send("Queue finished!"), self.bot.loop)
             return
         next_song = self.bot.player[ctx.guild.id].get()
-        asyncio.run_coroutine_threadsafe(ctx.send(f'Now playing {next_song[0]}'), self.bot.loop)
+        asyncio.run_coroutine_threadsafe(ctx.send(f'Now playing {next_song[1]}'), self.bot.loop) # will need to make function to replace this - this queue method doesn't change name w/ langpref change
         self.bot.playing[ctx.guild.id] = next_song[0]
-        ctx.voice_client.play(next_song[1], after=lambda e:self.play_next(ctx))
+        ctx.voice_client.play(next_song[2], after=lambda e:self.play_next(ctx))
 
     @commands.command(name='skip', hidden=True, help='skip the current song')
     async def skip(self, ctx):
@@ -131,29 +158,20 @@ class Music (commands.Cog):
             return a.roname
         return a.name
 
-    async def match_songs(self, args: ParsedArguments):
-        if args.text.isdigit():
-            return[await models.D4DJSong.get_or_none(id=int(args.text))]
-        else:
-            songs = models.D4DJSong.all().order_by('id')
-            for word in args.words:
-                if word in unit_aliases:
-                    songs = songs.filter(artist__contains=str(unit_aliases[word]))
-                else:
-                    songs = songs.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
-            return await songs
-
-    async def match_albums(self, args: ParsedArguments):
-        if args.text.isdigit():
-            return[await models.D4DJAlbum.get_or_none(id=int(args.text))]
-        else:
-            albums = models.D4DJAlbum.all().order_by('id')
-            for word in args.words:
-                if word in unit_aliases:
-                    albums = albums.filter(artist__contains=str(unit_aliases[word]))
-                else:
-                    albums = albums.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
-            return await albums
+    async def match_media(self, args: ParsedArguments, media_type):
+        media = media_type.all().order_by('id')
+        if 'all' in args.tags:
+            return await media
+        for tag in args.tags:
+            if tag.isdigit():
+                media = media.filter(id=tag)
+            elif tag in unit_aliases:
+                media = media.filter(artist__contains=str(unit_aliases[tag]))
+            else: # bad tag - give empty
+                return []
+        for word in args.words:
+                media = media.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
+        return await media
 
     @commands.command(name='song', help='gives info on song based off search terms')
     async def song(self, ctx, *, args=None):
@@ -162,7 +180,7 @@ class Music (commands.Cog):
             return
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         arguments = parse_arguments(args)
-        songs = await self.match_songs(arguments)
+        songs = await self.match_media(arguments, models.D4DJSong)
         if len(songs) > 0:
             embeds = []
             for i, s in enumerate(songs):
@@ -189,7 +207,7 @@ class Music (commands.Cog):
             return
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         arguments = parse_arguments(args)
-        albums = await self.match_albums(arguments)
+        albums = await self.match_media(arguments, models.D4DJAlbum)
         if len(albums) > 0:
             albumembeds = []
             tracklistings = [] # plan is to have button to swap between album basic info/track listing
