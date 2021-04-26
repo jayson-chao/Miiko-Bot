@@ -31,6 +31,9 @@
     <Compile Include="commands\event.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="commands\player.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="common\react_msg.py">
       <SubType>Code</SubType>
     </Compile>

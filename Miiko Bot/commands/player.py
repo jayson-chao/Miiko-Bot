@@ -1,7 +1,7 @@
 # player.py
 # music player commands
 
-from queue import SimpleQueue
+from queue import Queue
 import asyncio
 import discord
 from discord.ext import commands
@@ -16,6 +16,7 @@ from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name
 
 FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
+PAGE_SIZE=10
 
 class Player(commands.Cog):
     bot: MiikoBot
@@ -28,7 +29,7 @@ class Player(commands.Cog):
         if not ctx.author.voice:
             raise VoiceError('You are not connected to a voice channel.')
         if ctx.guild.id not in self.bot.player: # reset queue if there is none
-            self.bot.player[ctx.guild.id] = SimpleQueue()
+            self.bot.player[ctx.guild.id] = Queue()
         channel = ctx.author.voice.channel
         if not ctx.voice_client:
             await channel.connect()
@@ -43,7 +44,7 @@ class Player(commands.Cog):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel!')
             raise VoiceError('leave: Bot is not connected to any voice channel')
-        self.bot.player[ctx.guild.id] = SimpleQueue()
+        self.bot.player[ctx.guild.id] = Queue()
         ctx.voice_client.stop()
         await ctx.voice_client.disconnect()
         await ctx.send('Disconnected!')
@@ -57,11 +58,11 @@ class Player(commands.Cog):
             elif tag in unit_aliases:
                 media = media.filter(artist__contains=str(unit_aliases[tag]))
             else: # bad tag - give empty
-                return []
+                return None
         for word in args.words:
             songs = songs.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
         songs = await songs.values_list('name', 'jpname', 'roname', 'id')
-        best = (0, -1)
+        best = (-1, -1)
         for n, j, r, i in songs:
             ratio = process.extractOne(args.text, [n, j, r])
             if ratio[1] > best[1]:
@@ -78,14 +79,14 @@ class Player(commands.Cog):
             return
         arguments = parse_arguments(args)
         id = await self.choose_song(arguments)
-        if id is None:
-            ctx.send('No relevant song found.')
+        if id is None or id < 0:
+            await ctx.send('No relevant song found.')
             return
         g = await models.Guild.get_or_none(id=ctx.guild.id)
-        name = await media_name(await models.D4DJSong.get_or_none(id=id), g.langpref)
-        self.bot.player[ctx.guild.id].put((id, name, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
+        song = await models.D4DJSong.get_or_none(id=id)
+        self.bot.player[ctx.guild.id].put((song, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
-            await ctx.send(f'{name} placed in song queue')
+            await ctx.send(f'{await media_name(song, g.langpref)} placed in song queue')
         else:
             self.play_next(ctx)
 
@@ -97,9 +98,13 @@ class Player(commands.Cog):
             asyncio.run_coroutine_threadsafe(ctx.send("Queue finished!"), self.bot.loop)
             return
         next_song = self.bot.player[ctx.guild.id].get()
-        asyncio.run_coroutine_threadsafe(ctx.send(f'Now playing {next_song[1]}'), self.bot.loop) # will need to make function to replace this - this queue method doesn't change name w/ langpref change
+        asyncio.run_coroutine_threadsafe(self.up_next(ctx, next_song[0]), self.bot.loop) # will need to make function to replace this - this queue method doesn't change name w/ langpref change
         self.bot.playing[ctx.guild.id] = next_song[0]
-        ctx.voice_client.play(next_song[2], after=lambda e:self.play_next(ctx))
+        ctx.voice_client.play(next_song[1], after=lambda e:self.play_next(ctx))
+
+    async def up_next(self, ctx, song):
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        await ctx.send(f'Now playing {await media_name(song, g.langpref)}')
 
     @commands.command(name='skip', help='skip current song')
     async def skip(self, ctx):
@@ -122,19 +127,15 @@ class Player(commands.Cog):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel!')
             raise VoiceError('stop: Bot is not connected to any voice channel')
-        if ctx.voice_client.is_playing():
-            self.bot.player[ctx.guild.id] = SimpleQueue() # empty queue before triggering vc.play.after
+        if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
+            self.bot.player[ctx.guild.id] = Queue() # empty queue before triggering vc.play.after
             ctx.voice_client.stop()
 
     @commands.command(name='np', aliases=['nowplaying'], help='display info for current song')
     async def now_playing(self, ctx):
         if ctx.voice_client.is_playing():
             g = await models.Guild.get_or_none(id=ctx.guild.id)
-            sid = self.bot.playing[ctx.guild.id]
-            s = await models.D4DJSong.get_or_none(id=sid)
-            if not s:
-                await ctx.send(f'PLAYING: {self.bot.playing[ctx.guild.id]}')
-                return
+            s = self.bot.playing[ctx.guild.id]
             infoEmbed = discord.Embed(title=await media_name(s, g.langpref))
             if s.album:
                 a = await s.album.first()
@@ -145,6 +146,21 @@ class Player(commands.Cog):
                 infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
             infoEmbed.add_field(name='Type', value=(f'Cover ({await media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
             asyncio.ensure_future(run_paged_message(ctx, [infoEmbed]))
+        else:
+            await ctx.send('Not playing anything!')
+
+    @commands.command(name='queue', aliases=['nextup'], help='show currently queued songs')
+    async def show_queue(self, ctx):
+        if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
+            g = await models.Guild.get_or_none(id=ctx.guild.id)
+            songlist = []
+            cur = self.bot.playing[ctx.guild.id]
+            songlist.append(f'`NP.   {await media_name(cur, g.langpref)}`')
+            for i, s in enumerate(list(self.bot.player[ctx.guild.id].queue)):
+                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(s[0], g.langpref)}`')
+            page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
+            embeds = [discord.Embed(title='Play Queue', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+            asyncio.ensure_future(run_paged_message(ctx, embeds))
         else:
             await ctx.send('Not playing anything!')
 
