@@ -22,7 +22,7 @@ CMD_PREFIX = '&'
 bot = MiikoBot(command_prefix=CMD_PREFIX)
 
 # load extra extensions for bot
-EXTS = ['event', 'utility', 'music', 'preference']
+EXTS = ['event', 'utility', 'music', 'player', 'preference']
 for e in EXTS:
     bot.load_extension(f'commands.{e}')
 

@@ -88,3 +88,13 @@ def process_artist(a: str, lang: LangPref) -> str:
             pass
     return ', '.join(perf_a)
 
+async def media_name(m, langpref: LangPref): # album & song have same name fields in model
+    try:
+        if langpref == LangPref.JP and m.jpname:
+            return m.jpname
+        elif langpref == LangPref.RO and m.roname:
+            return m.roname
+    except: # has try-except to catch passed object not having jp/ro name field (i.e. OtherArtist)
+        pass    
+    return m.name
+

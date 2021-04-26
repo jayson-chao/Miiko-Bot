@@ -43,7 +43,7 @@ class Event(commands.Cog):
                 events = events.filter(name__icontains=word)
         return await events
 
-    @commands.command(name='event', help='get event based off search terms')
+    @commands.command(name='event', help='&event [terms | $tags], shows event info')
     async def get_event(self, ctx, *, args=None):
         # parse args into most relevant event based on tags/args, else get next event
         if args:
@@ -89,25 +89,26 @@ class Event(commands.Cog):
         else:
             await ctx.send('No relevant events found.')
 
-    @commands.command(name='events', help='get list of events ordered by id, &events [artist] to filter by artist')
+    @commands.command(name='events', help='&events [terms | $tags], lists events')
     async def event_list(self, ctx, *, args=None): # plan to add list filtering based off of unit keyword later
         if args:
             arguments = parse_arguments(args)
             events = await self.match_events(arguments)
         else:
             events = await models.D4DJEvent.all()
+        if len(events) < 1:
+            await ctx.send('No relevant events found.')
+            return
 
         eventlist = []
-        for e in events:
+        for i, e in enumerate(events):
             if e.embedname:
-                eventlist.append(f'`{e.id}.{" " * (5-len(str(e.id)))}{e.embedname}`')
+                eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.embedname}`')
             else:
-                eventlist.append(f'`{e.id}.{" " * (5-len(str(e.id)))}{e.name}`')
-
+                eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.name}`')
         PAGE_SIZE = 10 # defining here temporarily, can make a preference
         page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
-        embeds = [discord.Embed(title='Events', description=f'`ID    EVENT`\n'+'\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
-        
+        embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
 def setup(bot):
