@@ -2,19 +2,19 @@
   "901": {
     "name": "Dig Delight!",
     "artist": "012349",
-    "artiststr": "D4DJ",
+    "artiststr_id": "D4DJ",
     "releasedate": "2020-01-29"
   },
   "902": {
     "name": "Direct Drive!",
     "artist": "012349",
-    "artiststr": "D4DJ",
+    "artiststr_id": "D4DJ",
     "releasedate": "2020-04-22"
   },
   "903": {
     "name": "Cosmic CoaSTAR",
     "artist": "0123459",
-    "artiststr": "D4DJ",
+    "artiststr_id": "D4DJ",
     "releasedate": "2020-06-24"
   },
   "904": {
@@ -26,13 +26,13 @@
     "name": "WOW WAR TONIGHT ~Toki ni wa Okose yo Movement~",
     "jpname": "WOW WAR TONIGHT～時には起こせよムーヴメント～",
     "artist": "09",
-    "artiststr": "天野愛莉 (CV: 水樹奈々) ＆ 姫神紗乃 (CV: Raychell)",
+    "artiststr_id": "Amano Airi & Himegami Shano",
     "releasedate": "2021-02-24"
   },
   "906": {
     "name": "D4DJ Special Disc",
     "artist": "0129",
-    "artiststr": "D4DJ",
+    "artiststr_id": "D4DJ",
     "releasedate": "2021-02-24"
   },
   "001": {

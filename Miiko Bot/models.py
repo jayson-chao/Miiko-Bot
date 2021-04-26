@@ -31,8 +31,8 @@ class D4DJSong(Model):
     jpname = fields.CharField(255, default=None, null=True)
     roname = fields.CharField(255, default=None, null=True) 
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist.
-    artiststr = fields.CharField(255, default=None, null=True)
-    orartist = fields.ForeignKeyField('models.OtherArtist', related_name='by', null=True, default=None)
+    artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='song_str', null=True, default=None)
+    orartist = fields.ForeignKeyField('models.OtherArtist', related_name='or_by', null=True, default=None)
     length = fields.IntField(null=True, default=None) # time in seconds
     album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
     track = fields.IntField(null=True, default=None) # related to album
@@ -51,7 +51,7 @@ class D4DJAlbum(Model):
     jpname = fields.CharField(255, default=None, null=True)
     roname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) 
-    artiststr = fields.CharField(255, default=None, null=True)
+    artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='alb_str', null=True, default=None)
     releasedate = fields.CharField(10) # YYYY-MM-DD format
 
     class Meta:
@@ -62,6 +62,8 @@ class OtherArtist(Model):
     name = fields.CharField(255, pk=True)
     jpname = fields.CharField(255, default=None, null=True)
     assc = fields.CharField(255, default=None, null=True)
+
+    # here for tl purposes but given the large amount of null fields, may just use JP name for "original artist" without TL'ing
 
     class Meta:
         table = "Misc. Artists"

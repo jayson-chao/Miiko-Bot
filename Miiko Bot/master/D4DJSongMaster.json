@@ -40,7 +40,7 @@
     "name": "Guruguru DJ TURN!! (Anime OP Ver.)",
     "jpname": "ぐるぐるDJ TURN!! (アニメOP Ver.)",
     "artist": "09",
-    "artiststr": "Happy Around! feat. Yamate Kyoko & Izumo Saki",
+    "artiststr_id": "Happy Around! feat. KYOKO & SAKI",
     "length": 278,
     "album_id": "002",
     "track": 1
@@ -105,7 +105,7 @@
     "name": "Petit Mix Party Night!",
     "jpname": "ぷっちみくパーチナィ！",
     "artist": "09",
-    "artiststr": "Happy Around! feat. Kyoko, Saki, Rika, Tsubaki, Miyu"
+    "artiststr_id": "Happy Around! with KYOKO, SAKI, RIKA, TSUBAKI, MIYU"
   },
   "00016": {
     "name": "Hey! Be Ambitious!",
@@ -273,6 +273,84 @@
     "album_id": "906",
     "track": 3
   },
+  "11001": {
+    "name": "Agehachou",
+    "jpname": "アゲハ蝶",
+    "artist": "1",
+    "orartist_id": "Porno Graffiti"
+  },
+  "11002": {
+    "name": "Yumemiru Shoujo Ja Irarenai",
+    "jpname": "夢見る少女じゃいられない",
+    "artist": "1",
+    "orartist_id": "Aikawa Nanase"
+  },
+  "11003": {
+    "name": "CYBER CYBER",
+    "artist": "1",
+    "orartist_id": "ALTIMA"
+  },
+  "11004": {
+    "name": "Shounen Heart",
+    "jpname": "少年ハート",
+    "artist": "1",
+    "orartist_id": "HOME MADE KAZOKU"
+  },
+  "11005": {
+    "name": "Anticlockwise",
+    "jpname": "アンチクロックワイズ",
+    "artist": "1",
+    "orartist_id": "After the Rain"
+  },
+  "11006": {
+    "name": "Over Soul",
+    "artist": "1",
+    "orartist_id": "Hayashibara Megumi"
+  },
+  "11007": {
+    "name": "JUST COMMUNICATION",
+    "artist": "1",
+    "orartist_id": "Two-Mix",
+    "length": 258,
+    "album_id": "904",
+    "track": 4
+  },
+  "11008": {
+    "name": "Maji LOVE 1000%",
+    "jpname": "マジLOVE1000%",
+    "artist": "1",
+    "orartist_id": "ST☆RISH",
+    "length": 212,
+    "album_id": "904",
+    "track": 3
+  },
+  "11009": {
+    "name": "Kamen Rider BLACK",
+    "jpname": "仮面ライダーBLACK",
+    "artist": "1",
+    "orartist_id": "Kurata Tetsuo"
+  },
+  "11010": {
+    "name": "Borderland",
+    "artist": "1",
+    "orartist_id": "Kawada Mami"
+  },
+  "11011": {
+    "name": "Give a reason",
+    "artist": "1",
+    "orartist_id": "Hayashibara Megumi"
+  },
+  "11012": {
+    "name": "Gyakkō no Flügel",
+    "jpname": "逆光のフリューゲル",
+    "artist": "1",
+    "orartist_id": "Zwei Wing"
+  },
+  "11013": {
+    "name": "BLACK SHOUT",
+    "artist": "1",
+    "orartist_id": "Roselia"
+  },
   "20001": {
     "name": "Photon Melodies",
     "artist": "2",
@@ -332,6 +410,85 @@
     "name": "4 Challenges",
     "artist": "2"
   },
+  "21001": {
+    "name": "99 ILLUSION!",
+    "artist": "2",
+    "orartist_id": "Starlight Kukugumi"
+  },
+  "21002": {
+    "name": "Blue Field",
+    "jpname": "ブルー・フィールド",
+    "artist": "2",
+    "orartist_id": "Trident"
+  },
+  "21003": {
+    "name": "HOT LIMIT",
+    "artist": "2",
+    "orartist_id": "T.M.Revolution"
+  },
+  "21004": {
+    "name": "Sidonia",
+    "jpname": "シドニア",
+    "artist": "2",
+    "orartist_id": "angela",
+    "length": 269,
+    "album_id": "904",
+    "track": 6
+  },
+  "21005": {
+    "name": "READY STEADY GO",
+    "artist": "2",
+    "orartist_id": "L'Arc～en～Ciel"
+  },
+  "21006": {
+    "name": "sakura",
+    "artist": "2",
+    "orartist_id": "NIRGILIS",
+    "length": 294,
+    "album_id": "904",
+    "track": 5
+  },
+  "21007": {
+    "name": "cubic futurismo",
+    "jpname": "恋する図形",
+    "roname": "Koisuru Zukei",
+    "artist": "2",
+    "orartist_id": "Uesaka Sumire"
+  },
+  "21008": {
+    "name": "Galaxy Express 999",
+    "jpname": "銀河鉄道999",
+    "roname": "Ginga Tetsudou 999",
+    "artist": "2",
+    "orartist_id": "Godiego"
+  },
+  "21009": {
+    "name": "WHITE BREATH",
+    "artist": "2",
+    "orartist_id": "T.M.Revolution"
+  },
+  "21010": {
+    "name": "Synchrogazer",
+    "artist": "2",
+    "orartist_id": "Mizuki Nana"
+  },
+  "21011": {
+    "name": "Android Girl",
+    "jpname": "アンドロイドガール",
+    "artist": "2",
+    "orartist_id": "DECO*27"
+  },
+  "21012": {
+    "name": "INVOKE",
+    "artist": "2",
+    "orartist_id": "T.M.Revolution"
+  },
+  "21013": {
+    "name": "Blue Bird",
+    "jpname": "ブルーバード",
+    "artist": "2",
+    "orartist_id": "Ikimonogakari"
+  },
   "30001": {
     "name": "Floor Killer",
     "artist": "3",
@@ -384,8 +541,82 @@
     "artist": "3"
   },
   "30009": {
-    "name": "S.T.O.P.",
+    "name": "S.T.O.P.!",
     "artist": "3"
+  },
+  "31001": {
+    "name": "CAT'S EYE",
+    "artist": "3",
+    "orartist_id": "Anri"
+  },
+  "31002": {
+    "name": "Cutie Honey",
+    "jpname": "キューティーハニー",
+    "artist": "3",
+    "orartist_id": "Maekawa Yoko",
+    "length": 250,
+    "album_id": "904",
+    "track": 7
+  },
+  "31003": {
+    "name": "HONEY",
+    "artist": "3",
+    "orartist_id": "L'Arc～en～Ciel"
+  },
+  "31004": {
+    "name": "Gamble Rumble",
+    "artist": "3",
+    "orartist_id": "m.o.v.e"
+  },
+  "31005": {
+    "name": "real Emotion",
+    "artist": "3",
+    "orartist_id": "Koda Kumi"
+  },
+  "31006": {
+    "name": "Dou ni mo Tomaranai",
+    "jpname": "どうにもとまらない",
+    "artist": "3",
+    "orartist_id": "Yamamoto Linda"
+  },
+  "31007": {
+    "name": "Fujiyama Disco",
+    "jpname": "フジヤマディスコ",
+    "artist": "3",
+    "orartist_id": "SILENT SIREN"
+  },
+  "31008": {
+    "name": "DISCOTHEQUE",
+    "artist": "3",
+    "orartist_id": "Mizuki Nana",
+    "length": 339,
+    "album_id": "904",
+    "track": 8
+  },
+  "31009": {
+    "name": "Blazin' Beat",
+    "artist": "3",
+    "orartist_id": "m.o.v.e"
+  },
+  "31010": {
+    "name": "Climax Jump",
+    "artist": "3",
+    "orartist_id": "AAA"
+  },
+  "31011": {
+    "name": "EXPOSE 'Burn out!!!'",
+    "artist": "3",
+    "orartist_id": "RAISE A SUILEN"
+  },
+  "31012": {
+    "name": "Bomb A Head!",
+    "artist": "3",
+    "orartist_id": "m.c.A·T"
+  },
+  "31013": {
+    "name": "Realize",
+    "artist": "3",
+    "orartist_id": "Tamaki Nami"
   },
   "40001": {
     "name": "Movement",
@@ -451,6 +682,77 @@
     "name": "[Re] termination",
     "artist": "4"
   },
+  "41001": {
+    "name": "DESIRE -Jounetsu-",
+    "jpname": "DESIRE -情熱-",
+    "artist": "4",
+    "orartist_id": "Nakamori Akina",
+    "length": 244,
+    "album_id": "904",
+    "track": 10
+  },
+  "41002": {
+    "name": "unravel",
+    "artist": "4",
+    "orartist_id": "TK from Ling Tosite Sigure"
+  },
+  "41003": {
+    "name": "Namae no Nai Kaibutsu",
+    "jpname": "名前のない怪物",
+    "artist": "4",
+    "orartist_id": "EGOIST",
+    "length": 308,
+    "album_id": "904",
+    "track": 9
+  },
+  "41004": {
+    "name": "Leia",
+    "artist": "4",
+    "orartist_id": "Yuyoyuppe feat.Megurine Luka"
+  },
+  "41005": {
+    "name": "Tokyo Teddy Bear",
+    "jpname": "東京テディベア",
+    "artist": "4",
+    "orartist_id": "Neru"
+  },
+  "41006": {
+    "name": "Rising Hope",
+    "artist": "4",
+    "orartist_id": "LiSA"
+  },
+  "41007": {
+    "name": "DAYBREAK'S BELL",
+    "artist": "4",
+    "orartist_id": "L'Arc～en～Ciel"
+  },
+  "41008": {
+    "name": "KiLLiNG ME",
+    "artist": "4",
+    "orartist_id": "SiM"
+  },
+  "41009": {
+    "name": "MUGEN∞REBIRTH",
+    "jpname": "無限∞REBIRTH",
+    "artist": "4",
+    "orartist_id": "DAIGO"
+  },
+  "41010": {
+    "name": "Fukai Mori",
+    "jpname": "深い森",
+    "artist": "4",
+    "orartist_id": "Do As Infinity"
+  },
+  "41011": {
+    "name": "Journey Through The Decade",
+    "artist": "4",
+    "orartist_id": "Gackt"
+  },
+  "41012": {
+    "name": "killy killy JOKER",
+    "artist": "4",
+    "orartist_id": "Wakeshima Kanon"
+  },
   "50001": {
     "name": "The Color of Tainted Sorrow",
     "jpname": "汚れっちまった悲しみの色",
@@ -503,10 +805,91 @@
     "jpname": "人間合格!!!!",
     "artist": "5"
   },
+  "50008": {
+    "name": "Bouken Ou!",
+    "jpname": "冒険王！",
+    "artist": "5"
+  },
+  "51001": {
+    "name": "Agapё",
+    "artist": "5",
+    "orartist_id": "melocure"
+  },
+  "51002": {
+    "name": "Touch",
+    "jpname": "タッチ",
+    "artist": "5",
+    "orartist_id": "Iwasaki Yoshimi",
+    "length": 208,
+    "album_id": "904",
+    "track": 12
+  },
+  "51003": {
+    "name": "Taiyou no flare sherbet",
+    "jpname": "太陽のflare sherbet",
+    "artist": "5",
+    "orartist_id": "Kubota Miyu"
+  },
+  "51004": {
+    "name": "Fu・re・n・do・Shi・ta・i",
+    "jpname": "ふ・れ・ん・ど・し・た・い",
+    "artist": "5",
+    "orartist_id": "Gakuen Seikatsu-bu",
+    "length": 218,
+    "album_id": "904",
+    "track": 11
+  },
+  "51005": {
+    "name": "Univer Page",
+    "jpname": "ユニバーページ",
+    "artist": "5",
+    "orartist_id": "Mimori Suzuko"
+  },
+  "51006": {
+    "name": "Otoko no Kunshou",
+    "jpname": "男の勲章",
+    "artist": "5",
+    "orartist_id": "Shima Daisuke"
+  },
+  "51007": {
+    "name": "Soushou Innocence",
+    "jpname": "創傷イノセンス",
+    "artist": "5",
+    "orartist_id": "Uchida Maaya"
+  },
+  "51008": {
+    "name": "Gimme! Revolution",
+    "jpname": "ギミー！レボリューション",
+    "artist": "5",
+    "orartist_id": "Uchida Maaya"
+  },
+  "51009": {
+    "name": "Sakura Saku",
+    "jpname": "サクラサク",
+    "artist": "5",
+    "orartist_id": "Hayashibara Megumi"
+  },
+  "51010": {
+    "name": "Galaxy☆BabangaBang!",
+    "jpname": "ギャラクシー☆ばばんがBang!",
+    "artist": "5",
+    "orartist_id": "Angel-tai"
+  },
+  "51011": {
+    "name": "Shiny Smily Story",
+    "artist": "5",
+    "orartist_id": "hololive IDOL PROJECT"
+  },
+  "51012": {
+    "name": "Akai Sweet Pea",
+    "jpname": "赤いスイートピー",
+    "artist": "5",
+    "orartist_id": "Matsuda Seiko"
+  },
   "90001": {
     "name": "LOVE!HUG!GROOVY!!",
     "artist": "0123459",
-    "artiststr": "D4DJ ALL STARS",
+    "artiststr_id": "D4DJ ALL STARS",
     "length": 391,
     "album_id": "002",
     "track": 2
@@ -515,9 +898,23 @@
     "name": "WOW WAR TONIGHT ~Toki ni wa Okose yo Movement~",
     "jpname": "WOW WAR TONIGHT～時には起こせよムーヴメント～",
     "artist": "9",
-    "artiststr": "天野愛莉 (CV: 水樹奈々) ＆ 姫神紗乃 (CV: Raychell)",
+    "artiststr_id": "Amano Airi & Himegami Shano",
+    "orartist_id": "H Jungle with t",
     "length": 325,
     "album_id": "905",
     "track": 1
+  },
+  "91002": {
+    "name": "POP TEAM EPIC",
+    "artist": "9",
+    "artiststr_id": "Kaibara Michiru",
+    "orartist_id": "Uesaka Sumire"
+  },
+  "91003": {
+    "name": "Gotoubun no Kimochi",
+    "jpname": "五等分の気持ち",
+    "artist": "9",
+    "artiststr_id": "Ohnaruto Muni & Hanamaki Towa & Fukushima Noa & Yano Hiiro & Kasuga Haruna",
+    "orartist_id": "Nakano-ke no Itsutsugo"
   }
 }

@@ -143,7 +143,7 @@ class Music (commands.Cog):
                 a = await s.album.first()
                 infoEmbed.add_field(name='Album', value=await self.media_name(a, g.langpref))
                 infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-            infoEmbed.add_field(name='Artist(s)', value=(s.artiststr if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
+            infoEmbed.add_field(name='Artist(s)', value=(await self.media_name(await s.artiststr.first(), g.langpref) if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
             if s.length:
                 infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
             infoEmbed.add_field(name='Type', value=(f'Cover ({await self.media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
@@ -191,7 +191,7 @@ class Music (commands.Cog):
                     a = await s.album.first()
                     infoEmbed.add_field(name='Album', value=await self.media_name(a, g.langpref))
                     infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-                infoEmbed.add_field(name='Artist(s)', value=(s.artiststr if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
+                infoEmbed.add_field(name='Artist(s)', value=(await self.media_name(await s.artiststr.first(), g.langpref) if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
                 if s.length:
                     infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
                 infoEmbed.add_field(name='Type', value=(f'Cover ({await self.media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
@@ -218,7 +218,7 @@ class Music (commands.Cog):
                     songlist.append(f'`{j+1}.{" " * (4-len(str(j)))}{await self.media_name(s, g.langpref)}`')
                 albumtitle = await self.media_name(a, g.langpref)
                 albumEmbed = discord.Embed(title=albumtitle)
-                albumEmbed.add_field(name='Artist(s)', value=(a.artiststr if a.artiststr else process_artist(a.artist, g.langpref)), inline=False)
+                albumEmbed.add_field(name='Artist(s)', value=(await self.media_name(await a.artiststr.first(), g.langpref) if a.artiststr else process_artist(a.artist, g.langpref)), inline=False)
                 albumEmbed.add_field(name='Release Date', value=a.releasedate)
                 trackEmbed = discord.Embed(title=albumtitle)
                 trackEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
