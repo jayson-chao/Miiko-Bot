@@ -796,13 +796,15 @@
     "track": 2
   },
   "50006": {
-    "name": "Tsuki ni Moeru",
+    "name": "Pining for the Moon",
     "jpname": "月に萌える",
+    "roname": "Tsuki ni Moeru",
     "artist": "5"
   },
   "50007": {
-    "name": "Ningen Goukaku!!!!",
+    "name": "Certified Human!!!!",
     "jpname": "人間合格!!!!",
+    "roname": "Ningen Goukaku!!!!",
     "artist": "5"
   },
   "50008": {

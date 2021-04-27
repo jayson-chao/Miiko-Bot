@@ -81,6 +81,7 @@
     <Content Include="Master\OtherArtistMaster.json">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="commands\" />

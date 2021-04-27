@@ -4,6 +4,7 @@
 from queue import Queue
 import asyncio
 import discord
+import requests
 from discord.ext import commands
 from discord import ClientException
 from tortoise.query_utils import Q
@@ -82,8 +83,16 @@ class Player(commands.Cog):
         if id is None or id < 0:
             await ctx.send('No relevant song found.')
             return
-        g = await models.Guild.get_or_none(id=ctx.guild.id)
+
         song = await models.D4DJSong.get_or_none(id=id)
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        
+        # check that asset address responds w/o error
+        r = requests.head(f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')
+        if not r:
+            await ctx.send(f'{await media_name(song, g.langpref)} is not available at the moment.')
+            return
+
         self.bot.player[ctx.guild.id].put((song, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
             await ctx.send(f'{await media_name(song, g.langpref)} placed in song queue')
