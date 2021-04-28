@@ -26,7 +26,6 @@ Change TORTOISE_ORM in tortoise_config.py to your needs before running.
 ## Planned/Possible Features
 
 ### D4DJ Information Database
-- Expand music embeds to include production team information like arrangers/composer/lyricists.
 - Add information commands for livestreams/relevant DJ sets
 - Show setlists for past events/DJ sets
 - Expand upon the existing archive links to allow for searching of archive content

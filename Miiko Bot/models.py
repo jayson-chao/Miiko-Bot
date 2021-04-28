@@ -33,6 +33,9 @@ class D4DJSong(Model):
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist.
     artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='song_str', null=True, default=None)
     orartist = fields.ForeignKeyField('models.OtherArtist', related_name='or_by', null=True, default=None)
+    lyricist = fields.ManyToManyField('models.D4DJStaff', related_name='lyricized', through='lyricists', null=True, default=None)
+    composer = fields.ManyToManyField('models.D4DJStaff', related_name='composed', through='composers', null=True, default=None)
+    arranger = fields.ManyToManyField('models.D4DJStaff', related_name='arranged', through='arrangers', null=True, default=None)
     length = fields.IntField(null=True, default=None) # time in seconds
     album = fields.ForeignKeyField('models.D4DJAlbum', related_name='songs', null=True, default=None)
     track = fields.IntField(null=True, default=None) # related to album
@@ -61,7 +64,6 @@ class D4DJAlbum(Model):
 class OtherArtist(Model):
     name = fields.CharField(255, pk=True)
     jpname = fields.CharField(255, default=None, null=True)
-    assc = fields.CharField(255, default=None, null=True)
 
     # here for tl purposes but given the large amount of null fields, may just use JP name for "original artist" without TL'ing
 
@@ -72,6 +74,9 @@ class D4DJStaff(Model):
     name = fields.CharField(255, pk=True)
     jpname = fields.CharField(255, default=None, null=True)
     company = fields.CharField(255, default=None, null=True)
+    composed: fields.ManyToManyRelation[D4DJSong]
+    lyricized: fields.ManyToManyRelation[D4DJSong]
+    arranged: fields.ManyToManyRelation[D4DJSong]
     
     class Meta:
         table = "Staff Members"

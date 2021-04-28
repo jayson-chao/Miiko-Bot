@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>Miiko Bot</Name>
     <RootNamespace>Miiko Bot</RootNamespace>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,6 +77,9 @@
     </Content>
     <Content Include="Master\D4DJEventMaster.json" />
     <Content Include="Master\D4DJSongMaster.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Master\D4DJStaffMaster.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Master\OtherArtistMaster.json">

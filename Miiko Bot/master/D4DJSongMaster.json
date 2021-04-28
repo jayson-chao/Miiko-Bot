@@ -2,6 +2,9 @@
   "00001": {
     "name": "Dig Delight!",
     "artist": "0",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "Yamato" ],
+    "arranger_rel": [ "PandaBoY" ],
     "length": 255,
     "album_id": "901",
     "track": 1
@@ -9,6 +12,9 @@
   "00002": {
     "name": "Direct Drive!",
     "artist": "0",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "ZAQ" ],
+    "arranger_rel": [ "ZAQ", "A-bee" ],
     "length": 301,
     "album_id": "902",
     "track": 1
@@ -16,6 +22,9 @@
   "00003": {
     "name": "Cosmic CoaSTAR",
     "artist": "0",
+    "lyricist_rel": [ "Takase Aiko" ],
+    "composer_rel": [ "Hoshi Ginnojō" ],
+    "arranger_rel": [ "Hoshi Ginnojō", "yuigot" ],
     "length": 287,
     "album_id": "903",
     "track": 1
@@ -23,6 +32,9 @@
   "00004": {
     "name": "Happy Music♪",
     "artist": "0",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "PandaBoY" ],
+    "arranger_rel": [ "PandaBoY" ],
     "length": 234,
     "album_id": "001",
     "track": 1
@@ -32,6 +44,9 @@
     "jpname": "君にハピあれ♪",
     "roname": "Kimi ni Hapi Are♪",
     "artist": "0",
+    "lyricist_rel": [ "Ando Sasa" ],
+    "composer_rel": [ "Shunryuu" ],
+    "arranger_rel": [ "XELIK" ],
     "length": 278,
     "album_id": "001",
     "track": 2
@@ -41,6 +56,9 @@
     "jpname": "ぐるぐるDJ TURN!! (アニメOP Ver.)",
     "artist": "09",
     "artiststr_id": "Happy Around! feat. KYOKO & SAKI",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "Hyadain" ],
+    "arranger_rel": [ "PandaBoY" ],
     "length": 278,
     "album_id": "002",
     "track": 1
@@ -48,6 +66,9 @@
   "00007": {
     "name": "SHUFFLE HEART BEAT",
     "artist": "0",
+    "lyricist_rel": [ "Takase Aiko" ],
+    "composer_rel": [ "Shunryuu" ],
+    "arranger_rel": [ "Nakanishi Ryosuke" ],
     "length": 262,
     "album_id": "003",
     "track": 1
@@ -55,6 +76,9 @@
   "00008": {
     "name": "Make My Style",
     "artist": "0",
+    "lyricist_rel": [ "Yamamoto Meco" ],
+    "composer_rel": [ "Sato Yosuke" ],
+    "arranger_rel": [ "Sato Yosuke" ],
     "length": 275,
     "album_id": "906",
     "track": 7
@@ -63,6 +87,9 @@
     "name": "Give Me Awesome!!!!",
     "jpname": "ぎぶみーAwesome!!!!",
     "artist": "0",
+    "lyricist_rel": [ "PandaBoY" ],
+    "composer_rel": [ "PandaBoY" ],
+    "arranger_rel": [ "PandaBoY" ],
     "length": 220,
     "album_id": "906",
     "track": 2
@@ -70,6 +97,9 @@
   "00010": {
     "name": "Happy Around Days",
     "artist": "0",
+    "lyricist_rel": [ "Professor Mizushima", "Ando Sasa" ],
+    "composer_rel": [ "Yamato" ],
+    "arranger_rel": [ "Yamato", "gen" ],
     "length": 281,
     "album_id": "906",
     "track": 1
@@ -79,6 +109,9 @@
     "jpname": "はぁ～い☆FORTUNE！",
     "roname": "Ha~i☆FORTUNE!",
     "artist": "0",
+    "lyricist_rel": [ "Ando Sasa" ],
+    "composer_rel": [ "gen", "Shunryuu" ],
+    "arranger_rel": [ "gen", "Shunryuu" ],
     "length": 278,
     "album_id": "003",
     "track": 2
@@ -86,17 +119,26 @@
   "00012": {
     "name": "Brand New World",
     "artist": "0",
+    "lyricist_rel": [ "fu_mou" ],
+    "composer_rel": [ "fu_mou" ],
+    "arranger_rel": [ "fu_mou" ],
     "length": 246,
     "album_id": "906",
     "track": 6
   },
   "00013": {
     "name": "HONEST -conflict01-",
-    "artist": "0"
+    "artist": "0",
+    "lyricist_rel": [ "ZAQ" ],
+    "composer_rel": [ "ZAQ" ],
+    "arranger_rel": [ "ZAQ" ]
   },
   "00014": {
     "name": "HONEST -happy a word-",
     "artist": "0",
+    "lyricist_rel": [ "ZAQ" ],
+    "composer_rel": [ "ZAQ" ],
+    "arranger_rel": [ "ZAQ" ],
     "length": 247,
     "album_id": "906",
     "track": 4
@@ -105,7 +147,10 @@
     "name": "Petit Mix Party Night!",
     "jpname": "ぷっちみくパーチナィ！",
     "artist": "09",
-    "artiststr_id": "Happy Around! with KYOKO, SAKI, RIKA, TSUBAKI, MIYU"
+    "artiststr_id": "Happy Around! with KYOKO, SAKI, RIKA, TSUBAKI, MIYU",
+    "lyricist_rel": [ "Yuuki Aira" ],
+    "composer_rel": [ "Yamato" ],
+    "arranger_rel": [ "TECHNOBOYS PULCRAFT GREEN-FUND" ]
   },
   "00016": {
     "name": "Hey! Be Ambitious!",

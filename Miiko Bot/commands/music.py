@@ -11,7 +11,7 @@ import models
 from bot import MiikoBot
 from common.react_msg import run_paged_message, run_swap_message
 from common.parse_args import ParsedArguments, parse_arguments
-from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name
+from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name, art_colors
 
 PAGE_SIZE=10
 
@@ -50,7 +50,7 @@ class Music (commands.Cog):
         if len(songs) > 0:
             embeds = []
             for i, s in enumerate(songs):
-                infoEmbed = discord.Embed(title=await media_name(s, g.langpref))
+                infoEmbed = discord.Embed(title=await media_name(s, g.langpref), color = art_colors[s.id // 10000])
                 if len(songs) > 1:
                     infoEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
                 if s.album:
@@ -61,6 +61,22 @@ class Music (commands.Cog):
                 if s.length:
                     infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
                 infoEmbed.add_field(name='Type', value=(f'Cover ({await media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
+                
+                await s.fetch_related('lyricist')
+                if s.lyricist:
+                    c = [await media_name(com, g.langpref) for com in s.lyricist]
+                    infoEmbed.add_field(name='Lyricist(s)', value=', '.join(c), inline=False)
+
+                await s.fetch_related('composer')
+                if s.composer:
+                    c = [await media_name(com, g.langpref) for com in s.composer]
+                    infoEmbed.add_field(name='Composer(s)', value=', '.join(c), inline=False)
+
+                await s.fetch_related('arranger')
+                if s.arranger:
+                    c = [await media_name(com, g.langpref) for com in s.arranger]
+                    infoEmbed.add_field(name='Arranger(s)', value=', '.join(c), inline=False)
+
                 embeds.append(infoEmbed)
             asyncio.ensure_future(run_paged_message(ctx, embeds))
         else:
@@ -102,10 +118,10 @@ class Music (commands.Cog):
                 for j, s in enumerate(await a.songs.order_by('track')):
                     songlist.append(f'`{j+1}.{" " * (4-len(str(j)))}{await media_name(s, g.langpref)}`')
                 albumtitle = await media_name(a, g.langpref)
-                albumEmbed = discord.Embed(title=albumtitle)
+                albumEmbed = discord.Embed(title=albumtitle, color = art_colors[a.id // 100])
                 albumEmbed.add_field(name='Artist(s)', value=(await media_name(await a.artiststr.first(), g.langpref) if a.artiststr else process_artist(a.artist, g.langpref)), inline=False)
                 albumEmbed.add_field(name='Release Date', value=a.releasedate)
-                trackEmbed = discord.Embed(title=albumtitle)
+                trackEmbed = discord.Embed(title=albumtitle, color = art_colors[a.id // 100])
                 trackEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
                 if len(albums) > 1:
                     albumEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')

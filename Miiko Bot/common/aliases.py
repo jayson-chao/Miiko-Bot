@@ -4,6 +4,7 @@
 from enum import IntEnum
 
 artists = ["Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily"]
+art_colors = [0xff6e00, 0xc90000, 0x16ffeb, 0xffff00, 0x5755e5, 0xffa8f7, 0x222222, 0x222222, 0x222222, 0x222222]
 
 unit_aliases = {
     'happy_around!': 0,
