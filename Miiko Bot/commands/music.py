@@ -3,9 +3,11 @@
 
 import asyncio
 import discord
+import requests
 from discord.ext import commands
 from discord import ClientException
 from tortoise.query_utils import Q
+from typing import Union
 
 import models
 from bot import MiikoBot
@@ -48,37 +50,44 @@ class Music (commands.Cog):
         arguments = parse_arguments(args)
         songs = await self.match_media(arguments, models.D4DJSong)
         if len(songs) > 0:
-            embeds = []
+            infoembeds = []
+            staffembeds = []
             for i, s in enumerate(songs):
-                infoEmbed = discord.Embed(title=await media_name(s, g.langpref), color = art_colors[s.id // 10000])
+                trackEmbed = discord.Embed(title=await media_name(s, g.langpref), color = art_colors[s.id // 10000])
+                staffEmbed = discord.Embed(title=await media_name(s, g.langpref), color = art_colors[s.id // 10000])
                 if len(songs) > 1:
-                    infoEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
+                    trackEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
+                    staffEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
                 if s.album:
                     a = await s.album.first()
-                    infoEmbed.add_field(name='Album', value=await media_name(a, g.langpref))
-                    infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-                infoEmbed.add_field(name='Artist(s)', value=(await media_name(await s.artiststr.first(), g.langpref) if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
+                    trackEmbed.add_field(name='Album', value=await media_name(a, g.langpref))
+                    trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                    staffEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                trackEmbed.add_field(name='Artist(s)', value=(await media_name(await s.artiststr.first(), g.langpref) if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
                 if s.length:
-                    infoEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
-                infoEmbed.add_field(name='Type', value=(f'Cover ({await media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
+                    trackEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
+                trackEmbed.add_field(name='Type', value=(f'Cover ({await media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
                 
+                # massively increases embed load time. may move back to loading files locally/detecting if path exists so it speeds this up
+                # r = requests.head(f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{s.id:05d}.mp3?raw=true')
+                # staffEmbed.add_field(name='Playable by Bot', value='Yes' if r else 'No', inline=False)
+
                 await s.fetch_related('lyricist')
                 if s.lyricist:
                     c = [await media_name(com, g.langpref) for com in s.lyricist]
-                    infoEmbed.add_field(name='Lyricist(s)', value=', '.join(c), inline=False)
-
+                    staffEmbed.add_field(name='Lyricist(s)', value=', '.join(c), inline=False)
                 await s.fetch_related('composer')
                 if s.composer:
                     c = [await media_name(com, g.langpref) for com in s.composer]
-                    infoEmbed.add_field(name='Composer(s)', value=', '.join(c), inline=False)
-
+                    staffEmbed.add_field(name='Composer(s)', value=', '.join(c), inline=False)
                 await s.fetch_related('arranger')
                 if s.arranger:
                     c = [await media_name(com, g.langpref) for com in s.arranger]
-                    infoEmbed.add_field(name='Arranger(s)', value=', '.join(c), inline=False)
+                    staffEmbed.add_field(name='Arranger(s)', value=', '.join(c), inline=False)
 
-                embeds.append(infoEmbed)
-            asyncio.ensure_future(run_paged_message(ctx, embeds))
+                infoembeds.append(trackEmbed)
+                staffembeds.append(staffEmbed)
+            asyncio.ensure_future(run_swap_message(ctx, [infoembeds, staffembeds]))
         else:
             await ctx.send('No relevant songs found.')
 
@@ -153,6 +162,39 @@ class Music (commands.Cog):
         embeds = [discord.Embed(title='Albums', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
+    async def match_staff(self, args: ParsedArguments):
+        staff = models.D4DJStaff.all().order_by('name')
+        if 'all' in args.tags:
+            return await staff
+        for tag in args.tags:
+            return [] # no tag filters at the moment so any tag aside from 'all' returns empty set
+        for word in args.words:
+            staff = staff.filter(Q(name__icontains=word)|Q(jpname__icontains=word))
+        return await staff
+
+    def id_sort(self, obj1):
+        return obj1.id
+
+    @commands.command(name='staff', help='&staff [terms], shows staff member info', hidden=True)
+    async def list_staff(self, ctx, *, args=None):
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        if args:
+            staff = await self.match_staff(parse_arguments(args))
+        else:
+            staff = await models.D4DJStaff.all()
+
+        staffpage = []
+        for i, s in enumerate(staff):
+            songlist = []
+            # filter on D4DJSong wasn't working properly, using union and sort while I look for quick fix while I look into the problem
+            songs = set((await s.lyricized)).union(set(await s.composed), set(await s.arranged))
+            for i, so in enumerate(sorted(songs, key=self.id_sort)):
+                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(so, g.langpref)}`')
+            staffEmbed = discord.Embed(title=await media_name(s, g.langpref), description='\n'.join((so for so in songlist)))
+            staffpage.append(staffEmbed)
+        asyncio.ensure_future(run_paged_message(ctx, staffpage))
+
+        return
 
 # expected by load_extension in bot
 def setup(bot):
