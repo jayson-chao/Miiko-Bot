@@ -172,9 +172,6 @@ class Music (commands.Cog):
             staff = staff.filter(Q(name__icontains=word)|Q(jpname__icontains=word))
         return await staff
 
-    def id_sort(self, obj1):
-        return obj1.id
-
     @commands.command(name='staff', help='&staff [terms], shows staff member info', hidden=True)
     async def list_staff(self, ctx, *, args=None):
         g = await models.Guild.get_or_none(id=ctx.guild.id)
@@ -182,19 +179,31 @@ class Music (commands.Cog):
             staff = await self.match_staff(parse_arguments(args))
         else:
             staff = await models.D4DJStaff.all()
-
+        if not len(staff) > 0:
+            await ctx.send('No staff member found.')
+            return
+        
         staffpage = []
         for i, s in enumerate(staff):
             songlist = []
             # filter on D4DJSong wasn't working properly, using union and sort while I look for quick fix while I look into the problem
-            songs = set((await s.lyricized)).union(set(await s.composed), set(await s.arranged))
-            for i, so in enumerate(sorted(songs, key=self.id_sort)):
-                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(so, g.langpref)}`')
+            await s.fetch_related('lyricized')
+            await s.fetch_related('composed')
+            await s.fetch_related('arranged')
+            songs = set((s.lyricized)).union(set(s.composed), set(s.arranged))
+            for i, so in enumerate(sorted(songs, key=lambda x:x.id)):
+                did = []
+                if so in s.lyricized:
+                    did.append('L')
+                if so in s.composed:
+                    did.append('C')
+                if so in s.arranged:
+                    did.append('A')
+
+                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(so, g.langpref)} ({"".join(did)})`')
             staffEmbed = discord.Embed(title=await media_name(s, g.langpref), description='\n'.join((so for so in songlist)))
             staffpage.append(staffEmbed)
         asyncio.ensure_future(run_paged_message(ctx, staffpage))
-
-        return
 
 # expected by load_extension in bot
 def setup(bot):

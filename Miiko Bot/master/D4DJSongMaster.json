@@ -59,11 +59,22 @@
     "lyricist_rel": [ "Nakamura Kou" ],
     "composer_rel": [ "Hyadain" ],
     "arranger_rel": [ "PandaBoY" ],
-    "length": 278,
+    "length": 223,
     "album_id": "002",
     "track": 1
   },
   "00007": {
+    "name": "Guruguru DJ TURN!!",
+    "jpname": "ぐるぐるDJ TURN!!",
+    "artist": "0",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "Hyadain" ],
+    "arranger_rel": [ "PandaBoY" ],
+    "length": 223,
+    "album_id": "002",
+    "track": 3
+  },
+  "00008": {
     "name": "SHUFFLE HEART BEAT",
     "artist": "0",
     "lyricist_rel": [ "Takase Aiko" ],
@@ -73,7 +84,7 @@
     "album_id": "003",
     "track": 1
   },
-  "00008": {
+  "00009": {
     "name": "Make My Style",
     "artist": "0",
     "lyricist_rel": [ "Yamamoto Meco" ],
@@ -83,7 +94,7 @@
     "album_id": "906",
     "track": 7
   },
-  "00009": {
+  "00010": {
     "name": "Give Me Awesome!!!!",
     "jpname": "ぎぶみーAwesome!!!!",
     "artist": "0",
@@ -94,7 +105,7 @@
     "album_id": "906",
     "track": 2
   },
-  "00010": {
+  "00011": {
     "name": "Happy Around Days",
     "artist": "0",
     "lyricist_rel": [ "Professor Mizushima", "Ando Sasa" ],
@@ -104,7 +115,7 @@
     "album_id": "906",
     "track": 1
   },
-  "00011": {
+  "00012": {
     "name": "Yes☆FORTUNE!",
     "jpname": "はぁ～い☆FORTUNE！",
     "roname": "Ha~i☆FORTUNE!",
@@ -112,11 +123,11 @@
     "lyricist_rel": [ "Ando Sasa" ],
     "composer_rel": [ "gen", "Shunryuu" ],
     "arranger_rel": [ "gen", "Shunryuu" ],
-    "length": 278,
+    "length": 219,
     "album_id": "003",
     "track": 2
   },
-  "00012": {
+  "00013": {
     "name": "Brand New World",
     "artist": "0",
     "lyricist_rel": [ "fu_mou" ],
@@ -126,14 +137,14 @@
     "album_id": "906",
     "track": 6
   },
-  "00013": {
+  "00014": {
     "name": "HONEST -conflict01-",
     "artist": "0",
     "lyricist_rel": [ "ZAQ" ],
     "composer_rel": [ "ZAQ" ],
     "arranger_rel": [ "ZAQ" ]
   },
-  "00014": {
+  "00015": {
     "name": "HONEST -happy a word-",
     "artist": "0",
     "lyricist_rel": [ "ZAQ" ],
@@ -143,7 +154,7 @@
     "album_id": "906",
     "track": 4
   },
-  "00015": {
+  "00016": {
     "name": "Petit Mix Party Night!",
     "jpname": "ぷっちみくパーチナィ！",
     "artist": "09",
@@ -152,7 +163,7 @@
     "composer_rel": [ "PandaBoY" ],
     "arranger_rel": [ "PandaBoY" ]
   },
-  "00016": {
+  "00017": {
     "name": "Hey! Be Ambitious!",
     "artist": "0",
     "lyricist_rel": [ "Yuuki Aira" ],
