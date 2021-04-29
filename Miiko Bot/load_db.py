@@ -4,7 +4,7 @@
 import json
 import models
 
-DBS = {'D4DJEvent': 'id', 'OtherArtist': 'name', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id'}
+DBS = {'OtherArtist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id'}
 
 M_TO_MS = {
     'D4DJSong': [('D4DJStaff', 'lyricist_rel'), ('D4DJStaff', 'composer_rel'), ('D4DJStaff', 'arranger_rel')]
@@ -29,3 +29,10 @@ async def load_db():
                     for i in data[item][f]:
                         g = await ctype.get_or_none(**{DBS[c]: i})
                         await attr.add(g)
+
+    # manually load setlists since it doesn't play nice with the current structure i have 
+    with open(f'Master/D4DJSetlistMaster.json') as f:
+            data = json.load(f)
+    for item in data:
+        for pos, song in enumerate(data[item]['setlist']):
+            await models.D4DJSetlist.update_or_create(event_id=item, song_id=song, position=pos+1)

@@ -9,10 +9,11 @@ from common.aliases import LangPref
 
 # model for event db
 class D4DJEvent(Model):
-    id = fields.IntField(pk=True)
+    id = fields.IntField(pk=True) # id system - [0/Live, 1/DJ_TIME, 2/Other D4DJ Stream, 3/Other Event][03d - setlist number]
     name = fields.CharField(255)
     embedname = fields.CharField(255, default=None, null=True) # shortened name for embed list
-    artist = fields.CharField(6) # include number corresponding to each artist (see artist array in aliases.py)
+    artist = fields.CharField(7) # include number corresponding to each artist (see artist array in aliases.py)
+    artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='event_str', null=True, default=None)
     eventdate = fields.CharField(19) # expected in "[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]" form
 
     # livestream and archive expected in the form "[text](link)" for links
@@ -42,6 +43,7 @@ class D4DJSong(Model):
     # add: fks to staff
 
     # playable songs in common/assets/music (instr. tracks planned to be same id + 'i')
+    # external songs will be numbered from 92001 onwards
 
     class Meta:
         table = "Songs"
@@ -60,6 +62,16 @@ class D4DJAlbum(Model):
     class Meta:
         table = "Albums"
         ordering = ["id"]
+
+class D4DJSetlist(Model):
+    event = fields.ForeignKeyField('models.D4DJEvent')
+    song = fields.ForeignKeyField('models.D4DJSong')
+    position = fields.IntField()
+
+    class Meta:
+        table = "setlist_songs"
+        ordering = ["event__id", "position"]
+        unique_together = (("event", "position"))
 
 class OtherArtist(Model):
     name = fields.CharField(255, pk=True)

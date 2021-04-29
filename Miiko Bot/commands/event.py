@@ -26,7 +26,7 @@ class Event(commands.Cog):
 
     # returns array of relevant events
     async def match_events(self, args: ParsedArguments):
-        events = models.D4DJEvent.all().order_by('id')
+        events = models.D4DJEvent.all().filter(id__lt=1000)
         if 'all' in args.tags:
             return await events
         for tag in args.tags:
@@ -95,7 +95,7 @@ class Event(commands.Cog):
             arguments = parse_arguments(args)
             events = await self.match_events(arguments)
         else:
-            events = await models.D4DJEvent.all()
+            events = await models.D4DJEvent.filter(id__lt=1000)
         if len(events) < 1:
             await ctx.send('No relevant events found.')
             return
