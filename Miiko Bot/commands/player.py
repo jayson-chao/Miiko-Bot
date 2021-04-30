@@ -17,7 +17,7 @@ from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name
 
 FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
-PAGE_SIZE=10
+PAGE_SIZE=15
 
 class Player(commands.Cog):
     bot: MiikoBot
@@ -52,7 +52,7 @@ class Player(commands.Cog):
 
     # unlike match_songs for embeds, has to pick a single song to play 
     async def choose_song(self, args: ParsedArguments):
-        songs = models.D4DJSong.all()
+        songs = models.D4DJSong.all().filter(id__lt=92000)
         for tag in args.tags: # no $all tag since need a single result
             if tag.isdigit():
                 media = media.filter(id=tag)

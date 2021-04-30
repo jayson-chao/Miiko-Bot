@@ -8,6 +8,7 @@ from discord.ext import commands
 from discord import ClientException
 from tortoise.query_utils import Q
 from typing import Union
+from fuzzywuzzy import process
 
 import models
 from bot import MiikoBot
@@ -15,7 +16,7 @@ from common.react_msg import run_paged_message, run_swap_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name, art_colors
 
-PAGE_SIZE=10
+PAGE_SIZE=15
 
 class VoiceError(Exception):
     pass
@@ -27,7 +28,7 @@ class Music (commands.Cog):
         self.bot = bot
 
     async def match_media(self, args: ParsedArguments, media_type):
-        media = media_type.all().order_by('id')
+        media = media_type.all().order_by('id').filter(id__lt=92000) # in place for song id related reasons
         if 'all' in args.tags:
             return await media
         for tag in args.tags:
@@ -170,7 +171,13 @@ class Music (commands.Cog):
             return [] # no tag filters at the moment so any tag aside from 'all' returns empty set
         for word in args.words:
             staff = staff.filter(Q(name__icontains=word)|Q(jpname__icontains=word))
-        return await staff
+        names = await staff.values_list('name', 'jpname')
+        best = (None, -1)
+        for n, j in names:
+            ratio = process.extractOne(args.text, [n, j])
+            if ratio[1] > best[1]:
+                best = (n, ratio[1])
+        return best[0]
 
     @commands.command(name='staff', help='&staff [terms], shows staff member info', hidden=True)
     async def list_staff(self, ctx, *, args=None):
@@ -178,32 +185,33 @@ class Music (commands.Cog):
         if args:
             staff = await self.match_staff(parse_arguments(args))
         else:
-            staff = await models.D4DJStaff.all()
-        if not len(staff) > 0:
+            await ctx.send('Please enter staff member name or keyword.')
+            return
+        if not staff :
             await ctx.send('No staff member found.')
             return
-        
-        staffpage = []
-        for i, s in enumerate(staff):
-            songlist = []
-            # filter on D4DJSong wasn't working properly, using union and sort while I look for quick fix while I look into the problem
-            await s.fetch_related('lyricized')
-            await s.fetch_related('composed')
-            await s.fetch_related('arranged')
-            songs = set((s.lyricized)).union(set(s.composed), set(s.arranged))
-            for i, so in enumerate(sorted(songs, key=lambda x:x.id)):
-                did = []
-                if so in s.lyricized:
-                    did.append('L')
-                if so in s.composed:
-                    did.append('C')
-                if so in s.arranged:
-                    did.append('A')
 
-                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(so, g.langpref)} ({"".join(did)})`')
-            staffEmbed = discord.Embed(title=await media_name(s, g.langpref), description='\n'.join((so for so in songlist)))
-            staffpage.append(staffEmbed)
-        asyncio.ensure_future(run_paged_message(ctx, staffpage))
+        s = await models.D4DJStaff.get_or_none(name=staff)
+        songlist = []
+        # filter on D4DJSong wasn't working properly, using union and sort while I look for quick fix while I look into the problem
+        await s.fetch_related('lyricized')
+        await s.fetch_related('composed')
+        await s.fetch_related('arranged')
+        songs = set((s.lyricized)).union(set(s.composed), set(s.arranged))
+        for i, so in enumerate(sorted(songs, key=lambda x:x.id)):
+            did = []
+            if so in s.lyricized:
+                did.append('L')
+            if so in s.composed:
+                did.append('C')
+            if so in s.arranged:
+                did.append('A')
+
+            songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(so, g.langpref)} ({"".join(did)})`')
+
+        page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
+        embeds = [discord.Embed(title=await media_name(s, g.langpref), description='\n'.join((s for s in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        asyncio.ensure_future(run_paged_message(ctx, embeds))
 
 # expected by load_extension in bot
 def setup(bot):

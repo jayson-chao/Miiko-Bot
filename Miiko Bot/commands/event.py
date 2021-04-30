@@ -7,7 +7,9 @@ from datetime import datetime
 import pytz
 import re
 from discord.ext import commands
+from enum import IntEnum
 from tortoise.query_utils import Q
+from fuzzywuzzy import process, fuzz
 
 from bot import MiikoBot
 import models
@@ -15,18 +17,28 @@ from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, media_name
 
+PAGE_SIZE = 15
+
 event_aliases = { 
     'first': '1st',
     'second': '2nd',
     'night': 'evening'
 }
 
+class EventType(IntEnum):
+    MAIN = 1
+    DJTIME = 2
+    STREAM = 3
+    OTHER = 4
+
 class Event(commands.Cog):
     bot: MiikoBot
 
     # returns array of relevant events
-    async def match_events(self, args: ParsedArguments):
-        events = models.D4DJEvent.all().filter(id__lt=1000)
+    async def match_events(self, args: ParsedArguments, type: EventType=None):
+        events = models.D4DJEvent.all()
+        if type:
+            events = events.filter(Q(id__lt=type*1000) & Q(id__gt=(type-1)*1000))
         if 'all' in args.tags:
             return await events
         for tag in args.tags:
@@ -48,7 +60,7 @@ class Event(commands.Cog):
         # parse args into most relevant event based on tags/args, else get next event
         if args:
             arguments = parse_arguments(args)
-            events = await self.match_events(arguments) 
+            events = await self.match_events(arguments, EventType.MAIN) 
         else:
             events = await models.D4DJEvent.filter(id__lt=1000)
         
@@ -93,7 +105,7 @@ class Event(commands.Cog):
     async def event_list(self, ctx, *, args=None): # plan to add list filtering based off of unit keyword later
         if args:
             arguments = parse_arguments(args)
-            events = await self.match_events(arguments)
+            events = await self.match_events(arguments, EventType.MAIN)
         else:
             events = await models.D4DJEvent.filter(id__lt=1000)
         if len(events) < 1:
@@ -106,27 +118,89 @@ class Event(commands.Cog):
                 eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.embedname}`')
             else:
                 eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.name}`')
-        PAGE_SIZE = 10 # defining here temporarily, can make a preference
+
         page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
         embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
-    @commands.command('setlist', help='&setlist [terms | $tags], shows setlist for event/stream', hidden=True)
-    async def setlist(self, ctx, *, args=None):
-        g = await models.Guild.get_or_none(id=ctx.guild.id)
-        if not g:
-            await ctx.send('failed')
+    @commands.command(name='djtimes', help='&djtimes [terms | $tags], lists djtime streams')
+    async def djtime_list(self, ctx, *, args=None): # plan to add list filtering based off of unit keyword later
+        if args:
+            arguments = parse_arguments(args)
+            events = await self.match_events(arguments, EventType.DJTIME)
+        else:
+            events = await models.D4DJEvent.filter(Q(id__gt=1000) & Q(id__lt=2000))
+        if len(events) < 1:
+            await ctx.send('No relevant events found.')
             return
 
-        e = await models.D4DJEvent.get_or_none(id=1)
+        eventlist = []
+        for i, e in enumerate(events):
+            if e.embedname:
+                eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.embedname}`')
+            else:
+                eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.name}`')
+        page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
+        embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        asyncio.ensure_future(run_paged_message(ctx, embeds))
+
+    async def match_event(self, args: ParsedArguments):
+        events = models.D4DJEvent.all()
+        if 'all' in args.tags:
+            return await events
+        for tag in args.tags:
+            if tag.isdigit():
+                events = events.filter(id=tag)
+            elif tag in unit_aliases:
+                events = events.filter(artist__contains=str(unit_aliases[tag]))
+            else: # bad tag - give empty
+                return []
+        for word in args.words:
+            if word in event_aliases: # manually catch some possible conversion/matching problems
+                events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
+            else:
+                events = events.filter(name__icontains=word)
+        events = await events.values_list('name', 'id')
+        best = (-1, -1)
+        for n, i in events:
+            rat = fuzz.partial_ratio(args.text, n)
+            if rat > best[1]:
+                best = (i, rat)
+        return best[0]
+
+    @commands.command('setlist', help='&setlist [terms | $tags], shows setlist for event/stream')
+    async def setlist(self, ctx, *, args=None):
+        if args:
+            arguments = parse_arguments(args)
+            event = await self.match_event(arguments) 
+        else:
+            await ctx.send('Please give keywords with commands.')
+            return
+        if event < 0:
+            await ctx.send('No relevant events found.')
+            return
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        e = await models.D4DJEvent.get_or_none(id=event)
+
         songs = await models.D4DJSetlist.filter(event=e).order_by("position") 
 
-        songlist = []
-        for i, s in enumerate(songs):
-            songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(await s.song, g.langpref)}`')
+        if len(songs) < 1:
+            await ctx.send(f'No setlist available for {e.embedname}.')
+            return
 
-        embed = discord.Embed(title=e.name, description='\n'.join(songlist))
-        asyncio.ensure_future(run_paged_message(ctx, [embed]))
+        songlist = []
+        counter = 1
+        for s in songs:
+            song = await s.song
+            if song.id > 100000:
+                songlist.append(f'`     {await media_name(song, g.langpref)}`')
+            else:
+                songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)}`')
+                counter += 1
+
+        page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
+        embeds = [discord.Embed(title=e.name, description='\n'.join((s for s in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        asyncio.ensure_future(run_paged_message(ctx, embeds))
 
         return
 

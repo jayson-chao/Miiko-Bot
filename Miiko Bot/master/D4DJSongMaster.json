@@ -1117,5 +1117,40 @@
     "name": "R·I·O·T",
     "artist": "9",
     "artiststr_id": "RAISE A SUILEN"
+  },
+
+
+  "100001": {
+    "name": "Happy Around!",
+    "artist": "0"
+  },
+  "100002": {
+    "name": "Peaky P-key",
+    "artist": "1"
+  },
+  "100003": {
+    "name": "Photon Maiden",
+    "artist": "2"
+  },
+  "100004": {
+    "name": "Merm4id",
+    "artist": "3"
+  },
+  "100005": {
+    "name": "RONDO",
+    "jpname": "燐舞曲",
+    "artist": "4"
+  },
+  "100006": {
+    "name": "Lyrical Lily",
+    "artist": "5"
+  },
+  "110001": {
+    "name": "DJ TIME by Takagi Miyu",
+    "artist": "9"
+  },
+  "110002": {
+    "name": "DJ TIME by Takagi Miyu x Kagami Karin",
+    "artist": "9"
   }
 }

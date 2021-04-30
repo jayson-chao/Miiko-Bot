@@ -60,6 +60,9 @@
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Master\D4DJSetlistMaster.json">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models.py">
       <SubType>Code</SubType>
     </Compile>
