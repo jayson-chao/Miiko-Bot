@@ -71,7 +71,7 @@ class D4DJSetlist(Model):
     class Meta:
         table = "setlist_songs"
         ordering = ["event__id", "position"]
-        unique_together = (("event", "position"))
+        unique_together = (("event", "position")) 
 
 class OtherArtist(Model):
     name = fields.CharField(255, pk=True)

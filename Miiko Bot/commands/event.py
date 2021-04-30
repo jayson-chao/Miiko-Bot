@@ -13,7 +13,7 @@ from bot import MiikoBot
 import models
 from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
-from common.aliases import unit_aliases, artists, process_artist
+from common.aliases import unit_aliases, artists, process_artist, media_name
 
 event_aliases = { 
     'first': '1st',
@@ -50,7 +50,7 @@ class Event(commands.Cog):
             arguments = parse_arguments(args)
             events = await self.match_events(arguments) 
         else:
-            events = await models.D4DJEvent.all()
+            events = await models.D4DJEvent.filter(id__lt=1000)
         
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         # make array of embeds
@@ -110,6 +110,25 @@ class Event(commands.Cog):
         page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
         embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
+
+    @commands.command('setlist', help='&setlist [terms | $tags], shows setlist for event/stream', hidden=True)
+    async def setlist(self, ctx, *, args=None):
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        if not g:
+            await ctx.send('failed')
+            return
+
+        e = await models.D4DJEvent.get_or_none(id=1)
+        songs = await models.D4DJSetlist.filter(event=e).order_by("position") 
+
+        songlist = []
+        for i, s in enumerate(songs):
+            songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(await s.song, g.langpref)}`')
+
+        embed = discord.Embed(title=e.name, description='\n'.join(songlist))
+        asyncio.ensure_future(run_paged_message(ctx, [embed]))
+
+        return
 
 def setup(bot):
     bot.add_cog(Event(bot))
