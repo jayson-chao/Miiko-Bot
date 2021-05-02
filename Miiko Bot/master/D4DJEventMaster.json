@@ -75,107 +75,117 @@
     "archive": "[Link](https://drive.google.com/drive/folders/1TwN43NNxqVWZW7Erwg1JgQtWTdSIHSqD?usp=sharing)"
   },
   "0013": {
+    "name": "BanG Dream! 8th☆LIVE DAY1：Roselia『Einheit』",
+    "artist": "3",
+    "eventdate": "2020-08-21T17:00:00"
+  },
+  "0014": {
+    "name": "BanG Dream! 8th☆LIVE DAY2：RAISE A SUILEN『THE DEPTHS』",
+    "artist": "0",
+    "eventdate": "2020-08-22T17:00:00"
+  },
+  "0015": {
     "name": "Groovy Mix Presents D4DJ D4 FES. ~LOVE!HUG!GROOVY!!~",
     "embedname": "D4DJ D4 FES. ~LOVE!HUG!GROOVY!!~",
     "artist": "012345",
     "eventdate": "2020-10-11T18:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1fcqycfhVvvTqT5ixC_ukiQ5CjXUMkYCX?usp=sharing)"
   },
-  "0014": {
+  "0016": {
     "name": "EJ ANIME MUSIC FESTIVAL 2020",
     "artist": "0",
     "eventdate": "2020-10-18T18:00:00"
   },
-  "0015": {
+  "0017": {
     "name": "ANIMAX MUSIX NEXTAGE ONLINE supported by U-NEXT",
     "embedname": "ANIMAX MUSIX NEXTAGE ONLINE 2020",
     "artist": "0",
     "eventdate": "2020-10-31T17:30:00"
   },
-  "0016": {
+  "0018": {
     "name": "Happy Around! 1st LIVE Minna ni Hapiare♪ Afternoon Session",
     "embedname": "Hapiara 1st LIVE Afternoon Session",
     "artist": "0",
     "eventdate": "2020-12-13T15:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1XUlDqmlSrBVfA4nuS7Q29yL45mXbkR7W?usp=sharing)"
   },
-  "0017": {
+  "0019": {
     "name": "Happy Around! 1st LIVE Minna ni Hapiare♪ Evening Session",
     "embedname": "Hapiara 1st LIVE Evening Session",
     "artist": "0",
     "eventdate": "2020-12-13T19:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1XUlDqmlSrBVfA4nuS7Q29yL45mXbkR7W?usp=sharing)"
   },
-  "0018": {
+  "0020": {
     "name": "ANIMAX MUSIX 2021 ONLINE supported by U-NEXT Day 1",
     "embedname": "ANIMAX MUSIX 2021 ONLINE Day 1",
     "artist": "0",
     "eventdate": "2021-01-30T18:00:00"
   },
-  "0019": {
+  "0021": {
     "name": "Happy Around! 2nd LIVE Minna ni Hapiyane♪ Afternoon Session",
     "embedname": "Hapiara 2nd LIVE Afternoon Session",
     "artist": "0",
     "eventdate": "2021-03-14T14:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1e3VnCg2zsvFPp_qWkzKuCFX3X5ZCzyko?usp=sharing)"
   },
-  "0020": {
+  "0022": {
     "name": "Happy Around! 2nd LIVE Minna ni Hapiyane♪ Evening Session",
     "embedname": "Hapiara 2nd LIVE Evening Session",
     "artist": "0",
     "eventdate": "2021-03-14T18:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1e3VnCg2zsvFPp_qWkzKuCFX3X5ZCzyko?usp=sharing)"
   },
-  "0021": {
+  "0023": {
     "name": "SPACE SHOWER TV Plus PRESENTS RONDO 1st LIVE [Re] incarnation at Zepp Haneda",
     "embedname": "RONDO 1st Live [Re] incarnation",
     "artist": "4",
     "eventdate": "2021-03-23T18:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/15dge_KwqmIQ3YfbSpDpFFVlK3wxbstet?usp=sharing)"
   },
-  "0022": {
+  "0024": {
     "name": "Merm4id 1st LIVE Luv♡4U supported by Singapore Tourism Board Afternoon Session",
     "embedname": "Merm4id 1st LIVE Afternoon Session",
     "artist": "3",
     "eventdate": "2021-04-02T14:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1GmgC6HB6MmtqoyTgxhKPDFczN6M6BsHF?usp=sharing)"
   },
-  "0023": {
+  "0025": {
     "name": "Merm4id 1st LIVE Luv♡4U supported by Singapore Tourism Board Evening Session",
     "embedname": "Merm4id 1st LIVE Evening Session",
     "artist": "3",
     "eventdate": "2021-04-02T18:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1GmgC6HB6MmtqoyTgxhKPDFczN6M6BsHF?usp=sharing)"
   },
-  "0024": {
+  "0026": {
     "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Afternoon Session",
     "embedname": "NYAN-NYAN SHAKE! Afternoon Session",
     "artist": "35",
     "eventdate": "2021-04-24T14:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/1o8qe06wn8k), 10 min free"
   },
-  "0025": {
+  "0027": {
     "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Evening Session",
     "embedname": "NYAN-NYAN SHAKE! Evening Session",
     "artist": "35",
     "eventdate": "2021-04-24T18:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/e5rkegl41rv), 10 min free"
   },
-  "0026": {
+  "0028": {
     "name": "Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Afternoon Session",
     "embedname": "Ultimate Melodies Afternoon Session",
     "artist": "12",
     "eventdate": "2021-04-30T14:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/2p8v3q6xxzy), 10 min free"
   },
-  "0027": {
+  "0029": {
     "name": "Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Evening Session",
     "embedname": "Ultimate Melodies Evening Session",
     "artist": "12",
     "eventdate": "2021-04-30T18:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/lv8105kw7z9), 10 min free"
   },
-  "0028": {
+  "0030": {
     "name": "D4DJ D4 FES. -Be Happy- REMIX",
     "artist": "012345",
     "eventdate": "2021-05-29T15:30:00"

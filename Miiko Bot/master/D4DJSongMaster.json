@@ -1145,12 +1145,17 @@
     "name": "Lyrical Lily",
     "artist": "5"
   },
+  "100007": {
+    "name": "D4DJ", 
+    "artist": "9"
+  },
+
   "110001": {
-    "name": "DJ TIME by Takagi Miyu",
+    "name": "Nishio Yuka",
     "artist": "9"
   },
   "110002": {
-    "name": "DJ TIME by Takagi Miyu x Kagami Karin",
+    "name": "Tsunko",
     "artist": "9"
   }
 }
