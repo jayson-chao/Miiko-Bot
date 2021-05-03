@@ -194,8 +194,253 @@
 
   "1001": {
     "name": "#D4DJ_STAYHOME Day 1",
-    "artist": "0",
+    "artist": "9",
     "artiststr_id": "Nishio Yuka",
     "eventdate": "2020-04-26T20:00:00"
+  },
+  "1002": {
+    "name": "#D4DJ_STAYHOME Day 2",
+    "artist": "9",
+    "artiststr_id": "Tsunko",
+    "eventdate": "2020-04-27T20:00:00"
+  },
+  "1003": {
+    "name": "#D4DJ_DJTIME vol. 1",
+    "artist": "9",
+    "artiststr_id": "Takagi Miyu",
+    "eventdate": "2020-05-29T22:00:00"
+  },
+  "1004": {
+    "name": "#D4DJ_DJTIME vol. 2",
+    "artist": "9",
+    "artiststr_id": "Nishio Yuka",
+    "eventdate": "2020-06-05T22:00:00"
+  },
+  "1005": {
+    "name": "#D4DJ_DJTIME vol. 3",
+    "artist": "9",
+    "artiststr_id": "Tsunko",
+    "eventdate": "2020-07-10T22:00:00"
+  },
+  "1006": {
+    "name": "#D4DJ_DJTIME vol. 4",
+    "artist": "9",
+    "artiststr_id": "Tsunko",
+    "eventdate": "2020-08-07T22:00:00"
+  },
+  "1007": {
+    "name": "#D4DJ_DJTIME vol. 5",
+    "artist": "9",
+    "artiststr_id": "Hazuki Himari",
+    "eventdate": "2020-08-14T22:00:00"
+  },
+  "1008": {
+    "name": "#D4DJ_DJTIME vol. 6",
+    "artist": "9",
+    "artiststr_id": "Takagi Miyu",
+    "eventdate": "2020-08-21T22:00:00"
+  },
+  "1009": {
+    "name": "#D4DJ_DJTIME vol. 7",
+    "artist": "9",
+    "artiststr_id": "Kagami Karin",
+    "eventdate": "2020-08-28T22:00:00"
+  },
+  "1010": {
+    "name": "#D4DJ_DJTIME vol. 8",
+    "artist": "9",
+    "artiststr_id": "Tsunko",
+    "eventdate": "2020-09-04T22:00:00"
+  },
+  "1011": {
+    "name": "#D4DJ_DJTIME vol. 9",
+    "artist": "9",
+    "artiststr_id": "Hazuki Himari",
+    "eventdate": "2020-09-11T22:00:00"
+  },
+  "1012": {
+    "name": "#D4DJ_DJTIME Special Edition",
+    "artist": "9",
+    "artiststr_id": "Mizushima Seiji & Tsumugi Risa",
+    "eventdate": "2020-09-19T22:00:00"
+  },
+  "1013": {
+    "name": "#D4DJ_DJTIME vol. 10",
+    "artist": "9",
+    "artiststr_id": "Takagi Miyu",
+    "eventdate": "2020-09-25T22:00:00"
+  },
+  "1014": {
+    "name": "#D4DJ_DJTIME vol. 11",
+    "artist": "9",
+    "artiststr_id": "Yoshida Hisanori",
+    "eventdate": "2020-10-09T22:00:00"
+  },
+  "1015": {
+    "name": "#D4DJ_DJTIME vol. 12",
+    "artist": "9",
+    "artiststr_id": "Aimoto Rinku",
+    "eventdate": "2020-10-16T22:00:00"
+  },
+  "1016": {
+    "name": "#D4DJ_DJTIME vol. 13",
+    "artist": "9",
+    "artiststr_id": "Akashi Maho",
+    "eventdate": "2020-10-23T22:00:00"
+  },
+  "1017": {
+    "name": "#D4DJ_DJTIME vol. 14",
+    "artist": "9",
+    "artiststr_id": "Tsumugi Risa",
+    "eventdate": "2020-10-30T22:30:00"
+  },
+  "1018": {
+    "name": "#D4DJ_DJTIME vol. 15",
+    "artist": "9",
+    "artiststr_id": "Tsunko",
+    "eventdate": "2020-11-06T22:30:00"
+  },
+  "1019": {
+    "name": "#D4DJ_DJTIME vol. 16",
+    "artist": "9",
+    "artiststr_id": "Hazuki Himari",
+    "eventdate": "2020-11-13T22:15:00"
+  },
+  "1020": {
+    "name": "#D4DJ_DJTIME vol. 17",
+    "artist": "9",
+    "artiststr_id": "Inuyose Shinobu",
+    "eventdate": "2020-11-20T22:15:00"
+  },
+  "1021": {
+    "name": "#D4DJ_DJTIME Special Edition vol. 2",
+    "artist": "9",
+    "artiststr_id": "Hazuki Himari & Mimura Haruka",
+    "eventdate": "2020-11-27T22:15:00"
+  },
+  "1022": {
+    "name": "#D4DJ_DJTIME vol. 18",
+    "artist": "9",
+    "artiststr_id": "Aimoto Rinku",
+    "eventdate": "2020-12-04T22:15:00"
+  },
+  "1023": {
+    "name": "#D4DJ_DJTIME Special Edition vol. 3",
+    "artist": "9",
+    "artiststr_id": "Tsunko & Momono Haruna",
+    "eventdate": "2020-12-11T22:15:00"
+  },
+  "1024": {
+    "name": "#D4DJ_DJTIME vol. 19",
+    "artist": "9",
+    "artiststr_id": "Akashi Maho",
+    "eventdate": "2020-12-18T22:15:00"
+  },
+  "1025": {
+    "name": "#D4DJ_DJTIME vol. 20",
+    "artist": "9",
+    "artiststr_id": "Izumo Saki",
+    "eventdate": "2020-12-25T22:15:00"
+  },
+  "1026": {
+    "name": "#D4DJ_DJTIME New Years Special",
+    "artist": "9",
+    "artiststr_id": "Aimoto Rinku",
+    "eventdate": "2021-01-01T22:00:00"
+  },
+  "1027": {
+    "name": "#D4DJ_DJTIME Special Edition vol. 4",
+    "artist": "9",
+    "artiststr_id": "Nishio Yuka & Mimura Haruka",
+    "eventdate": "2021-01-08T22:15:00"
+  },
+  "1028": {
+    "name": "#D4DJ_DJTIME Special Edition vol. 5",
+    "artist": "9",
+    "artiststr_id": "Aimoto Rinku & Akashi Maho",
+    "eventdate": "2021-01-15T22:15:00"
+  },
+  "1029": {
+    "name": "#D4DJ_DJTIME vol. 21",
+    "artist": "9",
+    "artiststr_id": "Hazuki Himari",
+    "eventdate": "2021-01-22T22:15:00"
+  },
+  "1030": {
+    "name": "#D4DJ_DJTIME vol. 22",
+    "artist": "9",
+    "artiststr_id": "Tsumugi Risa",
+    "eventdate": "2021-01-29T22:15:00"
+  },
+  "1031": {
+    "name": "#D4DJ_DJTIME 2021.02.05",
+    "artist": "9",
+    "artiststr_id": "Inuyose Shinobu",
+    "eventdate": "2021-02-05T22:00:00"
+  },
+  "1032": {
+    "name": "#D4DJ_DJTIME 2021.02.12",
+    "artist": "9",
+    "artiststr_id": "Kagami Karin & Mimura Haruka",
+    "eventdate": "2021-02-12T22:00:00"
+  },
+  "1033": {
+    "name": "#D4DJ_DJTIME 2021.02.19",
+    "artist": "9",
+    "artiststr_id": "Akashi Maho & Ohnaruto Muni",
+    "eventdate": "2021-02-19T22:00:00"
+  },
+  "1034": {
+    "name": "#D4DJ_DJTIME 2021.02.26",
+    "artist": "9",
+    "artiststr_id": "Umemura Hinako",
+    "eventdate": "2021-02-26T22:00:00"
+  },
+  "1035": {
+    "name": "#D4DJ_DJTIME 2021.03.05",
+    "artist": "9",
+    "artiststr_id": "Aimoto Rinku & Ohnaruto Muni",
+    "eventdate": "2021-03-05T22:00:00"
+  },
+  "1036": {
+    "name": "#D4DJ_DJTIME 2021.03.12",
+    "artist": "9",
+    "artiststr_id": "Hazuki Himari & Mimura Haruka",
+    "eventdate": "2021-03-12T22:00:00"
+  },
+  "1037": {
+    "name": "#D4DJ_DJTIME 2021.03.19",
+    "artist": "9",
+    "artiststr_id": "Takagi Miyu",
+    "eventdate": "2021-03-19T22:00:00"
+  },
+  "1038": {
+    "name": "#D4DJ_DJTIME 2021.03.26",
+    "artist": "9",
+    "artiststr_id": "Komiya Arisa",
+    "eventdate": "2021-03-26T22:00:00"
+  },
+  "1039": {
+    "name": "#D4DJ_DJTIME 2021.04.02",
+    "artist": "3",
+    "eventdate": "2021-04-02T22:00:00"
+  },
+  "1040": {
+    "name": "#D4DJ_DJTIME 2021.04.09",
+    "artist": "9",
+    "artiststr_id": "Tsumugi Risa",
+    "eventdate": "2021-04-09T22:00:00"
+  },
+  "1041": {
+    "name": "#D4DJ_DJTIME PLUS 2021.04.16",
+    "artist": "9",
+    "artiststr_id": "Kagami Karin & Mizushima Seiji & DJ WILDPARTY",
+    "eventdate": "2021-04-16T21:30:00"
+  },
+  "1042": {
+    "name": "#D4DJ_DJTIME 2021.04.23",
+    "artist": "9",
+    "artiststr_id": "Shindou Amane & Aiba Aina",
+    "eventdate": "2021-04-23T22:00:00"
   }
 }

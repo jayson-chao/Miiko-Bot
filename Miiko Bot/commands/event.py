@@ -55,7 +55,7 @@ class Event(commands.Cog):
                 events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
             else:
                 events = events.filter(name__icontains=word)
-        return await events
+        return await events.order_by("eventdate")
 
     @commands.command(name='event', help='&event [terms | $tags], shows event info')
     async def get_event(self, ctx, *, args=None):
@@ -64,7 +64,7 @@ class Event(commands.Cog):
             arguments = parse_arguments(args)
             events = await self.match_events(arguments, EventType.MAIN) 
         else:
-            events = await models.D4DJEvent.filter(id__lt=1000)
+            events = await models.D4DJEvent.filter(id__lt=1000).order_by("eventdate")
         
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         # make array of embeds
@@ -109,7 +109,7 @@ class Event(commands.Cog):
             arguments = parse_arguments(args)
             events = await self.match_events(arguments, EventType.MAIN)
         else:
-            events = await models.D4DJEvent.filter(id__lt=1000)
+            events = await models.D4DJEvent.filter(id__lt=1000).order_by("eventdate")
         if len(events) < 1:
             await ctx.send('No relevant events found.')
             return
@@ -131,7 +131,7 @@ class Event(commands.Cog):
             arguments = parse_arguments(args)
             events = await self.match_events(arguments, EventType.DJTIME)
         else:
-            events = await models.D4DJEvent.filter(Q(id__gt=1000) & Q(id__lt=2000))
+            events = await models.D4DJEvent.filter(Q(id__gt=1000) & Q(id__lt=2000)).order_by("eventdate")
         if len(events) < 1:
             await ctx.send('No relevant events found.')
             return
@@ -151,7 +151,7 @@ class Event(commands.Cog):
         if args:
             events = await self.match_events(parse_arguments(args), EventType.ALL) 
         else:
-            events = await models.D4DJEvent.all()
+            events = await models.D4DJEvent.all().order_by("eventdate")
         if len(events) < 0:
             await ctx.send('No relevant events found.')
             return
