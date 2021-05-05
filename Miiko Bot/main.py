@@ -30,7 +30,7 @@ async def on_ready():
     print(f'Server count: {len(bot.guilds)}')
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
-    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="&help for help, nano!"))
+    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name=f'{CMD_PREFIX}help for help, nano!'))
 
 @bot.listen()
 async def on_guild_join(guild):

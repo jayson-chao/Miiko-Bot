@@ -99,7 +99,7 @@ class Music (commands.Cog):
             arguments = parse_arguments(args)
             songs = await self.match_media(arguments, models.D4DJSong)
         else:
-            songs = await models.D4DJSong.all()
+            songs = await models.D4DJSong.all().filter(id__lt=92000)
         if len(songs) < 1:
             await ctx.send('No relevant songs found.')
             return
