@@ -5,6 +5,7 @@ import json
 import os
 import discord
 from discord.ext import commands
+from tortoise import Tortoise
 
 from bot import MiikoBot
 from load_db import load_db
@@ -37,7 +38,8 @@ class Utility(commands.Cog):
             await ctx.voice_client.disconnect()
         await ctx.send('Shutting down, nano!')
         await self.bot.change_presence(status=discord.Status.offline)
-        await self.bot.logout() # will throw Runtime Error - apparently this is a known bug on their end
+        await Tortoise.close_connections()
+        await self.bot.close() # will throw Runtime Error - apparently this is a known bug on their end
 
     @commands.command(name='refresh', help='reloads all data', hidden=True)
     async def refresh_db(self, ctx):

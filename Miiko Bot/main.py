@@ -2,9 +2,9 @@
 # main executable for bot
 
 import json
-import os
 import re
 import random
+import redis
 import sys
 import discord
 from dotenv import load_dotenv
@@ -15,8 +15,8 @@ from load_db import load_db
 from bot import MiikoBot
 import models
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN') # Hidden
+redis_server = redis.Redis() # Create access to Redis
+TOKEN = str(redis_server.get('AUTH_TOKEN').decode('utf-8'))
 CMD_PREFIX = '&'
 
 bot = MiikoBot(command_prefix=CMD_PREFIX)

@@ -15,11 +15,10 @@ async def load_db():
     for m in DBS: # dict order preserved in 3.8
         mtype = getattr(models, m)
         await mtype.all().delete()
-        with open(f'Master/{m}Master.json') as f:
+        with open(f'master/{m}Master.json') as f:
             data = json.load(f)
 
         fields = M_TO_MS[m] if m in M_TO_MS else []
-
         for item in data:
             model = await mtype.update_or_create(**{DBS[m]: item, 'defaults':data[item]})
             for c, f in fields:
@@ -31,7 +30,7 @@ async def load_db():
                         await attr.add(g)
 
     # manually load setlists since it doesn't play nice with the current structure i have 
-    with open(f'Master/D4DJSetlistMaster.json') as f:
+    with open(f'master/D4DJSetlistMaster.json') as f:
             data = json.load(f)
     for item in data:
         for pos, song in enumerate(data[item]['setlist']):

@@ -16,7 +16,6 @@ from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name
 
-FFMPEG_PATH="C:/Program Files/FFmpeg/bin/ffmpeg.exe" # change to users' ffmpeg path
 PAGE_SIZE=15
 
 class Player(commands.Cog):
@@ -93,7 +92,7 @@ class Player(commands.Cog):
             await ctx.send(f'{await media_name(song, g.langpref)} is not available at the moment.')
             return
 
-        self.bot.player[ctx.guild.id].put((song, discord.FFmpegPCMAudio(executable=FFMPEG_PATH, source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
+        self.bot.player[ctx.guild.id].put((song, discord.FFmpegPCMAudio(source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
             await ctx.send(f'{await media_name(song, g.langpref)} placed in song queue')
         else:
