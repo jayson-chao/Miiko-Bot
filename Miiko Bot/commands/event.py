@@ -77,7 +77,7 @@ class Event(commands.Cog):
                     infoEmbed.set_footer(text=f'Event ID: {e.id}\nPage {i+1}/{len(events)}')
                 else:
                     infoEmbed.set_footer(text=f'Event ID: {e.id}')
-                infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/event/{e.id}.png')
+                infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/event/{e.id}.png')
                 e_time = pytz.timezone('Asia/Tokyo').localize(datetime.strptime(e.eventdate, '%Y-%m-%dT%H:%M:%S'))
                 now = datetime.now(pytz.timezone('Asia/Tokyo'))
                 if e_time > now:

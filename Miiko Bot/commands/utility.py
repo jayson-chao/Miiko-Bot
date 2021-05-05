@@ -7,7 +7,6 @@ import discord
 from discord.ext import commands
 
 from bot import MiikoBot
-from load_db import load_db
 import models
 
 class Utility(commands.Cog):
@@ -37,12 +36,7 @@ class Utility(commands.Cog):
             await ctx.voice_client.disconnect()
         await ctx.send('Shutting down, nano!')
         await self.bot.change_presence(status=discord.Status.offline)
-        await self.bot.logout() # will throw Runtime Error - apparently this is a known bug on their end
-
-    @commands.command(name='refresh', help='reloads all data', hidden=True)
-    async def refresh_db(self, ctx):
-        await load_db()
-        await ctx.send('Reloaded data!')
+        await self.bot.close() # will throw Runtime Error - apparently this is a known bug on their end
 
     @commands.command(name='reload', help='reloads all extensions', hidden=True)
     async def reload_bot(self, ctx):
