@@ -5,6 +5,7 @@ import json
 import os
 import discord
 from discord.ext import commands
+from tortoise import Tortoise
 
 from bot import MiikoBot
 import models

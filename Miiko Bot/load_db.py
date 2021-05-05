@@ -24,7 +24,6 @@ async def load_db():
             data = json.load(f)
 
         fields = M_TO_MS[m] if m in M_TO_MS else []
-
         for item in data:
             model = await mtype.update_or_create(**{DBS[m]: item, 'defaults':data[item]})
             for c, f in fields:
