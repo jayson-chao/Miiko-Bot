@@ -3,6 +3,7 @@
 
 import json
 import re
+
 import random
 import redis
 import sys
@@ -11,7 +12,6 @@ from dotenv import load_dotenv
 from discord.ext import commands
 
 from common.emoji import miiko_emoji
-from load_db import load_db
 from bot import MiikoBot
 import models
 
@@ -32,7 +32,6 @@ async def on_ready():
     print(f'Server count: {len(bot.guilds)}')
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
-    await load_db()
     await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="&help for help, nano!"))
 
 @bot.listen()

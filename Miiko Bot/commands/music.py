@@ -62,15 +62,15 @@ class Music (commands.Cog):
                 if s.album:
                     a = await s.album.first()
                     trackEmbed.add_field(name='Album', value=await media_name(a, g.langpref))
-                    trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-                    staffEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                    trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/album/{a.id:03d}.png')
+                    staffEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/album/{a.id:03d}.png')
                 trackEmbed.add_field(name='Artist(s)', value=(await media_name(await s.artiststr.first(), g.langpref) if s.artiststr else process_artist(s.artist, g.langpref)), inline=False)
                 if s.length:
                     trackEmbed.add_field(name='Length', value=f'{s.length//60}:{s.length%60:02d}', inline=False)
                 trackEmbed.add_field(name='Type', value=(f'Cover ({await media_name(await s.orartist.first(), g.langpref)})' if s.orartist else 'Original'))
                 
                 # massively increases embed load time. may move back to loading files locally/detecting if path exists so it speeds this up
-                # r = requests.head(f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{s.id:05d}.mp3?raw=true')
+                # r = requests.head(f'https://github.com/jayson-chao/Miiko-Assets/blob/main/music/{s.id:05d}.mp3?raw=true')
                 # staffEmbed.add_field(name='Playable by Bot', value='Yes' if r else 'No', inline=False)
 
                 await s.fetch_related('lyricist')
@@ -136,8 +136,8 @@ class Music (commands.Cog):
                 if len(albums) > 1:
                     albumEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')
                     trackEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')
-                albumEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
-                trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Bot/master/Miiko%20Bot/common/assets/album/{a.id:03d}.png')
+                albumEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/album/{a.id:03d}.png')
+                trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/album/{a.id:03d}.png')
                 albumembeds.append(albumEmbed)
                 tracklistings.append(trackEmbed)
             asyncio.ensure_future(run_swap_message(ctx, [albumembeds, tracklistings]))
