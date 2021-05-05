@@ -8,7 +8,6 @@ import random
 import redis
 import sys
 import discord
-from dotenv import load_dotenv
 from discord.ext import commands
 
 from common.emoji import miiko_emoji
