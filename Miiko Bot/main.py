@@ -2,21 +2,20 @@
 # main executable for bot
 
 import json
-import os
 import re
 import random
+import redis
 import sys
 import discord
-from dotenv import load_dotenv
 from discord.ext import commands
 
 from common.emoji import miiko_emoji
 from bot import MiikoBot
 import models
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN') # Hidden
-CMD_PREFIX = '^'
+redis_server = redis.Redis() # Create access to Redis
+TOKEN = str(redis_server.get('AUTH_TOKEN').decode('utf-8'))
+CMD_PREFIX = '&'
 
 bot = MiikoBot(command_prefix=CMD_PREFIX)
 
@@ -31,7 +30,7 @@ async def on_ready():
     print(f'Server count: {len(bot.guilds)}')
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
-    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="^help for help, nano!"))
+    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="&help for help, nano!"))
 
 @bot.listen()
 async def on_guild_join(guild):
