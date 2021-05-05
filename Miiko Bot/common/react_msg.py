@@ -104,7 +104,7 @@ async def run_swap_message(ctx: Context, embeds, *, start=0):
             elif reaction.emoji == right_arrow:
                 new_index += 1
             elif reaction.emoji == double_right_arrow:
-                new_index = len(embeds1) - 1
+                new_index = len(embeds[0]) - 1
             elif reaction.emoji == swap:
                 cur_tab = abs(cur_tab - 1)
             new_index = min(len(embeds[0]) - 1, max(0, new_index))
