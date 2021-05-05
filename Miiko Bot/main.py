@@ -17,7 +17,7 @@ import models
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN') # Hidden
-CMD_PREFIX = '&'
+CMD_PREFIX = '^'
 
 bot = MiikoBot(command_prefix=CMD_PREFIX)
 
@@ -33,7 +33,7 @@ async def on_ready():
     for guild in bot.guilds:
         await models.Guild.update_or_create(id=guild.id, defaults={'name': guild.name})
     await load_db()
-    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="&help for help, nano!"))
+    await bot.change_presence(activity=discord.Game(status=discord.Status.online, name="^help for help, nano!"))
 
 @bot.listen()
 async def on_guild_join(guild):
