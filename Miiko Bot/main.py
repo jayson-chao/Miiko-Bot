@@ -3,7 +3,6 @@
 
 import json
 import re
-
 import random
 import redis
 import sys
