@@ -1,7 +1,7 @@
 {
   "0001": {
     "name": "D4DJ 1ST LIVE Day 1",
-    "artist_rel": ["Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO"],
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO" ],
     "eventdate": "2019-07-20T17:00:00",
     "livestream": "None",
     "archive": "[Link](https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing)",
@@ -406,5 +406,15 @@
     "name": "#D4DJ_DJTIME 2021.04.30",
     "artist_rel": [ "Inuyose Shinobu", "Izumo Saki" ],
     "eventdate": "2021-04-30T22:00:00"
+  },
+  "1044": {
+    "name": "#D4DJ_DJTIME 2021.05.07",
+    "artist_rel": [ "Tsunko", "Momono Haruna" ],
+    "eventdate": "2021-05-07T22:00:00"
+  },
+  "1045": {
+    "name": "#D4DJ_DJTIME PLUS 2021.05.14",
+    "artist_rel": [ "Nishio Yuka", "Kagami Karin", "Hirajima Natsumi", "Hazuki Himari", "RAYCHELL" ],
+    "eventdate": "2021-05-14T21:30:00"
   }
 }
