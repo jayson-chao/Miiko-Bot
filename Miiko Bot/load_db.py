@@ -8,10 +8,11 @@ from tortoise import Tortoise
 
 from tortoise_config import TORTOISE_ORM
 
-DBS = {'OtherArtist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id'}
+DBS = {'Artist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id'}
 
 M_TO_MS = {
-    'D4DJSong': [('D4DJStaff', 'lyricist_rel'), ('D4DJStaff', 'composer_rel'), ('D4DJStaff', 'arranger_rel')]
+    'D4DJSong': [('D4DJStaff', 'lyricist_rel'), ('D4DJStaff', 'composer_rel'), ('D4DJStaff', 'arranger_rel')],
+    'D4DJEvent': [('Artist', 'artist_rel')]
 }
 
 # load db func to load/reload json data (might need to clear db here as extra preventative measure)
@@ -34,7 +35,6 @@ async def load_db():
                         g = await ctype.get_or_none(**{DBS[c]: i})
                         await attr.add(g)
 
-    # manually load setlists since it doesn't play nice with the current structure i have 
     with open(f'master/D4DJSetlistMaster.json') as f:
             data = json.load(f)
     for item in data:

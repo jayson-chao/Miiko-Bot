@@ -1,7 +1,7 @@
 {
   "0001": {
     "name": "D4DJ 1ST LIVE Day 1",
-    "artist": "01234",
+    "artist_rel": ["Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO"],
     "eventdate": "2019-07-20T17:00:00",
     "livestream": "None",
     "archive": "[Link](https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing)",
@@ -9,438 +9,402 @@
   },
   "0002": {
     "name": "D4DJ 1ST LIVE Day 2",
-    "artist": "01234",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO" ],
     "eventdate": "2019-07-21T16:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1FMDviCKrKwgpY5AoLbjompoKeXGvX_Dz?usp=sharing)",
     "guests": "Raise A Suilen"
   },
   "0003": {
     "name": "D4DJ 2ND LIVE -Day Party-",
-    "artist": "01234",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO" ],
     "eventdate": "2019-10-14T15:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1NHINoq8Ot-XjMWM2hWWgVrlTypU4PoeG?usp=sharing)"
   },
   "0004": {
     "name": "D4DJ 2ND LIVE -Nonstop Night-",
-    "artist": "01234",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO" ],
     "eventdate": "2019-10-14T19:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1SDxOcg1JA0nT12u2QjRH8LCYwk0ZvUYR?usp=sharing)"
   },
   "0005": {
     "name": "Gekirock DJ Party 19th ANNIVERSARY PARTY & HALLOWEEN SPECIAL EDGE-CRUSHER Vol. 139",
     "embedname": "Gekirock DJ Party HALLOWEEN 2019",
-    "artist": "3",
+    "artist_rel": [ "Merm4id" ],
     "eventdate": "2019-10-27T15:00:00"
   },
   "0006": {
     "name": "Space Shower Festival Kyouka Suigetsu",
-    "artist": "4",
+    "artist_rel": [ "RONDO" ],
     "eventdate": "2019-10-14T19:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1n4NzwcOxOR-K_ymuMeKjPp8az9BnQtOe?usp=sharing)"
   },
   "0007": {
     "name": "TOKYO MIX JUICE -Super Fusion Music Festival-",
-    "artist": "3",
+    "artist_rel": [ "Merm4id" ],
     "eventdate": "2020-01-25T13:00:00"
   },
   "0008": {
     "name": "D4DJ D4 FES. -Departure-",
-    "artist": "01234",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO" ],
     "eventdate": "2020-01-31T19:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1anOVaBdkgt54rsUUzAIiA_luhcFWWV5A?usp=sharing)"
   },
   "0009": {
     "name": "Lost Decade & D4DJ Groovy Mix Presents ONLINE LIVE",
     "embedname": "D4DJ ONLINE LIVE",
-    "artist": "01234",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO" ],
     "eventdate": "2020-03-27T20:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1swywdw6t_Y67gd-n_Br_sL_xw4n03jW1?usp=sharing)"
   },
   "0010": {
     "name": "D4DJ SOUND ONLY LIVE DAY 1",
-    "artist": "012345",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
     "eventdate": "2020-06-20T18:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1T8y-1BgcNoaKKLVIPHGIn29byxEBW5kH?usp=sharing)"
   },
   "0011": {
     "name": "D4DJ SOUND ONLY LIVE DAY 2",
-    "artist": "012345",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
     "eventdate": "2020-06-21T18:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1T8y-1BgcNoaKKLVIPHGIn29byxEBW5kH?usp=sharing)"
   },
   "0012": {
     "name": "MixChannel Presents D4DJ CONNECT LIVE",
-    "artist": "012345",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
     "eventdate": "2020-07-26T19:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1TwN43NNxqVWZW7Erwg1JgQtWTdSIHSqD?usp=sharing)"
   },
   "0013": {
     "name": "BanG Dream! 8th☆LIVE DAY1：Roselia『Einheit』",
-    "artist": "3",
+    "artist_rel": [ "Merm4id" ],
     "eventdate": "2020-08-21T17:00:00"
   },
   "0014": {
     "name": "BanG Dream! 8th☆LIVE DAY2：RAISE A SUILEN『THE DEPTHS』",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2020-08-22T17:00:00"
   },
   "0015": {
     "name": "Groovy Mix Presents D4DJ D4 FES. ~LOVE!HUG!GROOVY!!~",
     "embedname": "D4DJ D4 FES. ~LOVE!HUG!GROOVY!!~",
-    "artist": "012345",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
     "eventdate": "2020-10-11T18:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1fcqycfhVvvTqT5ixC_ukiQ5CjXUMkYCX?usp=sharing)"
   },
   "0016": {
     "name": "EJ ANIME MUSIC FESTIVAL 2020",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2020-10-18T18:00:00"
   },
   "0017": {
     "name": "ANIMAX MUSIX NEXTAGE ONLINE supported by U-NEXT",
     "embedname": "ANIMAX MUSIX NEXTAGE ONLINE 2020",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2020-10-31T17:30:00"
   },
   "0018": {
     "name": "Happy Around! 1st LIVE Minna ni Hapiare♪ Afternoon Session",
     "embedname": "Hapiara 1st LIVE Afternoon Session",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2020-12-13T15:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1XUlDqmlSrBVfA4nuS7Q29yL45mXbkR7W?usp=sharing)"
   },
   "0019": {
     "name": "Happy Around! 1st LIVE Minna ni Hapiare♪ Evening Session",
     "embedname": "Hapiara 1st LIVE Evening Session",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2020-12-13T19:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1XUlDqmlSrBVfA4nuS7Q29yL45mXbkR7W?usp=sharing)"
   },
   "0020": {
     "name": "ANIMAX MUSIX 2021 ONLINE supported by U-NEXT Day 1",
     "embedname": "ANIMAX MUSIX 2021 ONLINE Day 1",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2021-01-30T18:00:00"
   },
   "0021": {
     "name": "Happy Around! 2nd LIVE Minna ni Hapiyane♪ Afternoon Session",
     "embedname": "Hapiara 2nd LIVE Afternoon Session",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2021-03-14T14:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1e3VnCg2zsvFPp_qWkzKuCFX3X5ZCzyko?usp=sharing)"
   },
   "0022": {
     "name": "Happy Around! 2nd LIVE Minna ni Hapiyane♪ Evening Session",
     "embedname": "Hapiara 2nd LIVE Evening Session",
-    "artist": "0",
+    "artist_rel": [ "Happy Around!" ],
     "eventdate": "2021-03-14T18:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1e3VnCg2zsvFPp_qWkzKuCFX3X5ZCzyko?usp=sharing)"
   },
   "0023": {
     "name": "SPACE SHOWER TV Plus PRESENTS RONDO 1st LIVE [Re] incarnation at Zepp Haneda",
     "embedname": "RONDO 1st Live [Re] incarnation",
-    "artist": "4",
+    "artist_rel": [ "RONDO" ],
     "eventdate": "2021-03-23T18:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/15dge_KwqmIQ3YfbSpDpFFVlK3wxbstet?usp=sharing)"
   },
   "0024": {
     "name": "Merm4id 1st LIVE Luv♡4U supported by Singapore Tourism Board Afternoon Session",
     "embedname": "Merm4id 1st LIVE Afternoon Session",
-    "artist": "3",
+    "artist_rel": [ "Merm4id" ],
     "eventdate": "2021-04-02T14:30:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1GmgC6HB6MmtqoyTgxhKPDFczN6M6BsHF?usp=sharing)"
   },
   "0025": {
     "name": "Merm4id 1st LIVE Luv♡4U supported by Singapore Tourism Board Evening Session",
     "embedname": "Merm4id 1st LIVE Evening Session",
-    "artist": "3",
+    "artist_rel": [ "Merm4id" ],
     "eventdate": "2021-04-02T18:00:00",
     "archive": "[Link](https://drive.google.com/drive/folders/1GmgC6HB6MmtqoyTgxhKPDFczN6M6BsHF?usp=sharing)"
   },
   "0026": {
     "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Afternoon Session",
     "embedname": "NYAN-NYAN SHAKE! Afternoon Session",
-    "artist": "35",
+    "artist_rel": [ "Merm4id", "Lyrical Lily" ],
     "eventdate": "2021-04-24T14:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/1o8qe06wn8k), 10 min free"
   },
   "0027": {
     "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Evening Session",
     "embedname": "NYAN-NYAN SHAKE! Evening Session",
-    "artist": "35",
+    "artist_rel": [ "Merm4id", "Lyrical Lily" ],
     "eventdate": "2021-04-24T18:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/e5rkegl41rv), 10 min free"
   },
   "0028": {
     "name": "Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Afternoon Session",
     "embedname": "Ultimate Melodies Afternoon Session",
-    "artist": "12",
+    "artist_rel": [ "Peaky P-key", "Photon Maiden" ],
     "eventdate": "2021-04-30T14:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/2p8v3q6xxzy), 10 min free"
   },
   "0029": {
     "name": "Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Evening Session",
     "embedname": "Ultimate Melodies Evening Session",
-    "artist": "12",
+    "artist_rel": [ "Peaky P-key", "Photon Maiden" ],
     "eventdate": "2021-04-30T18:00:00",
     "livestream": "[Paid](https://www.openrec.tv/live/lv8105kw7z9), 10 min free"
   },
   "0030": {
     "name": "D4DJ D4 FES. -Be Happy- REMIX",
-    "artist": "012345",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
     "eventdate": "2021-05-29T15:30:00"
   },
 
 
   "1001": {
     "name": "#D4DJ_STAYHOME Day 1",
-    "artist": "9",
-    "artiststr_id": "Nishio Yuka",
+    "artist_rel": [ "Nishio Yuka" ],
     "eventdate": "2020-04-26T20:00:00"
   },
   "1002": {
     "name": "#D4DJ_STAYHOME Day 2",
-    "artist": "9",
-    "artiststr_id": "Tsunko",
+    "artist_rel": [ "Tsunko" ],
     "eventdate": "2020-04-27T20:00:00"
   },
   "1003": {
     "name": "#D4DJ_DJTIME vol. 1",
-    "artist": "9",
-    "artiststr_id": "Takagi Miyu",
+    "artist_rel": [ "Takagi Miyu" ],
     "eventdate": "2020-05-29T22:00:00"
   },
   "1004": {
     "name": "#D4DJ_DJTIME vol. 2",
-    "artist": "9",
-    "artiststr_id": "Nishio Yuka",
+    "artist_rel": [ "Nishio Yuka" ],
     "eventdate": "2020-06-05T22:00:00"
   },
   "1005": {
     "name": "#D4DJ_DJTIME vol. 3",
-    "artist": "9",
-    "artiststr_id": "Tsunko",
+    "artist_rel": [ "Tsunko" ],
     "eventdate": "2020-07-10T22:00:00"
   },
   "1006": {
     "name": "#D4DJ_DJTIME vol. 4",
-    "artist": "9",
-    "artiststr_id": "Tsunko",
+    "artist_rel": [ "Tsunko" ],
     "eventdate": "2020-08-07T22:00:00"
   },
   "1007": {
     "name": "#D4DJ_DJTIME vol. 5",
-    "artist": "9",
-    "artiststr_id": "Hazuki Himari",
+    "artist_rel": [ "Hazuki Himari" ],
     "eventdate": "2020-08-14T22:00:00"
   },
   "1008": {
     "name": "#D4DJ_DJTIME vol. 6",
-    "artist": "9",
-    "artiststr_id": "Takagi Miyu",
+    "artist_rel": [ "Takagi Miyu" ],
     "eventdate": "2020-08-21T22:00:00"
   },
   "1009": {
     "name": "#D4DJ_DJTIME vol. 7",
-    "artist": "9",
-    "artiststr_id": "Kagami Karin",
+    "artist_rel": [ "Kagami Karin" ],
     "eventdate": "2020-08-28T22:00:00"
   },
   "1010": {
     "name": "#D4DJ_DJTIME vol. 8",
-    "artist": "9",
-    "artiststr_id": "Tsunko",
+    "artist_rel": [ "Tsunko" ],
     "eventdate": "2020-09-04T22:00:00"
   },
   "1011": {
     "name": "#D4DJ_DJTIME vol. 9",
-    "artist": "9",
-    "artiststr_id": "Hazuki Himari",
+    "artist_rel": [ "Hazuki Himari" ],
     "eventdate": "2020-09-11T22:00:00"
   },
   "1012": {
     "name": "#D4DJ_DJTIME Special Edition",
-    "artist": "9",
-    "artiststr_id": "Mizushima Seiji & Tsumugi Risa",
+    "artist_rel": [ "Mizushima Seiji", "Tsumugi Risa" ],
     "eventdate": "2020-09-19T22:00:00"
   },
   "1013": {
     "name": "#D4DJ_DJTIME vol. 10",
-    "artist": "9",
-    "artiststr_id": "Takagi Miyu",
+    "artist_rel": [ "Takagi Miyu" ],
     "eventdate": "2020-09-25T22:00:00"
   },
   "1014": {
     "name": "#D4DJ_DJTIME vol. 11",
-    "artist": "9",
-    "artiststr_id": "Yoshida Hisanori",
+    "artist_rel": [ "Yoshida Hisanori" ],
     "eventdate": "2020-10-09T22:00:00"
   },
   "1015": {
     "name": "#D4DJ_DJTIME vol. 12",
-    "artist": "9",
-    "artiststr_id": "Aimoto Rinku",
+    "artist_rel": [ "Aimoto Rinku" ],
     "eventdate": "2020-10-16T22:00:00"
   },
   "1016": {
     "name": "#D4DJ_DJTIME vol. 13",
-    "artist": "9",
-    "artiststr_id": "Akashi Maho",
+    "artist_rel": [ "Akashi Maho" ],
     "eventdate": "2020-10-23T22:00:00"
   },
   "1017": {
     "name": "#D4DJ_DJTIME vol. 14",
-    "artist": "9",
-    "artiststr_id": "Tsumugi Risa",
+    "artist_rel": [ "Tsumugi Risa" ],
     "eventdate": "2020-10-30T22:30:00"
   },
   "1018": {
     "name": "#D4DJ_DJTIME vol. 15",
-    "artist": "9",
-    "artiststr_id": "Tsunko",
+    "artist_rel": [ "Tsunko" ],
     "eventdate": "2020-11-06T22:30:00"
   },
   "1019": {
     "name": "#D4DJ_DJTIME vol. 16",
-    "artist": "9",
-    "artiststr_id": "Hazuki Himari",
+    "artist_rel": [ "Hazuki Himari" ],
     "eventdate": "2020-11-13T22:15:00"
   },
   "1020": {
     "name": "#D4DJ_DJTIME vol. 17",
-    "artist": "9",
-    "artiststr_id": "Inuyose Shinobu",
+    "artist_rel": [ "Inuyose Shinobu" ],
     "eventdate": "2020-11-20T22:15:00"
   },
   "1021": {
     "name": "#D4DJ_DJTIME Special Edition vol. 2",
-    "artist": "9",
-    "artiststr_id": "Hazuki Himari & Mimura Haruka",
+    "artist_rel": [ "Hazuki Himari", "Mimura Haruka" ],
     "eventdate": "2020-11-27T22:15:00"
   },
   "1022": {
     "name": "#D4DJ_DJTIME vol. 18",
-    "artist": "9",
-    "artiststr_id": "Aimoto Rinku",
+    "artist_rel": [ "Aimoto Rinku" ],
     "eventdate": "2020-12-04T22:15:00"
   },
   "1023": {
     "name": "#D4DJ_DJTIME Special Edition vol. 3",
-    "artist": "9",
-    "artiststr_id": "Tsunko & Momono Haruna",
+    "artist_rel": [ "Tsunko", "Momono Haruna" ],
     "eventdate": "2020-12-11T22:15:00"
   },
   "1024": {
     "name": "#D4DJ_DJTIME vol. 19",
-    "artist": "9",
-    "artiststr_id": "Akashi Maho",
+    "artist_rel": [ "Akashi Maho" ],
     "eventdate": "2020-12-18T22:15:00"
   },
   "1025": {
     "name": "#D4DJ_DJTIME vol. 20",
-    "artist": "9",
-    "artiststr_id": "Izumo Saki",
+    "artist_rel": [ "Izumo Saki" ],
     "eventdate": "2020-12-25T22:15:00"
   },
   "1026": {
     "name": "#D4DJ_DJTIME New Years Special",
-    "artist": "9",
-    "artiststr_id": "Aimoto Rinku",
+    "artist_rel": [ "Aimoto Rinku" ],
     "eventdate": "2021-01-01T22:00:00"
   },
   "1027": {
     "name": "#D4DJ_DJTIME Special Edition vol. 4",
-    "artist": "9",
-    "artiststr_id": "Nishio Yuka & Mimura Haruka",
+    "artist_rel": [ "Nishio Yuka", "Mimura Haruka" ],
     "eventdate": "2021-01-08T22:15:00"
   },
   "1028": {
     "name": "#D4DJ_DJTIME Special Edition vol. 5",
-    "artist": "9",
-    "artiststr_id": "Aimoto Rinku & Akashi Maho",
+    "artist_rel": [ "Aimoto Rinku", "Akashi Maho" ],
     "eventdate": "2021-01-15T22:15:00"
   },
   "1029": {
     "name": "#D4DJ_DJTIME vol. 21",
-    "artist": "9",
-    "artiststr_id": "Hazuki Himari",
+    "artist_rel": [ "Hazuki Himari" ],
     "eventdate": "2021-01-22T22:15:00"
   },
   "1030": {
     "name": "#D4DJ_DJTIME vol. 22",
-    "artist": "9",
-    "artiststr_id": "Tsumugi Risa",
+    "artist_rel": [ "Tsumugi Risa" ],
     "eventdate": "2021-01-29T22:15:00"
   },
   "1031": {
     "name": "#D4DJ_DJTIME 2021.02.05",
-    "artist": "9",
-    "artiststr_id": "Inuyose Shinobu",
+    "artist_rel": [ "Inuyose Shinobu" ],
     "eventdate": "2021-02-05T22:00:00"
   },
   "1032": {
     "name": "#D4DJ_DJTIME 2021.02.12",
-    "artist": "9",
-    "artiststr_id": "Kagami Karin & Mimura Haruka",
+    "artist_rel": [ "Kagami Karin", "Mimura Haruka" ],
     "eventdate": "2021-02-12T22:00:00"
   },
   "1033": {
     "name": "#D4DJ_DJTIME 2021.02.19",
-    "artist": "9",
-    "artiststr_id": "Akashi Maho & Ohnaruto Muni",
+    "artist_rel": [ "Akashi Maho", "Ohnaruto Muni" ],
     "eventdate": "2021-02-19T22:00:00"
   },
   "1034": {
     "name": "#D4DJ_DJTIME 2021.02.26",
-    "artist": "9",
-    "artiststr_id": "Umemura Hinako",
+    "artist_rel": [ "Umemura Hinako" ],
     "eventdate": "2021-02-26T22:00:00"
   },
   "1035": {
     "name": "#D4DJ_DJTIME 2021.03.05",
-    "artist": "9",
-    "artiststr_id": "Aimoto Rinku & Ohnaruto Muni",
+    "artist_rel": [ "Aimoto Rinku", "Ohnaruto Muni" ],
     "eventdate": "2021-03-05T22:00:00"
   },
   "1036": {
     "name": "#D4DJ_DJTIME 2021.03.12",
-    "artist": "9",
-    "artiststr_id": "Hazuki Himari & Mimura Haruka",
+    "artist_rel": [ "Hazuki Himari", "Mimura Haruka" ],
     "eventdate": "2021-03-12T22:00:00"
   },
   "1037": {
     "name": "#D4DJ_DJTIME 2021.03.19",
-    "artist": "9",
-    "artiststr_id": "Takagi Miyu",
+    "artist_rel": [ "Takagi Miyu" ],
     "eventdate": "2021-03-19T22:00:00"
   },
   "1038": {
     "name": "#D4DJ_DJTIME 2021.03.26",
-    "artist": "9",
-    "artiststr_id": "Komiya Arisa",
+    "artist_rel": [ "Komiya Arisa" ],
     "eventdate": "2021-03-26T22:00:00"
   },
   "1039": {
     "name": "#D4DJ_DJTIME 2021.04.02",
-    "artist": "3",
+    "artist_rel": [ "Merm4id" ],
     "eventdate": "2021-04-02T22:00:00"
   },
   "1040": {
     "name": "#D4DJ_DJTIME 2021.04.09",
-    "artist": "9",
-    "artiststr_id": "Tsumugi Risa",
+    "artist_rel": [ "Tsumugi Risa" ],
     "eventdate": "2021-04-09T22:00:00"
   },
   "1041": {
     "name": "#D4DJ_DJTIME PLUS 2021.04.16",
-    "artist": "9",
-    "artiststr_id": "Kagami Karin & Mizushima Seiji & DJ WILDPARTY",
+    "artist_rel": [ "Kagami Karin", "Mizushima Seiji", "DJ WILDPARTY" ],
     "eventdate": "2021-04-16T21:30:00"
   },
   "1042": {
     "name": "#D4DJ_DJTIME 2021.04.23",
-    "artist": "9",
-    "artiststr_id": "Shindou Amane & Aiba Aina",
+    "artist_rel": [ "Shindou Amane", "Aiba Aina" ],
     "eventdate": "2021-04-23T22:00:00"
+  },
+  "1043": {
+    "name": "#D4DJ_DJTIME 2021.04.30",
+    "artist_rel": [ "Inuyose Shinobu", "Izumo Saki" ],
+    "eventdate": "2021-04-30T22:00:00"
   }
 }

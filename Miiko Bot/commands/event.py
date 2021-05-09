@@ -15,7 +15,7 @@ from bot import MiikoBot
 import models
 from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
-from common.aliases import unit_aliases, artists, process_artist, media_name
+from common.aliases import unit_aliases, artists, media_name
 
 PAGE_SIZE = 15
 
@@ -46,8 +46,8 @@ class Event(commands.Cog):
         for tag in args.tags:
             if tag.isdigit():
                 events = events.filter(id=tag)
-            elif tag in unit_aliases:
-                events = events.filter(artist__contains=str(unit_aliases[tag]))
+            #elif tag in unit_aliases: # need to rework artist filtering
+                #events = events.filter(artist__contains=str(unit_aliases[tag]))
             else: # bad tag - give empty
                 return []
         for word in args.words:
@@ -95,7 +95,9 @@ class Event(commands.Cog):
                     if e.archive: 
                         archivestr = e.archive
                     infoEmbed.add_field(name='Archive', value=archivestr)
-                infoEmbed.add_field(name='Main Artists', value=process_artist(e.artist, g.langpref), inline=False)
+                await e.fetch_related('artist')
+                a = [await media_name(art, g.langpref) for art in e.artist]
+                infoEmbed.add_field(name='Main Artists', value=', '.join(a), inline=False)
                 if e.guests:
                     infoEmbed.add_field(name='Guests', value=e.guests)
                 embeds.append(infoEmbed)

@@ -3,12 +3,12 @@ A novelty Discord bot created for the purpose of learning to code Discord bots.
 
 ## Setup
 
-### .env file
-A .env file should be created in the Miiko Bot directory. It should have the following values:
- - DISCORD_TOKEN set to the bot token
+### Bot Token
+Current bot implementation uses redis to fetch the bot token, remove/rewrite to your own
+preferences.
 
 ### DB initialization
-init_db.py needs to be run before main.py to generate models/schema (I'm using Postgres).  
+init_db.py needs to be run before main.py to generate models/schema on an existing database.
 Change TORTOISE_ORM in tortoise_config.py to your needs before running.
 
 ## Current Features
@@ -41,3 +41,5 @@ Change TORTOISE_ORM in tortoise_config.py to your needs before running.
 ## Contact
 A running instance of Miiko can be tested over on the [Miiko Bot Discord server](https://discord.gg/HChrpwVVHU).
 
+You can also invite Miiko using [this invite link](https://discord.com/api/oauth2/authorize?client_id=822237835947409458&permissions=37088576&scope=bot). Please keep in mind that Miiko is active 
+development so functionalities are incomplete/may change.

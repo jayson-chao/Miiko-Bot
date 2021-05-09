@@ -12,8 +12,7 @@ class D4DJEvent(Model):
     id = fields.IntField(pk=True) # id system - [0/Live, 1/DJ_TIME, 2/Other D4DJ Stream, 3/Other Event][03d - setlist number]
     name = fields.CharField(255)
     embedname = fields.CharField(255, default=None, null=True) # shortened name for embed list
-    artist = fields.CharField(7) # include number corresponding to each artist (see artist array in aliases.py)
-    artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='event_str', null=True, default=None)
+    artist = fields.ManyToManyField('models.Artist', related_name='performed', through='performers')
     eventdate = fields.CharField(19) # expected in "[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]" form
 
     # livestream and archive expected in the form "[text](link)" for links
@@ -32,8 +31,8 @@ class D4DJSong(Model):
     jpname = fields.CharField(255, default=None, null=True)
     roname = fields.CharField(255, default=None, null=True) 
     artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist.
-    artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='song_str', null=True, default=None)
-    orartist = fields.ForeignKeyField('models.OtherArtist', related_name='or_by', null=True, default=None)
+    artiststr = fields.ForeignKeyField('models.Artist', related_name='song_str', null=True, default=None)
+    orartist = fields.ForeignKeyField('models.Artist', related_name='or_by', null=True, default=None)
     lyricist = fields.ManyToManyField('models.D4DJStaff', related_name='lyricized', through='lyricists', null=True, default=None)
     composer = fields.ManyToManyField('models.D4DJStaff', related_name='composed', through='composers', null=True, default=None)
     arranger = fields.ManyToManyField('models.D4DJStaff', related_name='arranged', through='arrangers', null=True, default=None)
@@ -56,7 +55,7 @@ class D4DJAlbum(Model):
     jpname = fields.CharField(255, default=None, null=True)
     roname = fields.CharField(255, default=None, null=True) # might replace with pykakasi conversion
     artist = fields.CharField(7) 
-    artiststr = fields.ForeignKeyField('models.OtherArtist', related_name='alb_str', null=True, default=None)
+    artiststr = fields.ForeignKeyField('models.Artist', related_name='alb_str', null=True, default=None)
     releasedate = fields.CharField(10) # YYYY-MM-DD format
 
     class Meta:
@@ -73,14 +72,12 @@ class D4DJSetlist(Model):
         ordering = ["event__id", "position"]
         unique_together = (("event", "position")) 
 
-class OtherArtist(Model):
+class Artist(Model):
     name = fields.CharField(255, pk=True)
     jpname = fields.CharField(255, default=None, null=True)
 
-    # here for tl purposes but given the large amount of null fields, may just use JP name for "original artist" without TL'ing
-
     class Meta:
-        table = "Misc. Artists"
+        table = "Artists"
 
 class D4DJStaff(Model):
     name = fields.CharField(255, pk=True)
