@@ -40,6 +40,7 @@ class Utility(commands.Cog):
         await self.bot.close() # will throw Runtime Error - apparently this is a known bug on their end
 
     @commands.command(name='reload', help='reloads all extensions', hidden=True)
+    @commands.is_owner()
     async def reload_bot(self, ctx):
         self.bot.reload_all_extensions()
         await ctx.send('Bot has been reloaded!')

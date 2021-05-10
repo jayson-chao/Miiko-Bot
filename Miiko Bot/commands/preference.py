@@ -26,7 +26,7 @@ class Preference(commands.Cog):
         self.bot = bot
 
     @commands.command(name='setpref', help='change miiko preference settings')
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(manage_guild=True)
     async def set_preference(self, ctx, pref, setting):
         if pref in pref_aliases and setting in pref_settings[pref_aliases[pref]]:
             await models.Guild.get(id=ctx.guild.id).update(**{pref_aliases[pref]:pref_settings[pref_aliases[pref]][setting]})
