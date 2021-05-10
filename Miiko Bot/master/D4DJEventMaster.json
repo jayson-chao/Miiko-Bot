@@ -190,6 +190,11 @@
     "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
     "eventdate": "2021-05-29T15:30:00"
   },
+  "0031": {
+    "name": "Animelo Summer Live 2021 -COLORS- Day 1",
+    "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden" ],
+    "eventdate": "2021-08-27T16:00:00"
+  },
 
 
   "1001": {
@@ -416,5 +421,30 @@
     "name": "#D4DJ_DJTIME PLUS 2021.05.14",
     "artist_rel": [ "Nishio Yuka", "Kagami Karin", "Hirajima Natsumi", "Hazuki Himari", "RAYCHELL" ],
     "eventdate": "2021-05-14T21:30:00"
+  },
+
+  "1046": {
+    "name": "#D4DJ_BATTLE_TIME Afternoon Session (Red Side)",
+    "artist_rel": [ "Takagi Miyu", "Hazuki Himari", "Shindou Amane" ],
+    "eventdate": "2021-06-19T14:00:00",
+    "livestream": "Paid: [Tickets](https://www.openrec.tv/ppv/d4dj_battle_time)"
+  },
+  "1047": {
+    "name": "#D4DJ_BATTLE_TIME Afternoon Session (Blue Side)",
+    "artist_rel": [ "Kagami Karin", "Tsumugi Risa", "Tsunko" ],
+    "eventdate": "2021-06-19T14:00:00",
+    "livestream": "Paid: [Tickets](https://www.openrec.tv/ppv/d4dj_battle_time)"
+  },
+  "1048": {
+    "name": "#D4DJ_BATTLE_TIME Evening Session (Red Side)",
+    "artist_rel": [ "Takagi Miyu", "Hazuki Himari", "Shindou Amane" ],
+    "eventdate": "2021-06-19T17:30:00",
+    "livestream": "Paid: [Tickets](https://www.openrec.tv/ppv/d4dj_battle_time)"
+  },
+  "1049": {
+    "name": "#D4DJ_BATTLE_TIME Evening Session (Blue Side)",
+    "artist_rel": [ "Kagami Karin", "Tsumugi Risa", "Tsunko" ],
+    "eventdate": "2021-06-19T17:30:00",
+    "livestream": "Paid: [Tickets](https://www.openrec.tv/ppv/d4dj_battle_time)"
   }
 }

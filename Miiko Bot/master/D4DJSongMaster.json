@@ -170,6 +170,14 @@
     "composer_rel": [ "Yamato" ],
     "arranger_rel": [ "TECHNOBOYS PULCRAFT GREEN-FUND" ]
   },
+  "00018": {
+    "name": "Hirake! GO MY WAY★",
+    "jpname": "ひらけ! GO MY WAY★",
+    "artist": "0",
+    "lyricist_rel": [ "Takase Aiko" ],
+    "composer_rel": [ "KHAi" ],
+    "arranger_rel": [ "XELIK", "setsat" ]
+  },
   "01001": {
     "name": "Poppin' Shuffle",
     "jpname": "ぽっぴん’しゃっふる",
@@ -435,6 +443,12 @@
     "artist": "1",
     "orartist_id": "Roselia"
   },
+  "11014": {
+    "name": "Kurenai",
+    "jpname": "紅",
+    "artist": "1",
+    "orartist_id": "X Japan"
+  },
   "20001": {
     "name": "Photon Melodies",
     "artist": "2",
@@ -506,6 +520,14 @@
     "track": 5
   },
   "20008": {
+    "name": "Akatsuki (Fruits Mix)",
+    "jpname": "暁 (Fruits Mix)",
+    "artist": "2",
+    "lyricist_rel": [ "Sataka Ryouhei" ],
+    "composer_rel": [ "fu_mou" ],
+    "arranger_rel": [ "Gushimiyagi Hideyuki" ]
+  },
+  "20009": {
     "name": "Wonder Wonder Trip",
     "artist": "2",
     "lyricist_rel": [ "PA-NON" ],
@@ -514,7 +536,7 @@
     "album_id": "202",
     "track": 2
   },
-  "20009": {
+  "20010": {
     "name": "4 Challenges",
     "artist": "2",
     "lyricist_rel": [ "Sataka Ryouhei" ],
@@ -1077,6 +1099,12 @@
     "artist": "5",
     "orartist_id": "Matsuda Seiko"
   },
+  "51013": {
+    "name": "Undercover (TeddyLoid Remix)",
+    "jpname": "アンダーカバー (TeddyLoid Remix)",
+    "artist": "5",
+    "orartist_id": "DECO*27"
+  },
   "90001": {
     "name": "LOVE!HUG!GROOVY!!",
     "artist": "0123459",
@@ -1118,6 +1146,73 @@
     "artist": "9",
     "artiststr_id": "RAISE A SUILEN"
   },
+  "92002": {
+    "name": "Pep Meets Step",
+    "jpname": "ワクワクmeetsトリップ",
+    "roname": "Wakuwaku meets Trip",
+    "artist": "9",
+    "artiststr_id": "Pastel✽Palettes"
+  },
+  "92003": {
+    "name": "BLACK SHOUT",
+    "artist": "9",
+    "artiststr_id": "Roselia"
+  },
+  "92004": {
+    "name": "Initial",
+    "jpname": "イニシャル",
+    "artist": "9",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92005": {
+    "name": "Yes! BanG_Dream!",
+    "artist": "9",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92006": {
+    "name": "Wacha-Mocha Pettan March",
+    "jpname": "わちゃ・もちゃ・ぺったん行進曲",
+    "roname": "Wacha-Mocha-Pettan Koushinkyoku",
+    "artist": "9",
+    "artiststr_id": "Hello, Happy World!"
+  },
+  "92007": {
+    "name": "Milky Attack",
+    "jpname": "ミルキィアタック",
+    "artist": "9",
+    "artiststr_id": "Milky Holmes"
+  },
+  "92008": {
+    "name": "Unite! From A to Z☆",
+    "jpname": "天下トーイツ A to Z☆",
+    "roname": "Tenka Toitsu A to Z☆",
+    "artist": "9",
+    "artiststr_id": "Pastel✽Palettes"
+  },
+  "92009": {
+    "name": "One Hundred Colors Remain",
+    "jpname": "百色リメイン",
+    "roname": "Hyakuiro Remain",
+    "artist": "9",
+    "artiststr_id": "Starlight Kukugumi"
+  },
+  "92010": {
+    "name": "Luminous Once More",
+    "jpname": "もういちどルミナス",
+    "roname": "Mou Ichido Luminous",
+    "artist": "9",
+    "artiststr_id": "Pastel✽Palettes"
+  },
+  "92011": {
+    "name": "Y.O.L.O!!!!!",
+    "artist": "9",
+    "artiststr_id": "Afterglow"
+  },
+  "92012": {
+    "name": "EXPOSE 'Burn out!!!'",
+    "artist": "9",
+    "artiststr_id": "RAISE A SUILEN"
+  },
 
 
   "100001": {
@@ -1146,16 +1241,87 @@
     "artist": "5"
   },
   "100007": {
-    "name": "D4DJ", 
+    "name": "D4DJ",
     "artist": "9"
+  },
+  "100008": {
+    "name": "Merm4id & Lyrical Lily",
+    "artist": "35"
+  },
+  "100009": {
+    "name": "Peaky P-key & Photon Maiden",
+    "artist": "12"
   },
 
   "110001": {
-    "name": "Nishio Yuka",
+    "name": "DJ Time w/ Takagi Miyu",
+    "jpname": "DJ Time w/ 高木美佑",
     "artist": "9"
   },
   "110002": {
+    "name": "DJ TIME w/ Takagi Miyu & Kagami Karin",
+    "jpname": "DJ Time w/ 高木美佑 & 各務華梨",
+    "artist": "9"
+  },
+  "110003": {
+    "name": "DJ Time w/ Tsumugi Risa",
+    "jpname": "DJ Time w/ 紡木吏佐",
+    "artist": "9"
+  },
+  "110004": {
+    "name": "DJ TIME w/ Tsumugi Risa & Nishio Yuka",
+    "jpname": "DJ Time w/ 紡木吏佐 & 西尾夕香",
+    "artist": "9"
+  },
+  "110005": {
+    "name": "DJ Time w/ Hazuki Himari",
+    "jpname": "DJ Time w/ 葉月ひまり",
+    "artist": "9"
+  },
+  "110006": {
+    "name": "DJ TIME w/ Hazuki Himari & Kagami Karin",
+    "jpname": "DJ Time w/ 葉月ひまり & 各務華梨",
+    "artist": "9"
+  },
+  "110007": {
+    "name": "DJ Time w/ Koiwai Kotori",
+    "jpname": "DJ Time w/ 小岩井ことり",
+    "artist": "9"
+  },
+  "110008": {
+    "name": "DJ TIME w/ Koiwai Kotori & Nishio Yuka",
+    "jpname": "DJ Time w/ 小岩井ことり & 西尾夕香",
+    "artist": "9"
+  },
+  "110009": {
+    "name": "Negishi Ai x Okada Mei Dance Battle",
+    "jpname": "根岸愛 x 岡田夢以 Dance Battle",
+    "artist": "9"
+  },
+  "110010": {
+    "name": "Hazuki Himari DJ Solo",
+    "jpname": "葉月ひまり DJ Solo",
+    "artist": "9"
+  },
+  "110011": {
+    "name": "Hirajima Natsumi Rap Solo",
+    "jpname": "平嶋夏海 Rap Solo",
+    "artist": "9"
+  },
+
+  "120001": {
+    "name": "Nishio Yuka",
+    "jpname": "西尾夕香",
+    "artist": "9"
+  },
+  "120002": {
     "name": "Tsunko",
+    "jpname": "つんこ",
+    "artist": "9"
+  },
+  "120003": {
+    "name": "Takagi Miyu",
+    "jpname": "高木美佑",
     "artist": "9"
   }
 }

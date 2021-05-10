@@ -55,7 +55,7 @@ class Event(commands.Cog):
                 events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
             else:
                 if type == EventType.DJTIME:
-                    events = events.filter(Q(artist__name__icontains=word) | Q(artist__jpname__icontains=word))
+                    events = events.filter(Q(artist__name__icontains=word) | Q(artist__jpname__icontains=word) | Q(name__icontains=word)).distinct()
                 else:
                     events = events.filter(name__icontains=word)
         return await events.order_by("eventdate")
@@ -156,8 +156,8 @@ class Event(commands.Cog):
                 if e_time > now:
                     delta = e_time - now
                     timestr = e_time.strftime('%Y-%m-%d @ %H:%M JST') + f'\nIn: {delta.days}d {delta.seconds//3600}h {(delta.seconds//60)%60}m'
-                    infoEmbed.add_field(name='Event Date', value=timestr)
-                    livestr = 'Unconfirmed'
+                    infoEmbed.add_field(name='Stream Date', value=timestr)
+                    livestr = 'No Link Available'
                     if e.livestream:
                         livestr = e.livestream
                     infoEmbed.add_field(name='Livestream', value=livestr)
@@ -200,7 +200,7 @@ class Event(commands.Cog):
             events = await self.match_events(parse_arguments(args), EventType.ALL) 
         else:
             events = await models.D4DJEvent.all().order_by("eventdate")
-        if len(events) < 0:
+        if len(events) < 1:
             await ctx.send('No relevant events found.')
             return
         g = await models.Guild.get_or_none(id=ctx.guild.id)
@@ -220,15 +220,14 @@ class Event(commands.Cog):
                 song = await s.song
                 if song.id > 100000:
                     songlist.append(f'`     {await media_name(song, g.langpref)}`')
+                elif song.id > 92000:
+                    songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)} (Original)`')
                 else:
                     songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)}`')
                     counter += 1
             setlistEmbed.description = '\n'.join(songlist)
             embeds.append(setlistEmbed)
-
         asyncio.ensure_future(run_paged_message(ctx, embeds))
-
-        return
 
 def setup(bot):
     bot.add_cog(Event(bot))
