@@ -55,7 +55,7 @@ class Event(commands.Cog):
                 events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
             else:
                 if type == EventType.DJTIME:
-                    events = events.filter(Q(artist__name__icontains=word) | Q(artist__jpname__icontains=word))
+                    events = events.filter(Q(artist__name__icontains=word) | Q(artist__jpname__icontains=word) | Q(name__icontains=word)).distinct()
                 else:
                     events = events.filter(name__icontains=word)
         return await events.order_by("eventdate")
