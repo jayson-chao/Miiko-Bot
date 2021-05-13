@@ -1,8 +1,6 @@
 # utility.py
 # Utility Commands for Miiko Bot
 
-import json
-import os
 import discord
 from discord.ext import commands
 from tortoise import Tortoise

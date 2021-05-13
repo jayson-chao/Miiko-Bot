@@ -8,7 +8,7 @@ from tortoise import Tortoise
 
 from tortoise_config import TORTOISE_ORM
 
-DBS = {'Artist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id'}
+DBS = {'Artist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id', 'D4DJSeiyuu': 'name'}
 
 M_TO_MS = {
     'D4DJSong': [('D4DJStaff', 'lyricist_rel'), ('D4DJStaff', 'composer_rel'), ('D4DJStaff', 'arranger_rel')],
