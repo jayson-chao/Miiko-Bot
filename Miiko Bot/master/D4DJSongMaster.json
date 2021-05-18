@@ -365,6 +365,14 @@
     "album_id": "906",
     "track": 3
   },
+  "10009": {
+    "name": "Petit Mix Party Night!",
+    "jpname": "ぷっちみくパーチナィ！",
+    "artist": "1",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "PandaBoY" ],
+    "arranger_rel": [ "PandaBoY" ]
+  },
   "11001": {
     "name": "Agehachou",
     "jpname": "アゲハ蝶",
@@ -1023,6 +1031,14 @@
     "composer_rel": [ "Egawa Hiroshi" ],
     "arranger_rel": [ "Yoshida Akihiro" ]
   },
+  "50009": {
+    "name": "Nemuihime",
+    "jpname": "ねむり姫",
+    "artist": "5",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "BIDA" ],
+    "arranger_rel": [ "BIDA", "Yoshida Akihiro" ]
+  },
   "51001": {
     "name": "Agapё",
     "artist": "5",
@@ -1318,6 +1334,64 @@
     "jpname": "Hey-day狂騒曲",
     "artiststr_id": "Afterglow"
   },
+  "92040": {
+    "name": "Tied to the Skies",
+    "jpname": "ツナグ、ソラモヨウ",
+    "roname": "Tsunagu, Soramoyou",
+    "artiststr_id": "Afterglow"
+  },
+  "92041": {
+    "name": "Teardrops",
+    "jpname": "ティアドロップス",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92042": {
+    "name": "B.O.F.",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92043": {
+    "name": "Happy Happy Party!",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92044": {
+    "name": "Neppu Kairiku Bushiroad ~Atsuki Houkou~",
+    "jpname": "熱風海陸ブシロード～熱き咆哮～",
+    "artiststr_id": "Ono Masatoshi"
+  },
+  "92045": {
+    "name": "Bokura no Turn",
+    "jpname": "ぼくらのターン",
+    "artiststr_id": "Niji no Conquistador"
+  },
+  "92046": {
+    "name": "Daylight",
+    "jpname": "デイライト",
+    "artiststr_id": "Morfonica"
+  },
+  "92047": {
+    "name": "Tokimeki Experience!",
+    "jpname": "ときめきエクスペリエンス!",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92048": {
+    "name": "Sacred world",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92049": {
+    "name": "Ninja JaJaMaru-kun Medley",
+    "jpname": "忍者じゃじゃ丸くんメドレー",
+    "artiststr_id": "Soundtrack"
+  },
+  "92050": {
+    "name": "DADDY MULK",
+    "artiststr_id": "Soundtrack"
+  },
+  "92051": {
+    "name": "The Legend of Kage Medley",
+    "jpname": "影の伝説 メドレー",
+    "artiststr_id": "Soundtrack"
+  },
+
 
   "100001": {
     "name": "Happy Around!",
@@ -1420,5 +1494,29 @@
   "120005": {
     "name": "Kagami Karin",
     "jpname": "各務華梨"
+  },
+  "120006": {
+    "name": "Mizushima Seiji",
+    "jpname": "水島精二"
+  },
+  "120007": {
+    "name": "Tsumugi Risa",
+    "jpname": "紡木吏佐"
+  },
+  "120008": {
+    "name": "Yoshida Hisanori",
+    "jpname": "吉田尚記"
+  },
+  "120009": {
+    "name": "Aimoto Rinku",
+    "jpname": "愛本りんく"
+  },
+  "120010": {
+    "name": "Akashi Maho",
+    "jpname": "明石真秀"
+  },
+  "120011": {
+    "name": "Inuyose Shinobu",
+    "jpname": "犬寄しのぶ"
   }
 }
