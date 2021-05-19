@@ -23,8 +23,8 @@
     "name": "Cosmic CoaSTAR",
     "artist": "0",
     "lyricist_rel": [ "Takase Aiko" ],
-    "composer_rel": [ "Hoshi Ginnojō" ],
-    "arranger_rel": [ "Hoshi Ginnojō", "yuigot" ],
+    "composer_rel": [ "Hoshi Ginnojou" ],
+    "arranger_rel": [ "Hoshi Ginnojou", "yuigot" ],
     "length": 287,
     "album_id": "903",
     "track": 1
@@ -441,7 +441,7 @@
     "orartist_id": "Hayashibara Megumi"
   },
   "11012": {
-    "name": "Gyakkō no Flügel",
+    "name": "Gyakkou no Flügel",
     "jpname": "逆光のフリューゲル",
     "artist": "1",
     "orartist_id": "Zwei Wing"
@@ -975,7 +975,7 @@
   "50003": {
     "name": "At Night on the Galactic Railroad",
     "jpname": "銀河鉄道の夜に",
-    "roname": "Ginga Tetsudō no Yoru ni",
+    "roname": "Ginga Tetsudou no Yoru ni",
     "artist": "5",
     "lyricist_rel": [ "Nakamura Kou" ],
     "composer_rel": [ "Egawa Hiroshi", "Yoshida Akihiro" ],
@@ -1745,5 +1745,9 @@
   "120011": {
     "name": "Inuyose Shinobu",
     "jpname": "犬寄しのぶ"
+  },
+  "120012": {
+    "name": "Izumo Saki",
+    "jpname": "出雲咲姫"
   }
 }

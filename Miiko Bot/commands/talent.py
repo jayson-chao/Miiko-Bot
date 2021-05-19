@@ -7,6 +7,8 @@ from discord.ext import commands
 from tortoise import Tortoise
 from tortoise.query_utils import Q
 from fuzzywuzzy import process
+from datetime import datetime
+import pytz
 
 from bot import MiikoBot
 import models
@@ -53,6 +55,30 @@ class Talent(commands.Cog):
         else:
             await ctx.send('No relevant seiyuu found.')
 
+    @commands.command(name="birthday", aliases=["bday"], help="birthday list [WIP]", hidden=True)
+    async def birthday(self, ctx, *, args=None):
+        g = await models.Guild.get_or_none(id=ctx.guild.id)
+        if args:
+            if args.lower() == "next":
+                now = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%m-%d')
+                seiyuu = models.D4DJSeiyuu.all().order_by('birthday')
+                c = await seiyuu.first() # in case current date is beyond all birthdays in jan-dec timeline
+                async for s in seiyuu:
+                    if now < s.birthday:
+                        c = s
+                        break
+                bdayEmbed = discord.Embed(title="Seiyuu Birthdays", description=f'{await media_name(s, g.langpref)} - {s.birthday[:5]}')
+                asyncio.ensure_future(run_paged_message(ctx, [bdayEmbed]))
+            else:
+                await ctx.send('invalid arg')
+
+        else:
+            bdayEmbed = discord.Embed(title="Seiyuu Birthdays")
+            b = []
+            async for s in models.D4DJSeiyuu.all().order_by('birthday'):
+                b.append(f'`{s.birthday[:5]}  {await media_name(s, g.langpref)}`')
+            bdayEmbed.description = '\n'.join(b)
+            asyncio.ensure_future(run_paged_message(ctx, [bdayEmbed]))
 
 # expected by load_extension in bot
 def setup(bot):

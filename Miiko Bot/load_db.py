@@ -19,7 +19,7 @@ M_TO_MS = {
 async def load_db():
     await Tortoise.init(TORTOISE_ORM)
     for m in DBS: # dict order preserved in 3.8
-        print(m)
+        # print(m)
         mtype = getattr(models, m)
         await mtype.all().delete()
         with open(f'master/{m}Master.json') as f:
@@ -27,7 +27,7 @@ async def load_db():
 
         fields = M_TO_MS[m] if m in M_TO_MS else []
         for item in data:
-            print(item)
+            # print(item)
             model = await mtype.update_or_create(**{DBS[m]: item, 'defaults':data[item]})
             for c, f in fields:
                 ctype = getattr(models, c)
@@ -40,8 +40,9 @@ async def load_db():
     with open(f'master/D4DJSetlistMaster.json') as f:
             data = json.load(f)
     for item in data:
+        # print(item)
         for pos, song in enumerate(data[item]['setlist']):
-            print(song)
+            # print(song)
             await models.D4DJSetlist.update_or_create(event_id=item, song_id=song, position=pos+1)
 
 asyncio.run(load_db())
