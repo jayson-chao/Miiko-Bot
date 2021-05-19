@@ -6,6 +6,7 @@ from discord.ext import commands
 from tortoise import Tortoise
 
 from bot import MiikoBot
+import load_db
 import models
 
 class Utility(commands.Cog):
@@ -42,6 +43,13 @@ class Utility(commands.Cog):
     async def reload_bot(self, ctx):
         self.bot.reload_all_extensions()
         await ctx.send('Bot has been reloaded!')
+
+    @commands.command(name='refresh', help='refresh db', hidden=True)
+    @commands.is_owner()
+    async def refresh_db(self, ctx):
+        await load_db.load_db()
+        await ctx.send('DB Refreshed!')
+        
 
 # expected by load_extension in bot
 def setup(bot):

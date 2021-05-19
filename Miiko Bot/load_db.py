@@ -38,11 +38,12 @@ async def load_db():
                         await attr.add(g)
 
     with open(f'master/D4DJSetlistMaster.json') as f:
-            data = json.load(f)
+        data = json.load(f)
     for item in data:
         # print(item)
         for pos, song in enumerate(data[item]['setlist']):
             # print(song)
             await models.D4DJSetlist.update_or_create(event_id=item, song_id=song, position=pos+1)
 
-asyncio.run(load_db())
+if __name__=="__main__":
+    asyncio.run(load_db())

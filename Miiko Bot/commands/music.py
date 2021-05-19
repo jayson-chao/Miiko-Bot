@@ -56,9 +56,6 @@ class Music (commands.Cog):
             for i, s in enumerate(songs):
                 trackEmbed = discord.Embed(title=await media_name(s, g.langpref), color = art_colors[s.id // 10000])
                 staffEmbed = discord.Embed(title=await media_name(s, g.langpref), color = art_colors[s.id // 10000])
-                if len(songs) > 1:
-                    trackEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
-                    staffEmbed.set_footer(text=f'Page {i+1}/{len(songs)}')
                 if s.album:
                     a = await s.album.first()
                     trackEmbed.add_field(name='Album', value=await media_name(a, g.langpref))
@@ -108,7 +105,7 @@ class Music (commands.Cog):
         for i, s in enumerate(songs):
             songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(s, g.langpref)}`')
         page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
-        embeds = [discord.Embed(title='Songs', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        embeds = [discord.Embed(title='Songs', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
     @commands.command(name='album', help='&album [terms | $tags], shows album info')
@@ -133,9 +130,6 @@ class Music (commands.Cog):
                 albumEmbed.add_field(name='Release Date', value=a.releasedate)
                 trackEmbed = discord.Embed(title=albumtitle, color = art_colors[a.id // 100])
                 trackEmbed.add_field(name='Track Listing', value='\n'.join(songlist))
-                if len(albums) > 1:
-                    albumEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')
-                    trackEmbed.set_footer(text=f'Page {i+1}/{len(albums)}')
                 albumEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/album/{a.id:03d}.png')
                 trackEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/album/{a.id:03d}.png')
                 albumembeds.append(albumEmbed)
@@ -160,7 +154,7 @@ class Music (commands.Cog):
         for i, a in enumerate(albums):
             albumlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(a, g.langpref)}`')
         page_contents = [albumlist[i:i + PAGE_SIZE] for i in range(0, len(albumlist), PAGE_SIZE)]
-        embeds = [discord.Embed(title='Albums', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        embeds = [discord.Embed(title='Albums', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
     async def match_staff(self, args: ParsedArguments):
@@ -210,7 +204,7 @@ class Music (commands.Cog):
             songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(so, g.langpref)} ({"".join(did)})`')
 
         page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
-        embeds = [discord.Embed(title=await media_name(s, g.langpref), description='\n'.join((s for s in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        embeds = [discord.Embed(title=await media_name(s, g.langpref), description='\n'.join((s for s in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
 # expected by load_extension in bot

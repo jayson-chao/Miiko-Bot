@@ -37,7 +37,7 @@ class Event(commands.Cog):
     bot: MiikoBot
 
     # returns array of relevant events
-    async def match_events(self, args: ParsedArguments, type: EventType=None):
+    async def match_events(self, args: ParsedArguments, type: EventType=None, future=True):
         events = models.D4DJEvent.all()
         if type and type != EventType.ALL:
             events = events.filter(Q(id__lt=type*1000) & Q(id__gt=(type-1)*1000))
@@ -50,6 +50,9 @@ class Event(commands.Cog):
                 events = events.filter(artist__name=artists[unit_aliases[tag]])
             else: # bad tag - give empty
                 return []
+        if not future:
+            now = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d')
+            events = events.filter(eventdate__lte=now)
         for word in args.words:
             if word in event_aliases: # manually catch some possible conversion/matching problems
                 events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
@@ -77,7 +80,7 @@ class Event(commands.Cog):
             for i, e in enumerate(events):
                 infoEmbed = discord.Embed(title=e.name)
                 if len(events) > 1:
-                    infoEmbed.set_footer(text=f'Event ID: {e.id}\nPage {i+1}/{len(events)}')
+                    infoEmbed.set_footer(text=f'Event ID: {e.id}')
                 else:
                     infoEmbed.set_footer(text=f'Event ID: {e.id}')
                 infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/event/{e.id}.png')
@@ -127,7 +130,7 @@ class Event(commands.Cog):
                 eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.name}`')
 
         page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
-        embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
     @commands.command(name='djtime', help='lists dj time')
@@ -147,7 +150,7 @@ class Event(commands.Cog):
             for i, e in enumerate(events):
                 infoEmbed = discord.Embed(title=e.name)
                 if len(events) > 1:
-                    infoEmbed.set_footer(text=f'Event ID: {e.id}\nPage {i+1}/{len(events)}')
+                    infoEmbed.set_footer(text=f'Event ID: {e.id}')
                 else:
                     infoEmbed.set_footer(text=f'Event ID: {e.id}')
                 infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/event/{e.id}.png')
@@ -191,15 +194,16 @@ class Event(commands.Cog):
             else:
                 eventlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{e.name}`')
         page_contents = [eventlist[i:i + PAGE_SIZE] for i in range(0, len(eventlist), PAGE_SIZE)]
-        embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+        embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
     @commands.command('setlist', help='&setlist [terms | $tags], shows setlist for event/stream')
     async def setlist(self, ctx, *, args=None):
         if args:
-            events = await self.match_events(parse_arguments(args), EventType.ALL) 
+            events = await self.match_events(parse_arguments(args), EventType.ALL, future=False) 
         else:
-            events = await models.D4DJEvent.all().order_by("eventdate")
+            now = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d')
+            events = await models.D4DJEvent.all().filter(eventdate__lte=now).order_by("eventdate")
         if len(events) < 1:
             await ctx.send('No relevant events found.')
             return
@@ -209,7 +213,7 @@ class Event(commands.Cog):
             songs = await models.D4DJSetlist.filter(event=e).order_by("position") 
             setlistEmbed = discord.Embed(title=e.name)
             if len(events) > 1:
-                setlistEmbed.set_footer(text=f'Event ID: {e.id}\nPage {i+1}/{len(events)}')
+                setlistEmbed.set_footer(text=f'Event ID: {e.id}')
             if len(songs) < 1: # skip any events w/o setlists
                 setlistEmbed.description = '`No setlist available.`'
                 embeds.append(setlistEmbed)
@@ -220,7 +224,7 @@ class Event(commands.Cog):
                 song = await s.song
                 if song.id > 100000:
                     songlist.append(f'`     {await media_name(song, g.langpref)}`')
-                elif song.id > 92000:
+                elif song.id > 92000 and song.id < 95000:
                     songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)} (Original)`')
                 else:
                     songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)}`')

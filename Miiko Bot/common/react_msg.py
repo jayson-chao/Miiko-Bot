@@ -8,8 +8,17 @@ from discord.ext.commands import Context
 # assumes page content was already sorted out beforehand
 async def run_paged_message(ctx: Context, embed_pages, *, start=0):
     index = min(start, max(len(embed_pages)-1, 0))
+
+    if len(embed_pages) > 1:
+        for i, e in enumerate(embed_pages):
+            if e.footer.text:
+                e.set_footer(text=f'{e.footer.text}\nPage {i+1}/{len(embed_pages)}')
+            else:
+                e.set_footer(text=f'Page {i+1}/{len(embed_pages)}')
+
+
     message = await ctx.send(embed=embed_pages[index])
-    
+
     double_left_arrow = '⏪'
     double_right_arrow = '⏩'
     left_arrow = '◀'
@@ -64,6 +73,19 @@ async def run_swap_message(ctx: Context, embeds, *, start=0):
 
     index = min(start, max(len(embeds[0])-1, 0))
     cur_tab = 0
+
+    if len(embeds[1]) > 1:
+        # messy? come back to this later
+        for i, (e1, e2) in enumerate(zip(embeds[0], embeds[1])):
+            if e1.footer.text:
+                e1.set_footer(text=f'{e1.footer.text}\nPage {i+1}/{len(embeds[1])}')
+            else:
+                e1.set_footer(text=f'Page {i+1}/{len(embeds[1])}')
+            if e2.footer.text:
+                e2.set_footer(text=f'{e2.footer.text}\nPage {i+1}/{len(embeds[1])}')
+            else:
+                e2.set_footer(text=f'Page {i+1}/{len(embeds[1])}')
+
     message = await ctx.send(embed=embeds[cur_tab][index])
 
     double_left_arrow = '⏪'

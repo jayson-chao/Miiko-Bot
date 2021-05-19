@@ -167,7 +167,7 @@ class Player(commands.Cog):
             for i, s in enumerate(list(self.bot.player[ctx.guild.id].queue)):
                 songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(s[0], g.langpref)}`')
             page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
-            embeds = [discord.Embed(title='Play Queue', description='\n'.join((e for e in page))).set_footer(text=f'Page {str(i+1)}/{len(page_contents)}') for i, page in enumerate(page_contents)]
+            embeds = [discord.Embed(title='Play Queue', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
             asyncio.ensure_future(run_paged_message(ctx, embeds))
         else:
             await ctx.send('Not playing anything!')

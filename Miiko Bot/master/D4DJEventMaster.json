@@ -162,33 +162,30 @@
     "embedname": "NYAN-NYAN SHAKE! Afternoon Session",
     "artist_rel": [ "Merm4id", "Lyrical Lily" ],
     "eventdate": "2021-04-24T14:00:00",
-    "livestream": "[Paid](https://www.openrec.tv/live/1o8qe06wn8k), 10 min free"
   },
   "0027": {
     "name": "Lyrical Lily x Merm4id Joint LIVE NYAN-NYAN SHAKE! Evening Session",
     "embedname": "NYAN-NYAN SHAKE! Evening Session",
     "artist_rel": [ "Merm4id", "Lyrical Lily" ],
     "eventdate": "2021-04-24T18:00:00",
-    "livestream": "[Paid](https://www.openrec.tv/live/e5rkegl41rv), 10 min free"
   },
   "0028": {
     "name": "Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Afternoon Session",
     "embedname": "Ultimate Melodies Afternoon Session",
     "artist_rel": [ "Peaky P-key", "Photon Maiden" ],
     "eventdate": "2021-04-30T14:00:00",
-    "livestream": "[Paid](https://www.openrec.tv/live/2p8v3q6xxzy), 10 min free"
   },
   "0029": {
     "name": "Peaky P-key・Photon Maiden Joint LIVE Ultimate Melodies Evening Session",
     "embedname": "Ultimate Melodies Evening Session",
     "artist_rel": [ "Peaky P-key", "Photon Maiden" ],
     "eventdate": "2021-04-30T18:00:00",
-    "livestream": "[Paid](https://www.openrec.tv/live/lv8105kw7z9), 10 min free"
   },
   "0030": {
     "name": "D4DJ D4 FES. -Be Happy- REMIX",
     "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
-    "eventdate": "2021-05-29T15:30:00"
+    "eventdate": "2021-05-29T15:30:00",
+    "livestream": "Paid: [Tickets](http://r-t.jp/d4fes0529_streaming)"
   },
   "0031": {
     "name": "Animelo Summer Live 2021 -COLORS- Day 1",

@@ -116,7 +116,7 @@
   "Nakano-ke no Itsutsugo": { "jpname": "中野家の五つ子" },
   "X Japan": {},
   "Pastel✽Palettes": {},
-  "Hello, Happy World!": {},
+  "Hello, Happy World!": { "jpname": "ハロー、ハッピーワールド！" },
   "Afterglow": {},
   "GYROAXIA": {},
   "Argonavis": {},
@@ -127,6 +127,7 @@
   "Poppin' Party x Silent Siren": {},
   "Ailiph Doepa": {},
   "kemu": {},
-  "Azabu": {},
-  "Sato Hiromi": {}
+  "Azabu": { "jpname": "麻布" },
+  "Sato Hiromi": { "jpname": "佐藤ひろ美" },
+  "Hirano Aya": { "jpname": "平野綾" }
 }

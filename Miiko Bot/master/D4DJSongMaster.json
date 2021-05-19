@@ -178,6 +178,13 @@
     "composer_rel": [ "KHAi" ],
     "arranger_rel": [ "XELIK", "setsat" ]
   },
+  "00019": {
+    "name": "Dig Delight!",
+    "artist": "0",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "Yamato" ],
+    "arranger_rel": [ "4sk" ]
+  },
   "01001": {
     "name": "Poppin' Shuffle",
     "jpname": "ぽっぴん’しゃっふる",
@@ -551,6 +558,13 @@
     "composer_rel": [ "Sataka Ryouhei" ],
     "arranger_rel": [ "Sataka Ryouhei" ]
   },
+  "20011": {
+    "name": "Photon Melodies (TAKU INOUE Remix)",
+    "artist": "2",
+    "lyricist_rel": [ "Sataka Ryouhei" ],
+    "composer_rel": [ "Sataka Ryouhei" ],
+    "arranger_rel": [ "TAKU INOUE" ]
+  },
   "21001": {
     "name": "99 ILLUSION!",
     "artist": "2",
@@ -707,6 +721,13 @@
   },
   "30009": {
     "name": "S.T.O.P.!",
+    "artist": "3",
+    "lyricist_rel": [ "Miyakoda Kazushi" ],
+    "composer_rel": [ "Miyakoda Kazushi" ],
+    "arranger_rel": [ "b4k" ]
+  },
+  "30010": {
+    "name": "Floor Killer (After Party Mix)",
     "artist": "3",
     "lyricist_rel": [ "Miyakoda Kazushi" ],
     "composer_rel": [ "Miyakoda Kazushi" ],
@@ -1604,6 +1625,21 @@
     "name": "Blessing Chord",
     "artiststr_id": "Roselia"
   },
+  "92098": {
+    "name": "Feeling Good↑↑",
+    "jpname": "気分上々↑↑",
+    "roname": "Kibun Joujou ↑↑",
+    "artiststr_id": "mihimaru GT"
+  },
+  "92100": {
+    "name": "Theme of Godzilla -Singular Point-",
+    "jpname": "ゴジラのテーマ-シンギュラポイント-",
+    "artiststr_id": "Soundtrack"
+  },
+  "92101": {
+    "name": "God knows...",
+    "artiststr_id": "Hirano Aya"
+  },
 
 
   "95001": {
@@ -1749,5 +1785,28 @@
   "120012": {
     "name": "Izumo Saki",
     "jpname": "出雲咲姫"
+  },
+  "120013": {
+    "name": "Umemura Hinako",
+    "jpname": "梅村妃奈子"
+  },
+  "120014": {
+    "name": "Komiya Arisa",
+    "jpname": "小宮有紗"
+  },
+  "120015": {
+    "name": "DJ WILDPARTY"
+  },
+  "120016": {
+    "name": "Shindou Amane",
+    "jpname": "進藤あまね"
+  },
+  "120017": {
+    "name": "Shindou Amane & Aiba Aina",
+    "jpname": "進藤あまね & 相羽あいな"
+  },
+  "120018": {
+    "name": "Aimoto Rinku & Akashi Maho",
+    "jpname": "愛本りんく & 明石真秀"
   }
 }
