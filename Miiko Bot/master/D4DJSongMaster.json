@@ -1391,6 +1391,233 @@
     "jpname": "影の伝説 メドレー",
     "artiststr_id": "Soundtrack"
   },
+  "92052": {
+    "name": "OPA-OPA!",
+    "artiststr_id": "Soundtrack"
+  },
+  "92053": {
+    "name": "Megaman 2 Medley 1",
+    "jpname": "ロックマン2 メドレー1",
+    "artiststr_id": "Soundtrack"
+  },
+  "92054": {
+    "name": "CAPTAIN NEO～BOSS SCENE1",
+    "artiststr_id": "Soundtrack"
+  },
+  "92055": {
+    "name": "Rag Time On The Rag",
+    "artiststr_id": "Soundtrack"
+  },
+  "92056": {
+    "name": "Tales of the Unusual Main Theme",
+    "jpname": "メイン・タイトル（世にも奇妙な物語）",
+    "artiststr_id": "Soundtrack"
+  },
+  "92057": {
+    "name": "Magical Sound Shower",
+    "artiststr_id": "Soundtrack"
+  },
+  "92058": {
+    "name": "Battles Without Honor and Humanity Theme Song",
+    "jpname": "仁義なき戦いのテーマ",
+    "artiststr_id": "Soundtrack"
+  },
+  "92059": {
+    "name": "Jounetsu Tairiku",
+    "jpname": "情熱大陸",
+    "artiststr_id": "Soundtrack"
+  },
+  "92060": {
+    "name": "Rhythm And Police",
+    "artiststr_id": "Soundtrack"
+  },
+  "92061": {
+    "name": "SUNRISE",
+    "artiststr_id": "Soundtrack"
+  },
+  "92062": {
+    "name": "Furuhata Ninzaburou Theme Song",
+    "jpname": "「警部補・古畑任三郎」のテーマ",
+    "artiststr_id": "Soundtrack"
+  },
+  "92063": {
+    "name": "Tetsuko's Room Theme",
+    "jpname": "徹子の部屋のテーマ",
+    "artiststr_id": "Soundtrack"
+  },
+  "92064": {
+    "name": "Shanghai Teahouse (siromaru d'n'b remix)",
+    "jpname": "上海紅茶館 (siromaru d'n'b Remix)",
+    "roname": "Shanhai Kouchakan (siromaru d'n'b Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92065": {
+    "name": "Love-Colored Master Spark (DJ Genki Remix)",
+    "jpname": "恋色マスタースパーク (DJ Genki Remix)",
+    "roname": "Koiro Master Spark (DJ Genki Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92066": {
+    "name": "U.N. Owen Was Her? (USAO Euphoric Frenchcore Remix)",
+    "jpname": "U.N.オーエンは彼女なのか？ (USAO Euphoric Frenchcore Remix)",
+    "roname": "U.N.Owen wa Kanojo nanoka?",
+    "artiststr_id": "Soundtrack"
+  },
+  "92067": {
+    "name": "Shin'ai",
+    "jpname": "深愛",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92068": {
+    "name": "ETERNAL BLAZE",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92069": {
+    "name": "WILD EYES",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92070": {
+    "name": "Our Christmas Song",
+    "jpname": "クリスマスのうた",
+    "roname": "Christmas no Uta",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92071": {
+    "name": "Photograph",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92072": {
+    "name": "Bloom Nobly, Cherry Blossoms of Sumizome ~ Border of Life (REDALiCE Remix)",
+    "jpname": "幽雅に咲かせ、墨染の桜 ～ Border of Life (REDALiCE Remix)",
+    "roname": "Yuuga ni Sakase, Sumizome no Sakura ～ Border of Life (REDALiCE Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92073": {
+    "name": "mind of Prominence",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92074": {
+    "name": "JUST THE WAY I AM",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92075": {
+    "name": "Edel Lilie",
+    "artiststr_id": "Legion Team Hitotsuyanagi"
+  },
+  "92076": {
+    "name": "Angelic Symphony",
+    "artiststr_id": "Sato Hiromi"
+  },
+  "92077": {
+    "name": "Fight!!",
+    "artiststr_id": "ClariS"
+  },
+  "92078": {
+    "name": "Hitorigoto",
+    "jpname": "ヒトリゴト",
+    "artiststr_id": "ClariS"
+  },
+  "92079": {
+    "name": "NO GIRL NO CRY",
+    "artiststr_id": "Poppin' Party x Silent Siren"
+  },
+  "92080": {
+    "name": "Septette for the Dead Princess (Massive New Krew Remix)",
+    "jpname": "亡き王女の為のセプテット(Massive New Krew Remix)",
+    "roname": "Nakioujo no Tame no Septette (Massive New Krew Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92081": {
+    "name": "Pure Furies (DJ WILDPARTY remix)",
+    "jpname": "ピュアヒューリーズ(DJ WILDPARTY remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92082": {
+    "name": "Exterminate",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92083": {
+    "name": "Where Is The Love (feat. Shogo & Hayakawa Hirotaka)",
+    "jpname": "Where Is The Love (feat. Shogo&早川博隆)",
+    "artiststr_id": "Azabu"
+  },
+  "92084": {
+    "name": "Gotoubun no Katachi",
+    "jpname": "五等分のカタチ",
+    "artiststr_id": "Nakano-ke no Itsutsugo"
+  },
+  "92085": {
+    "name": "I need you!",
+    "jpname": "キミがいなくちゃっ！",
+    "roname": "Kimi ga Inakucha!",
+    "artiststr_id": "Hello, Happy World!"
+  },
+  "92086": {
+    "name": "Jinsei Reset Button",
+    "jpname": "人生リセットボタン",
+    "artiststr_id": "kemu"
+  },
+  "92087": {
+    "name": "STARDUST SONG",
+    "artiststr_id": "hololive IDOL PROJECT"
+  },
+  "92088": {
+    "name": "SE・SA・ME",
+    "artiststr_id": "Ailiph Doepa"
+  },
+  "92089": {
+    "name": "Galaxy Express 999",
+    "jpname": "銀河鉄道999",
+    "artiststr_id": "Godiego"
+  },
+  "92090": {
+    "name": "ZEAL of proud",
+    "artiststr_id": "Roselia"
+  },
+  "92091": {
+    "name": "Proud of oneself",
+    "artiststr_id": "Roselia"
+  },
+  "92092": {
+    "name": "overtuRe",
+    "artiststr_id": "Roselia"
+  },
+  "92093": {
+    "name": "Song I am.",
+    "artiststr_id": "Roselia"
+  },
+  "92094": {
+    "name": "Promise",
+    "jpname": "約束",
+    "roname": "Yakusoku",
+    "artiststr_id": "Roselia"
+  },
+  "92095": {
+    "name": "R",
+    "artiststr_id": "Roselia"
+  },
+  "92096": {
+    "name": "Determination Symphony",
+    "artiststr_id": "Roselia"
+  },
+  "92097": {
+    "name": "Blessing Chord",
+    "artiststr_id": "Roselia"
+  },
+
+
+  "95001": {
+    "name": "First Mix BGM",
+    "artiststr_id": "D4DJ Soundtrack"
+  },
+  "95002": {
+    "name": "Feeling Good↑↑ (snipe mix)",
+    "jpname": "気分上々↑↑ (snipe mix)",
+    "roname": "Kibun Joujou ↑↑ (snipe mix)",
+    "artist": "9",
+    "orartist_id": "mihimaru GT",
+    "artiststr_id": "D4DJ Soundtrack"
+  },
 
 
   "100001": {

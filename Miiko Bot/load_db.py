@@ -8,7 +8,7 @@ from tortoise import Tortoise
 
 from tortoise_config import TORTOISE_ORM
 
-DBS = {'Artist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id', 'D4DJSeiyuu': 'name'}
+DBS = {'Artist': 'name', 'D4DJEvent': 'id', 'D4DJStaff': 'name', 'D4DJAlbum': 'id', 'D4DJSong': 'id', 'D4DJSeiyuu': 'id'}
 
 M_TO_MS = {
     'D4DJSong': [('D4DJStaff', 'lyricist_rel'), ('D4DJStaff', 'composer_rel'), ('D4DJStaff', 'arranger_rel')],
@@ -19,6 +19,7 @@ M_TO_MS = {
 async def load_db():
     await Tortoise.init(TORTOISE_ORM)
     for m in DBS: # dict order preserved in 3.8
+        print(m)
         mtype = getattr(models, m)
         await mtype.all().delete()
         with open(f'master/{m}Master.json') as f:
@@ -26,6 +27,7 @@ async def load_db():
 
         fields = M_TO_MS[m] if m in M_TO_MS else []
         for item in data:
+            print(item)
             model = await mtype.update_or_create(**{DBS[m]: item, 'defaults':data[item]})
             for c, f in fields:
                 ctype = getattr(models, c)
@@ -39,6 +41,7 @@ async def load_db():
             data = json.load(f)
     for item in data:
         for pos, song in enumerate(data[item]['setlist']):
+            print(song)
             await models.D4DJSetlist.update_or_create(event_id=item, song_id=song, position=pos+1)
 
 asyncio.run(load_db())

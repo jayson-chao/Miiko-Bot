@@ -32,7 +32,7 @@ class Talent(commands.Cog):
             seiyuu = seiyuu.filter(Q(name__icontains=word) | Q(jpname__icontains=word))
         return await seiyuu
 
-    @commands.command(name='seiyuu', help='seiyuu embed')
+    @commands.command(name='seiyuu', help='seiyuu embed [WIP]', hidden=True)
     async def seiyuu(self, ctx, *, args=None):
         if args:
             arguments = parse_arguments(args)
@@ -45,7 +45,9 @@ class Talent(commands.Cog):
             index = 0
             embeds = []
             for i, s in enumerate(seiyuu):
-                infoEmbed = discord.Embed(title=s.name)
+                infoEmbed = discord.Embed(title=await media_name(s, g.langpref))
+                infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/seiyuu/{s.id}.png')
+                infoEmbed.add_field(name="Birth Date", value=s.birthday)
                 embeds.append(infoEmbed)
             asyncio.ensure_future(run_paged_message(ctx, embeds, start=index))
         else:

@@ -89,7 +89,8 @@ class D4DJChara(Model):
         table = "Characters"
 
 class D4DJSeiyuu(Model):
-    name = fields.CharField(255, pk=True)
+    id = fields.IntField(pk=True)
+    name = fields.CharField(255)
     jpname = fields.CharField(255)
     agency = fields.CharField(255)
     birthday = fields.CharField(10) # YYYY-MM-DD

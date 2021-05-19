@@ -1,12 +1,26 @@
 {
-  "Nishio Yuka": {
+  "101": {
+    "name": "Nishio Yuka",
     "jpname": "西尾夕香",
     "agency": "HiBiKi",
     "birthday": "1994-03-31"
   },
-  "Kagami Karin": {
+  "102": {
+    "name": "Kagami Karin",
     "jpname": "各務華梨",
     "agency": "S Inc.",
     "birthday": "1999-09-19"
+  },
+  "103": {
+    "name": "Mimura Haruka",
+    "jpname": "三村遙佳",
+    "agency": "Ace Crew",
+    "birthday": "1994-10-27"
+  },
+  "104": {
+    "name": "Shizaki Kanon",
+    "jpname": "志崎樺音",
+    "agency": "Ace Crew",
+    "birthday": "199X-02-08"
   }
 }
