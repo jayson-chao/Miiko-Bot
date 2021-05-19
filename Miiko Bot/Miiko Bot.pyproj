@@ -35,6 +35,9 @@
     <Compile Include="commands\player.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="commands\talent.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="common\react_msg.py">
       <SubType>Code</SubType>
     </Compile>
@@ -79,13 +82,16 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Master\D4DJEventMaster.json" />
+    <Content Include="Master\D4DJSeiyuuMaster.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Master\D4DJSongMaster.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Master\D4DJStaffMaster.json">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Master\OtherArtistMaster.json">
+    <Content Include="Master\ArtistMaster.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="requirements.txt" />

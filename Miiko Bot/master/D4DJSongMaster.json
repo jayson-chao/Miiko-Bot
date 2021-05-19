@@ -23,8 +23,8 @@
     "name": "Cosmic CoaSTAR",
     "artist": "0",
     "lyricist_rel": [ "Takase Aiko" ],
-    "composer_rel": [ "Hoshi Ginnojō" ],
-    "arranger_rel": [ "Hoshi Ginnojō", "yuigot" ],
+    "composer_rel": [ "Hoshi Ginnojou" ],
+    "arranger_rel": [ "Hoshi Ginnojou", "yuigot" ],
     "length": 287,
     "album_id": "903",
     "track": 1
@@ -365,6 +365,14 @@
     "album_id": "906",
     "track": 3
   },
+  "10009": {
+    "name": "Petit Mix Party Night!",
+    "jpname": "ぷっちみくパーチナィ！",
+    "artist": "1",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "PandaBoY" ],
+    "arranger_rel": [ "PandaBoY" ]
+  },
   "11001": {
     "name": "Agehachou",
     "jpname": "アゲハ蝶",
@@ -433,7 +441,7 @@
     "orartist_id": "Hayashibara Megumi"
   },
   "11012": {
-    "name": "Gyakkō no Flügel",
+    "name": "Gyakkou no Flügel",
     "jpname": "逆光のフリューゲル",
     "artist": "1",
     "orartist_id": "Zwei Wing"
@@ -967,7 +975,7 @@
   "50003": {
     "name": "At Night on the Galactic Railroad",
     "jpname": "銀河鉄道の夜に",
-    "roname": "Ginga Tetsudō no Yoru ni",
+    "roname": "Ginga Tetsudou no Yoru ni",
     "artist": "5",
     "lyricist_rel": [ "Nakamura Kou" ],
     "composer_rel": [ "Egawa Hiroshi", "Yoshida Akihiro" ],
@@ -1022,6 +1030,14 @@
     "lyricist_rel": [ "Nakamura Kou" ],
     "composer_rel": [ "Egawa Hiroshi" ],
     "arranger_rel": [ "Yoshida Akihiro" ]
+  },
+  "50009": {
+    "name": "Nemuihime",
+    "jpname": "ねむり姫",
+    "artist": "5",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "BIDA" ],
+    "arranger_rel": [ "BIDA", "Yoshida Akihiro" ]
   },
   "51001": {
     "name": "Agapё",
@@ -1119,7 +1135,6 @@
   "91001": {
     "name": "WOW WAR TONIGHT ~Toki ni wa Okose yo Movement~",
     "jpname": "WOW WAR TONIGHT～時には起こせよムーヴメント～",
-    "artist": "9",
     "artiststr_id": "Amano Airi & Himegami Shano",
     "orartist_id": "H Jungle with t",
     "length": 325,
@@ -1128,14 +1143,12 @@
   },
   "91002": {
     "name": "POP TEAM EPIC",
-    "artist": "9",
     "artiststr_id": "Kaibara Michiru",
     "orartist_id": "Uesaka Sumire"
   },
   "91003": {
     "name": "Gotoubun no Kimochi",
     "jpname": "五等分の気持ち",
-    "artist": "9",
     "artiststr_id": "Ohnaruto Muni & Hanamaki Towa & Fukushima Noa & Yano Hiiro & Kasuga Haruna",
     "orartist_id": "Nakano-ke no Itsutsugo"
   },
@@ -1143,75 +1156,467 @@
 
   "92001": {
     "name": "R·I·O·T",
-    "artist": "9",
     "artiststr_id": "RAISE A SUILEN"
   },
   "92002": {
     "name": "Pep Meets Step",
     "jpname": "ワクワクmeetsトリップ",
     "roname": "Wakuwaku meets Trip",
-    "artist": "9",
     "artiststr_id": "Pastel✽Palettes"
   },
   "92003": {
     "name": "BLACK SHOUT",
-    "artist": "9",
     "artiststr_id": "Roselia"
   },
   "92004": {
     "name": "Initial",
     "jpname": "イニシャル",
-    "artist": "9",
     "artiststr_id": "Poppin' Party"
   },
   "92005": {
     "name": "Yes! BanG_Dream!",
-    "artist": "9",
     "artiststr_id": "Poppin' Party"
   },
   "92006": {
     "name": "Wacha-Mocha Pettan March",
     "jpname": "わちゃ・もちゃ・ぺったん行進曲",
     "roname": "Wacha-Mocha-Pettan Koushinkyoku",
-    "artist": "9",
     "artiststr_id": "Hello, Happy World!"
   },
   "92007": {
     "name": "Milky Attack",
     "jpname": "ミルキィアタック",
-    "artist": "9",
     "artiststr_id": "Milky Holmes"
   },
   "92008": {
     "name": "Unite! From A to Z☆",
     "jpname": "天下トーイツ A to Z☆",
     "roname": "Tenka Toitsu A to Z☆",
-    "artist": "9",
     "artiststr_id": "Pastel✽Palettes"
   },
   "92009": {
     "name": "One Hundred Colors Remain",
     "jpname": "百色リメイン",
     "roname": "Hyakuiro Remain",
-    "artist": "9",
     "artiststr_id": "Starlight Kukugumi"
   },
   "92010": {
     "name": "Luminous Once More",
     "jpname": "もういちどルミナス",
     "roname": "Mou Ichido Luminous",
-    "artist": "9",
     "artiststr_id": "Pastel✽Palettes"
   },
   "92011": {
     "name": "Y.O.L.O!!!!!",
-    "artist": "9",
     "artiststr_id": "Afterglow"
   },
   "92012": {
     "name": "EXPOSE 'Burn out!!!'",
-    "artist": "9",
     "artiststr_id": "RAISE A SUILEN"
+  },
+  "92013": {
+    "name": "LIAR",
+    "artiststr_id": "GYROAXIA"
+  },
+  "92014": {
+    "name": "Gift",
+    "jpname": "ギフト",
+    "artiststr_id": "Argonavis"
+  },
+  "92015": {
+    "name": "What-if Wonderland!!",
+    "artiststr_id": "Argonavis"
+  },
+  "92016": {
+    "name": "REVOLUTION",
+    "artiststr_id": "GYROAXIA"
+  },
+  "92017": {
+    "name": "Hoshi ga Hajimaru",
+    "jpname": "星がはじまる",
+    "artiststr_id": "Argonavis"
+  },
+  "92018": {
+    "name": "Steady Goes!",
+    "artiststr_id": "Argonavis"
+  },
+  "92019": {
+    "name": "SCATTER",
+    "artiststr_id": "GYROAXIA"
+  },
+  "92020": {
+    "name": "Your Gift to Me",
+    "jpname": "キミにもらったもの",
+    "roname": "Kimi ni Moratta Mono",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92021": {
+    "name": "White Afternoon",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92022": {
+    "name": "FIRE BIRD",
+    "artiststr_id": "Roselia"
+  },
+  "92023": {
+    "name": "99 ILLUSION!",
+    "artiststr_id": "Starlight Kukugumi"
+  },
+  "92024": {
+    "name": "\"UNIONS\" Road",
+    "artiststr_id": "Roselia"
+  },
+  "92025": {
+    "name": "A DECLARATION OF ×××",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92026": {
+    "name": "BRAVE JEWEL",
+    "artiststr_id": "Roselia"
+  },
+  "92027": {
+    "name": "Ringing Bloom",
+    "artiststr_id": "Roselia"
+  },
+  "92028": {
+    "name": "LOUDER",
+    "artiststr_id": "Roselia"
+  },
+  "92029": {
+    "name": "That Is How I Roll!",
+    "artiststr_id": "Afterglow"
+  },
+  "92030": {
+    "name": "HELL! or HELL?",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92031": {
+    "name": "Shuwarin☆Drea~min",
+    "jpname": "しゅわりん☆どり～みん",
+    "artiststr_id": "Pastel✽Palettes"
+  },
+  "92032": {
+    "name": "Milky A GO GO",
+    "jpname": "ミルキィ A GO GO",
+    "artiststr_id": "Milky Holmes"
+  },
+  "92033": {
+    "name": "Yura-Yura Ring-Dong-Dance",
+    "jpname": "ゆら・ゆらRing-Dong-Dance",
+    "artiststr_id": "Pastel✽Palettes"
+  },
+  "92034": {
+    "name": "Returns",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92035": {
+    "name": "On Your New Journey",
+    "jpname": "走り始めたばかりのキミに",
+    "roname": "Hashiri Hajimeta Bakari no Kimi ni",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92036": {
+    "name": "UNSTOPPABLE",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92037": {
+    "name": "Dreamers Go!",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92038": {
+    "name": "Boom Through Summer!",
+    "jpname": "夏のドーン！",
+    "roname": "Natsunodon!",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92039": {
+    "name": "Hey-day Capriccio",
+    "jpname": "Hey-day狂騒曲",
+    "artiststr_id": "Afterglow"
+  },
+  "92040": {
+    "name": "Tied to the Skies",
+    "jpname": "ツナグ、ソラモヨウ",
+    "roname": "Tsunagu, Soramoyou",
+    "artiststr_id": "Afterglow"
+  },
+  "92041": {
+    "name": "Teardrops",
+    "jpname": "ティアドロップス",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92042": {
+    "name": "B.O.F.",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92043": {
+    "name": "Happy Happy Party!",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92044": {
+    "name": "Neppu Kairiku Bushiroad ~Atsuki Houkou~",
+    "jpname": "熱風海陸ブシロード～熱き咆哮～",
+    "artiststr_id": "Ono Masatoshi"
+  },
+  "92045": {
+    "name": "Bokura no Turn",
+    "jpname": "ぼくらのターン",
+    "artiststr_id": "Niji no Conquistador"
+  },
+  "92046": {
+    "name": "Daylight",
+    "jpname": "デイライト",
+    "artiststr_id": "Morfonica"
+  },
+  "92047": {
+    "name": "Tokimeki Experience!",
+    "jpname": "ときめきエクスペリエンス!",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92048": {
+    "name": "Sacred world",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92049": {
+    "name": "Ninja JaJaMaru-kun Medley",
+    "jpname": "忍者じゃじゃ丸くんメドレー",
+    "artiststr_id": "Soundtrack"
+  },
+  "92050": {
+    "name": "DADDY MULK",
+    "artiststr_id": "Soundtrack"
+  },
+  "92051": {
+    "name": "The Legend of Kage Medley",
+    "jpname": "影の伝説 メドレー",
+    "artiststr_id": "Soundtrack"
+  },
+  "92052": {
+    "name": "OPA-OPA!",
+    "artiststr_id": "Soundtrack"
+  },
+  "92053": {
+    "name": "Megaman 2 Medley 1",
+    "jpname": "ロックマン2 メドレー1",
+    "artiststr_id": "Soundtrack"
+  },
+  "92054": {
+    "name": "CAPTAIN NEO～BOSS SCENE1",
+    "artiststr_id": "Soundtrack"
+  },
+  "92055": {
+    "name": "Rag Time On The Rag",
+    "artiststr_id": "Soundtrack"
+  },
+  "92056": {
+    "name": "Tales of the Unusual Main Theme",
+    "jpname": "メイン・タイトル（世にも奇妙な物語）",
+    "artiststr_id": "Soundtrack"
+  },
+  "92057": {
+    "name": "Magical Sound Shower",
+    "artiststr_id": "Soundtrack"
+  },
+  "92058": {
+    "name": "Battles Without Honor and Humanity Theme Song",
+    "jpname": "仁義なき戦いのテーマ",
+    "artiststr_id": "Soundtrack"
+  },
+  "92059": {
+    "name": "Jounetsu Tairiku",
+    "jpname": "情熱大陸",
+    "artiststr_id": "Soundtrack"
+  },
+  "92060": {
+    "name": "Rhythm And Police",
+    "artiststr_id": "Soundtrack"
+  },
+  "92061": {
+    "name": "SUNRISE",
+    "artiststr_id": "Soundtrack"
+  },
+  "92062": {
+    "name": "Furuhata Ninzaburou Theme Song",
+    "jpname": "「警部補・古畑任三郎」のテーマ",
+    "artiststr_id": "Soundtrack"
+  },
+  "92063": {
+    "name": "Tetsuko's Room Theme",
+    "jpname": "徹子の部屋のテーマ",
+    "artiststr_id": "Soundtrack"
+  },
+  "92064": {
+    "name": "Shanghai Teahouse (siromaru d'n'b remix)",
+    "jpname": "上海紅茶館 (siromaru d'n'b Remix)",
+    "roname": "Shanhai Kouchakan (siromaru d'n'b Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92065": {
+    "name": "Love-Colored Master Spark (DJ Genki Remix)",
+    "jpname": "恋色マスタースパーク (DJ Genki Remix)",
+    "roname": "Koiro Master Spark (DJ Genki Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92066": {
+    "name": "U.N. Owen Was Her? (USAO Euphoric Frenchcore Remix)",
+    "jpname": "U.N.オーエンは彼女なのか？ (USAO Euphoric Frenchcore Remix)",
+    "roname": "U.N.Owen wa Kanojo nanoka?",
+    "artiststr_id": "Soundtrack"
+  },
+  "92067": {
+    "name": "Shin'ai",
+    "jpname": "深愛",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92068": {
+    "name": "ETERNAL BLAZE",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92069": {
+    "name": "WILD EYES",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92070": {
+    "name": "Our Christmas Song",
+    "jpname": "クリスマスのうた",
+    "roname": "Christmas no Uta",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92071": {
+    "name": "Photograph",
+    "artiststr_id": "Poppin' Party"
+  },
+  "92072": {
+    "name": "Bloom Nobly, Cherry Blossoms of Sumizome ~ Border of Life (REDALiCE Remix)",
+    "jpname": "幽雅に咲かせ、墨染の桜 ～ Border of Life (REDALiCE Remix)",
+    "roname": "Yuuga ni Sakase, Sumizome no Sakura ～ Border of Life (REDALiCE Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92073": {
+    "name": "mind of Prominence",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92074": {
+    "name": "JUST THE WAY I AM",
+    "artiststr_id": "RAISE A SUILEN"
+  },
+  "92075": {
+    "name": "Edel Lilie",
+    "artiststr_id": "Legion Team Hitotsuyanagi"
+  },
+  "92076": {
+    "name": "Angelic Symphony",
+    "artiststr_id": "Sato Hiromi"
+  },
+  "92077": {
+    "name": "Fight!!",
+    "artiststr_id": "ClariS"
+  },
+  "92078": {
+    "name": "Hitorigoto",
+    "jpname": "ヒトリゴト",
+    "artiststr_id": "ClariS"
+  },
+  "92079": {
+    "name": "NO GIRL NO CRY",
+    "artiststr_id": "Poppin' Party x Silent Siren"
+  },
+  "92080": {
+    "name": "Septette for the Dead Princess (Massive New Krew Remix)",
+    "jpname": "亡き王女の為のセプテット(Massive New Krew Remix)",
+    "roname": "Nakioujo no Tame no Septette (Massive New Krew Remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92081": {
+    "name": "Pure Furies (DJ WILDPARTY remix)",
+    "jpname": "ピュアヒューリーズ(DJ WILDPARTY remix)",
+    "artiststr_id": "Soundtrack"
+  },
+  "92082": {
+    "name": "Exterminate",
+    "artiststr_id": "Mizuki Nana"
+  },
+  "92083": {
+    "name": "Where Is The Love (feat. Shogo & Hayakawa Hirotaka)",
+    "jpname": "Where Is The Love (feat. Shogo&早川博隆)",
+    "artiststr_id": "Azabu"
+  },
+  "92084": {
+    "name": "Gotoubun no Katachi",
+    "jpname": "五等分のカタチ",
+    "artiststr_id": "Nakano-ke no Itsutsugo"
+  },
+  "92085": {
+    "name": "I need you!",
+    "jpname": "キミがいなくちゃっ！",
+    "roname": "Kimi ga Inakucha!",
+    "artiststr_id": "Hello, Happy World!"
+  },
+  "92086": {
+    "name": "Jinsei Reset Button",
+    "jpname": "人生リセットボタン",
+    "artiststr_id": "kemu"
+  },
+  "92087": {
+    "name": "STARDUST SONG",
+    "artiststr_id": "hololive IDOL PROJECT"
+  },
+  "92088": {
+    "name": "SE・SA・ME",
+    "artiststr_id": "Ailiph Doepa"
+  },
+  "92089": {
+    "name": "Galaxy Express 999",
+    "jpname": "銀河鉄道999",
+    "artiststr_id": "Godiego"
+  },
+  "92090": {
+    "name": "ZEAL of proud",
+    "artiststr_id": "Roselia"
+  },
+  "92091": {
+    "name": "Proud of oneself",
+    "artiststr_id": "Roselia"
+  },
+  "92092": {
+    "name": "overtuRe",
+    "artiststr_id": "Roselia"
+  },
+  "92093": {
+    "name": "Song I am.",
+    "artiststr_id": "Roselia"
+  },
+  "92094": {
+    "name": "Promise",
+    "jpname": "約束",
+    "roname": "Yakusoku",
+    "artiststr_id": "Roselia"
+  },
+  "92095": {
+    "name": "R",
+    "artiststr_id": "Roselia"
+  },
+  "92096": {
+    "name": "Determination Symphony",
+    "artiststr_id": "Roselia"
+  },
+  "92097": {
+    "name": "Blessing Chord",
+    "artiststr_id": "Roselia"
+  },
+
+
+  "95001": {
+    "name": "First Mix BGM",
+    "artiststr_id": "D4DJ Soundtrack"
+  },
+  "95002": {
+    "name": "Feeling Good↑↑ (snipe mix)",
+    "jpname": "気分上々↑↑ (snipe mix)",
+    "roname": "Kibun Joujou ↑↑ (snipe mix)",
+    "artist": "9",
+    "orartist_id": "mihimaru GT",
+    "artiststr_id": "D4DJ Soundtrack"
   },
 
 
@@ -1241,8 +1646,7 @@
     "artist": "5"
   },
   "100007": {
-    "name": "D4DJ",
-    "artist": "9"
+    "name": "D4DJ"
   },
   "100008": {
     "name": "Merm4id & Lyrical Lily",
@@ -1255,73 +1659,95 @@
 
   "110001": {
     "name": "DJ Time w/ Takagi Miyu",
-    "jpname": "DJ Time w/ 高木美佑",
-    "artist": "9"
+    "jpname": "DJ Time w/ 高木美佑"
   },
   "110002": {
     "name": "DJ TIME w/ Takagi Miyu & Kagami Karin",
-    "jpname": "DJ Time w/ 高木美佑 & 各務華梨",
-    "artist": "9"
+    "jpname": "DJ Time w/ 高木美佑 & 各務華梨"
   },
   "110003": {
     "name": "DJ Time w/ Tsumugi Risa",
-    "jpname": "DJ Time w/ 紡木吏佐",
-    "artist": "9"
+    "jpname": "DJ Time w/ 紡木吏佐"
   },
   "110004": {
     "name": "DJ TIME w/ Tsumugi Risa & Nishio Yuka",
-    "jpname": "DJ Time w/ 紡木吏佐 & 西尾夕香",
-    "artist": "9"
+    "jpname": "DJ Time w/ 紡木吏佐 & 西尾夕香"
   },
   "110005": {
     "name": "DJ Time w/ Hazuki Himari",
-    "jpname": "DJ Time w/ 葉月ひまり",
-    "artist": "9"
+    "jpname": "DJ Time w/ 葉月ひまり"
   },
   "110006": {
     "name": "DJ TIME w/ Hazuki Himari & Kagami Karin",
-    "jpname": "DJ Time w/ 葉月ひまり & 各務華梨",
-    "artist": "9"
+    "jpname": "DJ Time w/ 葉月ひまり & 各務華梨"
   },
   "110007": {
     "name": "DJ Time w/ Koiwai Kotori",
-    "jpname": "DJ Time w/ 小岩井ことり",
-    "artist": "9"
+    "jpname": "DJ Time w/ 小岩井ことり"
   },
   "110008": {
     "name": "DJ TIME w/ Koiwai Kotori & Nishio Yuka",
-    "jpname": "DJ Time w/ 小岩井ことり & 西尾夕香",
-    "artist": "9"
+    "jpname": "DJ Time w/ 小岩井ことり & 西尾夕香"
   },
   "110009": {
     "name": "Negishi Ai x Okada Mei Dance Battle",
-    "jpname": "根岸愛 x 岡田夢以 Dance Battle",
-    "artist": "9"
+    "jpname": "根岸愛 x 岡田夢以 Dance Battle"
   },
   "110010": {
     "name": "Hazuki Himari DJ Solo",
-    "jpname": "葉月ひまり DJ Solo",
-    "artist": "9"
+    "jpname": "葉月ひまり DJ Solo"
   },
   "110011": {
     "name": "Hirajima Natsumi Rap Solo",
-    "jpname": "平嶋夏海 Rap Solo",
-    "artist": "9"
+    "jpname": "平嶋夏海 Rap Solo"
   },
 
   "120001": {
     "name": "Nishio Yuka",
-    "jpname": "西尾夕香",
-    "artist": "9"
+    "jpname": "西尾夕香"
   },
   "120002": {
     "name": "Tsunko",
-    "jpname": "つんこ",
-    "artist": "9"
+    "jpname": "つんこ"
   },
   "120003": {
     "name": "Takagi Miyu",
-    "jpname": "高木美佑",
-    "artist": "9"
+    "jpname": "高木美佑"
+  },
+  "120004": {
+    "name": "Hazuki Himari",
+    "jpname": "葉月ひまり"
+  },
+  "120005": {
+    "name": "Kagami Karin",
+    "jpname": "各務華梨"
+  },
+  "120006": {
+    "name": "Mizushima Seiji",
+    "jpname": "水島精二"
+  },
+  "120007": {
+    "name": "Tsumugi Risa",
+    "jpname": "紡木吏佐"
+  },
+  "120008": {
+    "name": "Yoshida Hisanori",
+    "jpname": "吉田尚記"
+  },
+  "120009": {
+    "name": "Aimoto Rinku",
+    "jpname": "愛本りんく"
+  },
+  "120010": {
+    "name": "Akashi Maho",
+    "jpname": "明石真秀"
+  },
+  "120011": {
+    "name": "Inuyose Shinobu",
+    "jpname": "犬寄しのぶ"
+  },
+  "120012": {
+    "name": "Izumo Saki",
+    "jpname": "出雲咲姫"
   }
 }

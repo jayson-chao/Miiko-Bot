@@ -30,7 +30,7 @@ class D4DJSong(Model):
     name = fields.CharField(255)
     jpname = fields.CharField(255, default=None, null=True)
     roname = fields.CharField(255, default=None, null=True) 
-    artist = fields.CharField(7) # same as event artist but 7th char [9] to indicate special artist.
+    artist = fields.CharField(7, default="9") # same as event artist but 7th char [9] to indicate special artist.
     artiststr = fields.ForeignKeyField('models.Artist', related_name='song_str', null=True, default=None)
     orartist = fields.ForeignKeyField('models.Artist', related_name='or_by', null=True, default=None)
     lyricist = fields.ManyToManyField('models.D4DJStaff', related_name='lyricized', through='lyricists', null=True, default=None)
@@ -78,6 +78,25 @@ class Artist(Model):
 
     class Meta:
         table = "Artists"
+
+class D4DJChara(Model):
+    name = fields.CharField(255)
+    jpname = fields.CharField(255)
+    seiyuu = fields.ForeignKeyField('models.D4DJSeiyuu')
+    birthday = fields.CharField(5) # MM-DD
+
+    class Meta:
+        table = "Characters"
+
+class D4DJSeiyuu(Model):
+    id = fields.IntField(pk=True)
+    name = fields.CharField(255)
+    jpname = fields.CharField(255)
+    agency = fields.CharField(255)
+    birthday = fields.CharField(10) # YYYY-MM-DD
+
+    class Meta:
+        table = "Seiyuu"
 
 class D4DJStaff(Model):
     name = fields.CharField(255, pk=True)

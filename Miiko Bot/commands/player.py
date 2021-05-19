@@ -87,12 +87,12 @@ class Player(commands.Cog):
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         
         # check that asset address responds w/o error
-        r = requests.head(f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')
+        r = requests.head(f'https://github.com/jayson-chao/Miiko-Assets/blob/main/music/{id:05d}.mp3?raw=true')
         if not r:
             await ctx.send(f'{await media_name(song, g.langpref)} is not available at the moment.')
             return
 
-        self.bot.player[ctx.guild.id].put((song, discord.FFmpegPCMAudio(source=f'https://github.com/jayson-chao/Miiko-Bot/blob/master/Miiko%20Bot/common/assets/music/{id:05d}.mp3?raw=true')))
+        self.bot.player[ctx.guild.id].put((song, discord.FFmpegPCMAudio(source=f'https://github.com/jayson-chao/Miiko-Assets/blob/main/music/{id:05d}.mp3?raw=true')))
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
             await ctx.send(f'{await media_name(song, g.langpref)} placed in song queue')
         else:
