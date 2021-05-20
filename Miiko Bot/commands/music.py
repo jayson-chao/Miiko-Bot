@@ -15,6 +15,7 @@ from bot import MiikoBot
 from common.react_msg import run_paged_message, run_swap_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name, art_colors
+from main import CMD_PREFIX
 
 PAGE_SIZE=15
 
@@ -42,7 +43,13 @@ class Music (commands.Cog):
                 media = media.filter(Q(name__icontains=word)|Q(jpname__icontains=word)|Q(roname__icontains=word))
         return await media
 
-    @commands.command(name='song', help='&song [terms | $tags], shows song info')
+    @commands.command(name='song',
+                      help=f'{CMD_PREFIX}song guru guru',
+                      description='Shows a pageable embed of songs, use rotate react to swap between info/staff listing. Requires keyword or $tag argument.\n\n'
+                                  'Giving keyword arguments filters pages down to songs with keywords in title.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[artist] (to filter songs by artists)\n'
+                                  '- $all (returns pages for all original/cover songs)')
     async def song(self, ctx, *, args=None):
         if not args:
             await ctx.send('No relevant songs found.')
@@ -89,7 +96,12 @@ class Music (commands.Cog):
         else:
             await ctx.send('No relevant songs found.')
 
-    @commands.command(name='songs', help='&songs [terms | $tags], lists songs')
+    @commands.command(name='songs',
+                      help=f'{CMD_PREFIX}songs $rondo',
+                      description='Shows a list of songs.\n\n'
+                                  'Giving keyword arguments filters list down to songs with keywords in title.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[artist] (to filter songs by artists)')
     async def list_songs(self, ctx, *, args=None):
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         if args:
@@ -103,12 +115,20 @@ class Music (commands.Cog):
 
         songlist = []
         for i, s in enumerate(songs):
-            songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(s, g.langpref)}`')
+            if s.orartist:
+                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(s, g.langpref)} (Cover)`')
+            else:
+                songlist.append(f'`{i+1}.{" " * (5-len(str(i+1)))}{await media_name(s, g.langpref)}`')
         page_contents = [songlist[i:i + PAGE_SIZE] for i in range(0, len(songlist), PAGE_SIZE)]
         embeds = [discord.Embed(title='Songs', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
-    @commands.command(name='album', help='&album [terms | $tags], shows album info')
+    @commands.command(name='album',
+                      help=f'{CMD_PREFIX}album cover',
+                      description='Shows a pageable embed of albums, use rotate react to swap between info/tracklist. Requires keyword or $tag argument.\n\n'
+                                  'Giving keyword arguments filters pages down to albums with keywords in title.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[artist] (to filter albums by artists)')
     async def album(self, ctx, *, args=None):
         if not args:
             await ctx.send('No relevant albums found.')
@@ -138,7 +158,12 @@ class Music (commands.Cog):
         else:
             await ctx.send('No relevant albums found.')
 
-    @commands.command(name='albums', help='&albums [terms | $tags], lists albums')
+    @commands.command(name='albums',
+                      help=f'{CMD_PREFIX}albums $rondo',
+                      description='Shows a list of albums.\n\n'
+                                  'Giving keyword arguments filters list down to albums with keywords in title.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[artist] (to filter albums by artists)')
     async def list_albums(self, ctx, *, args=None):
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         if args:
@@ -173,15 +198,17 @@ class Music (commands.Cog):
                 best = (n, ratio[1])
         return best[0]
 
-    @commands.command(name='staff', help='&staff [terms], shows staff member info', hidden=True)
+    @commands.command(name='staff',
+                      help=f'{CMD_PREFIX}staff nakamura',
+                      description='Shows a paged embed of relevant staff members, each with a list of songs they have worked on.\n\n'
+                                  'Giving keyword arguments filters pages down to staff members with keywords in their name.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $all (returns pages for all staff that have worked on music)')
     async def list_staff(self, ctx, *, args=None):
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         if args:
             staff = await self.match_staff(parse_arguments(args))
         else:
-            await ctx.send('Please enter staff member name or keyword.')
-            return
-        if not staff :
             await ctx.send('No staff member found.')
             return
 

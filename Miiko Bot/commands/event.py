@@ -16,6 +16,7 @@ import models
 from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, media_name
+from main import CMD_PREFIX
 
 PAGE_SIZE = 15
 
@@ -35,6 +36,9 @@ class EventType(IntEnum):
 
 class Event(commands.Cog):
     bot: MiikoBot
+
+    def __init__(self, bot):
+        self.bot = bot
 
     # returns array of relevant events
     async def match_events(self, args: ParsedArguments, type: EventType=None, future=True):
@@ -57,13 +61,19 @@ class Event(commands.Cog):
             if word in event_aliases: # manually catch some possible conversion/matching problems
                 events = events.filter(Q(name__icontains=word) | Q(name__icontains=event_aliases[word]))
             else:
-                if type == EventType.DJTIME:
+                if type == EventType.DJTIME or type == EventType.ALL:
                     events = events.filter(Q(artist__name__icontains=word) | Q(artist__jpname__icontains=word) | Q(name__icontains=word)).distinct()
                 else:
                     events = events.filter(name__icontains=word)
         return await events.order_by("eventdate")
 
-    @commands.command(name='event', help='&event [terms | $tags], shows event info')
+    @commands.command(name='event', 
+                      help=f'{CMD_PREFIX}event d4 fes',
+                      description='Shows a pageable embed of events in chronological order. Embed will start on the page of the closest upcoming event if there is one, otherwise the most recent event.\n\n'
+                                  'Giving keyword arguments filters the pages down to events that include the given keywords in their names.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[artist] (to filter events by artists)\n'
+                                  '- $[event ID] (gives only the event with the matching internal ID)')
     async def get_event(self, ctx, *, args=None):
         # parse args into most relevant event based on tags/args, else get next event
         if args:
@@ -111,7 +121,12 @@ class Event(commands.Cog):
         else:
             await ctx.send('No relevant events found.')
 
-    @commands.command(name='events', help='&events [terms | $tags], lists events')
+    @commands.command(name='events',
+                      help=f'{CMD_PREFIX}events d4 fes',
+                      description='Shows a paged list of events in chronological order.\n\n'
+                                  'Giving keyword arguments filters the list down to events that include the given keywords in their names.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[artist] (to filter events by artists)')
     async def event_list(self, ctx, *, args=None): # plan to add list filtering based off of unit keyword later
         if args:
             arguments = parse_arguments(args)
@@ -133,7 +148,12 @@ class Event(commands.Cog):
         embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
-    @commands.command(name='djtime', help='lists dj time')
+    @commands.command(name='djtime',
+                      help=f'{CMD_PREFIX}djtime tsunko',
+                      description='Shows a pageable embed of DJTIME streams in chronological order. Embed will start on the page of the closest upcoming stream if there is one, otherwise the most recent stream.\n\n'
+                                  'Giving keyword arguments filters the pages down to streams with keywords in their name/performers that match keywords.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $[event ID] (gives only the event with the matching internal ID)')
     async def djtime(self, ctx, *, args=None):
          # parse args into most relevant event based on tags/args, else get next event
         if args:
@@ -176,7 +196,10 @@ class Event(commands.Cog):
         else:
             await ctx.send('No relevant events found.')
 
-    @commands.command(name='djtimes', help='&djtimes [terms | $tags], lists djtime streams')
+    @commands.command(name='djtimes',
+                      help=f'{CMD_PREFIX}djtimes tsunko',
+                      description='Shows a pageable list of DJTIME streams in chronological order.\n\n'
+                                  'Giving keyword arguments filters the list down to streams with keywords in their name/performers that match keywords.')
     async def djtime_list(self, ctx, *, args=None): # plan to add list filtering based off of unit keyword later
         if args:
             arguments = parse_arguments(args)
@@ -197,7 +220,13 @@ class Event(commands.Cog):
         embeds = [discord.Embed(title='Events', description='\n'.join((e for e in page))) for i, page in enumerate(page_contents)]
         asyncio.ensure_future(run_paged_message(ctx, embeds))
 
-    @commands.command('setlist', help='&setlist [terms | $tags], shows setlist for event/stream')
+    @commands.command('setlist',
+                      help=f'{CMD_PREFIX}setlist d4 fes',
+                      description='Shows a pageable embed of setlists in chronological order starting from earliest event/DJTIME stream.\n\n'
+                                  'Giving keyword arguments filters the pages down to events with keywords in their name/performers that match keywords (for DJTIME streams).\n\n'
+                                  'Valid $tag arguments include:\n'
+                                  '- $[artist] (to filter events by artists)\n'
+                                  '- $[event ID] (gives only the event with the matching internal ID)')
     async def setlist(self, ctx, *, args=None):
         if args:
             events = await self.match_events(parse_arguments(args), EventType.ALL, future=False) 
@@ -226,6 +255,7 @@ class Event(commands.Cog):
                     songlist.append(f'`     {await media_name(song, g.langpref)}`')
                 elif song.id > 92000 and song.id < 95000:
                     songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)} (Original)`')
+                    counter += 1
                 else:
                     songlist.append(f'`{counter}.{" " * (4-len(str(counter)))}{await media_name(song, g.langpref)}`')
                     counter += 1

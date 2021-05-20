@@ -15,6 +15,7 @@ from bot import MiikoBot
 from common.react_msg import run_paged_message
 from common.parse_args import ParsedArguments, parse_arguments
 from common.aliases import unit_aliases, artists, process_artist, LangPref, media_name
+from main import CMD_PREFIX
 
 PAGE_SIZE=15
 
@@ -39,7 +40,7 @@ class Player(commands.Cog):
             await ctx.voice_client.move_to(channel)
             await ctx.send("Moved channels!")
 
-    @commands.command(name='leave', aliases=['disconnect', 'dc'], help='leave current vc')
+    @commands.command(name='leave', aliases=['disconnect', 'dc'], help='leave current vc, empties queue')
     async def leave(self, ctx):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel!')
@@ -51,12 +52,14 @@ class Player(commands.Cog):
 
     # unlike match_songs for embeds, has to pick a single song to play 
     async def choose_song(self, args: ParsedArguments):
+        if not args.text:
+            return -1
         songs = models.D4DJSong.all().filter(id__lt=92000)
         for tag in args.tags: # no $all tag since need a single result
             if tag.isdigit():
-                media = media.filter(id=tag)
+                songs = songs.filter(id=tag)
             elif tag in unit_aliases:
-                media = media.filter(artist__contains=str(unit_aliases[tag]))
+                songs = songs.filter(artist__contains=str(unit_aliases[tag]))
             else: # bad tag - give empty
                 return None
         for word in args.words:
@@ -69,14 +72,17 @@ class Player(commands.Cog):
                 best = (i, ratio[1])
         return best[0]
 
-    @commands.command(name='play', help='&play [terms | $tags] to queue most relevant song, &play to resume')
-    async def play(self, ctx, *, args=None):
+    @commands.command(name='play',
+                      help=f'{CMD_PREFIX}play neko',
+                      description='Plays song/adds most relevant song to queue based off arguments. For song to be added, must give at least one keyword.\n\n'
+                                  'Keyword arguments and tags narrows song selection.\n\n'
+                                  'Useful $tag arguments include:\n'
+                                  '- $artist (narrows song search down to artist)\n\n'
+                                  'Please note that song selection is currently limited')
+    async def play(self, ctx, *, args=''):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel!')
             raise VoiceError('play: Bot is not connected to any voice channel')
-        if ctx.voice_client.is_paused() and not args:
-            ctx.voice_client.resume()
-            return
         arguments = parse_arguments(args)
         id = await self.choose_song(arguments)
         if id is None or id < 0:
@@ -130,7 +136,15 @@ class Player(commands.Cog):
         if ctx.voice_client.is_playing():
             ctx.voice_client.pause()
 
-    @commands.command(name='stop', help='stop player, empty queue')
+    @commands.command(name='resume', help='resume player')
+    async def resume(self, ctx):
+        if not ctx.voice_client:
+            await ctx.send('Not connected to any voice channel!')
+            raise VoiceError('pause: Bot is not connected to any voice channel')
+        if ctx.voice_client.is_paused():
+            ctx.voice_client.resume()
+
+    @commands.command(name='stop', help='stop player, empties queue')
     async def stop(self, ctx):
         if not ctx.voice_client:
             await ctx.send('Not connected to any voice channel!')

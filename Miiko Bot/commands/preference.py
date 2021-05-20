@@ -7,6 +7,7 @@ from discord.ext import commands
 from bot import MiikoBot
 from common.aliases import pref_aliases, pref_settings
 import models
+from main import CMD_PREFIX
 
 bool_true_strings = {'True', 'true', 'on'}
 bool_false_strings = {'False', 'false', 'off'}
@@ -25,7 +26,11 @@ class Preference(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='setpref', help='change miiko preference settings')
+    @commands.command(name='setpref',
+                      help=f'{CMD_PREFIX}setpref lang jp',
+                      description='Changes preference settings. Must be able to manage server to use.\n\n'
+                                  'Preferences:\n'
+                                  '- lang [en|jp|ro] - changes language for displaying song/album/staff/artist name')
     @commands.has_permissions(manage_guild=True)
     async def set_preference(self, ctx, pref, setting):
         if pref in pref_aliases and setting in pref_settings[pref_aliases[pref]]:
