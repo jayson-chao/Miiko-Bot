@@ -63,11 +63,18 @@ class Talent(commands.Cog):
                 now = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%m-%d')
                 seiyuu = models.D4DJSeiyuu.all().order_by('birthday')
                 c = await seiyuu.first() # in case current date is beyond all birthdays in jan-dec timeline
+                b1 = []
+                b2 = []
                 async for s in seiyuu:
                     if now < s.birthday:
-                        c = s
-                        break
-                bdayEmbed = discord.Embed(title="Seiyuu Birthdays", description=f'{await media_name(s, g.langpref)} - {s.birthday[:5]}')
+                        b1.append(f'`{s.birthday[:5]}  {await media_name(s, g.langpref)}`')
+                    else:
+                        b2.append(f'`{s.birthday[:5]}  {await media_name(s, g.langpref)}`')
+                b = b1 + b2
+
+                bdayEmbed = discord.Embed(title="Seiyuu Birthdays")
+                bdayEmbed.add_field(name='Next', value=b.pop(0))
+                bdayEmbed.add_field(name='After', value='\n'.join(b[:5]), inline=False)
                 asyncio.ensure_future(run_paged_message(ctx, [bdayEmbed]))
             else:
                 await ctx.send('invalid arg')

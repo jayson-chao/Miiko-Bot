@@ -179,11 +179,18 @@
     "arranger_rel": [ "XELIK", "setsat" ]
   },
   "00019": {
-    "name": "Dig Delight!",
+    "name": "Dig Delight! (4sk Remix)",
     "artist": "0",
     "lyricist_rel": [ "Nakamura Kou" ],
     "composer_rel": [ "Yamato" ],
     "arranger_rel": [ "4sk" ]
+  },
+  "00020": {
+    "name": "Hey! Be Ambitious! (Another Ver.)",
+    "artist": "0",
+    "lyricist_rel": [ "Yuuki Aira" ],
+    "composer_rel": [ "Yamato" ],
+    "arranger_rel": [ "TECHNOBOYS PULCRAFT GREEN-FUND" ]
   },
   "01001": {
     "name": "Poppin' Shuffle",
@@ -195,7 +202,9 @@
     "name": "Kokoro Odoru",
     "jpname": "ココロオドル",
     "artist": "0",
-    "orartist_id": "nobodyknows+"
+    "orartist_id": "nobodyknows+",
+    "album_id": "907",
+    "track": 1
   },
   "01003": {
     "name": "Moonlight Densetsu",
@@ -229,7 +238,9 @@
     "name": "Ikuze! Kaitou Shoujo",
     "jpname": "行くぜっ!怪盗少女",
     "artist": "0",
-    "orartist_id": "Momoiro Clover"
+    "orartist_id": "Momoiro Clover",
+    "album_id": "907",
+    "track": 2
   },
   "01008": {
     "name": "Yes! BanG_Dream!",
@@ -285,6 +296,17 @@
     "name": "Help me, ERINNNNNN!!",
     "artist": "0",
     "orartist_id": "COOL&CREATE"
+  },
+  "01017": {
+    "name": "R.P.G. ~ Rockin' Playing Game",
+    "artist": "0",
+    "orartist_id": "SuG"
+  },
+  "01018": {
+    "name": "Gakuen Tengoku",
+    "jpname": "学園天国",
+    "artist": "0",
+    "orartist_id": "Finger 5"
   },
   "10001": {
     "name": "Electric Chaos★Countdown",
@@ -380,6 +402,13 @@
     "composer_rel": [ "PandaBoY" ],
     "arranger_rel": [ "PandaBoY" ]
   },
+  "10010": {
+    "name": "Let us sing \"Peaky!!\"",
+    "artist": "1",
+    "lyricist_rel": [ "Spirit Garden" ],
+    "composer_rel": [ "Takeda Yuusuke" ],
+    "arranger_rel": [ "Takeda Yuusuke" ]
+  },
   "11001": {
     "name": "Agehachou",
     "jpname": "アゲハ蝶",
@@ -395,7 +424,9 @@
   "11003": {
     "name": "CYBER CYBER",
     "artist": "1",
-    "orartist_id": "ALTIMA"
+    "orartist_id": "ALTIMA",
+    "album_id": "907",
+    "track": 4
   },
   "11004": {
     "name": "Shounen Heart",
@@ -451,7 +482,9 @@
     "name": "Gyakkou no Flügel",
     "jpname": "逆光のフリューゲル",
     "artist": "1",
-    "orartist_id": "Zwei Wing"
+    "orartist_id": "Zwei Wing",
+    "album_id": "907",
+    "track": 3
   },
   "11013": {
     "name": "BLACK SHOUT",
@@ -565,6 +598,14 @@
     "composer_rel": [ "Sataka Ryouhei" ],
     "arranger_rel": [ "TAKU INOUE" ]
   },
+  "20012": {
+    "name": "Petit Mix Party Night!",
+    "jpname": "ぷっちみくパーチナィ！",
+    "artist": "2",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "PandaBoY" ],
+    "arranger_rel": [ "PandaBoY" ]
+  },
   "21001": {
     "name": "99 ILLUSION!",
     "artist": "2",
@@ -579,7 +620,9 @@
   "21003": {
     "name": "HOT LIMIT",
     "artist": "2",
-    "orartist_id": "T.M.Revolution"
+    "orartist_id": "T.M.Revolution",
+    "album_id": "907",
+    "track": 6
   },
   "21004": {
     "name": "Sidonia",
@@ -593,7 +636,9 @@
   "21005": {
     "name": "READY STEADY GO",
     "artist": "2",
-    "orartist_id": "L'Arc～en～Ciel"
+    "orartist_id": "L'Arc～en～Ciel",
+    "album_id": "907",
+    "track": 5
   },
   "21006": {
     "name": "sakura",
@@ -733,6 +778,18 @@
     "composer_rel": [ "Miyakoda Kazushi" ],
     "arranger_rel": [ "b4k" ]
   },
+  "30011": {
+    "name": "Petit Mix Party Night!",
+    "jpname": "ぷっちみくパーチナィ！",
+    "artist": "3",
+    "lyricist_rel": [ "Nakamura Kou" ],
+    "composer_rel": [ "PandaBoY" ],
+    "arranger_rel": [ "PandaBoY" ]
+  },
+  "30012": {
+    "name": "OMG",
+    "artist": "3"
+  },
   "31001": {
     "name": "CAT'S EYE",
     "artist": "3",
@@ -755,7 +812,9 @@
   "31004": {
     "name": "Gamble Rumble",
     "artist": "3",
-    "orartist_id": "m.o.v.e"
+    "orartist_id": "m.o.v.e",
+    "album_id": "907",
+    "track": 8
   },
   "31005": {
     "name": "real Emotion",
@@ -790,7 +849,9 @@
   "31010": {
     "name": "Climax Jump",
     "artist": "3",
-    "orartist_id": "AAA"
+    "orartist_id": "AAA",
+    "album_id": "907",
+    "track": 7
   },
   "31011": {
     "name": "EXPOSE 'Burn out!!!'",
@@ -806,6 +867,11 @@
     "name": "Realize",
     "artist": "3",
     "orartist_id": "Tamaki Nami"
+  },
+  "31014": {
+    "name": "*~Asterisk~",
+    "artist": "3",
+    "orartist_id": "ORANGE RANGE"
   },
   "40001": {
     "name": "Movement",
@@ -930,7 +996,9 @@
     "name": "Tokyo Teddy Bear",
     "jpname": "東京テディベア",
     "artist": "4",
-    "orartist_id": "Neru"
+    "orartist_id": "Neru",
+    "album_id": "907",
+    "track": 9
   },
   "41006": {
     "name": "Rising Hope",
@@ -951,7 +1019,9 @@
     "name": "MUGEN∞REBIRTH",
     "jpname": "無限∞REBIRTH",
     "artist": "4",
-    "orartist_id": "DAIGO"
+    "orartist_id": "DAIGO",
+    "album_id": "907",
+    "track": 10
   },
   "41010": {
     "name": "Fukai Mori",
@@ -1105,7 +1175,9 @@
     "name": "Soushou Innocence",
     "jpname": "創傷イノセンス",
     "artist": "5",
-    "orartist_id": "Uchida Maaya"
+    "orartist_id": "Uchida Maaya",
+    "album_id": "907",
+    "track": 11
   },
   "51008": {
     "name": "Gimme! Revolution",
@@ -1128,7 +1200,9 @@
   "51011": {
     "name": "Shiny Smily Story",
     "artist": "5",
-    "orartist_id": "hololive IDOL PROJECT"
+    "orartist_id": "hololive IDOL PROJECT",
+    "album_id": "907",
+    "track": 12
   },
   "51012": {
     "name": "Akai Sweet Pea",
@@ -1153,6 +1227,10 @@
     "album_id": "002",
     "track": 2
   },
+  "90002": {
+    "name": "#All Friends",
+    "artiststr_id": "Lynx Eyes"
+  },
   "91001": {
     "name": "WOW WAR TONIGHT ~Toki ni wa Okose yo Movement~",
     "jpname": "WOW WAR TONIGHT～時には起こせよムーヴメント～",
@@ -1172,6 +1250,16 @@
     "jpname": "五等分の気持ち",
     "artiststr_id": "Ohnaruto Muni & Hanamaki Towa & Fukushima Noa & Yano Hiiro & Kasuga Haruna",
     "orartist_id": "Nakano-ke no Itsutsugo"
+  },
+  "91004": {
+    "name": "EZ DO DANCE",
+    "artiststr_id": "Lynx Eyes",
+    "orartist_id": "TRF"
+  },
+  "91005": {
+    "name": "Love again",
+    "artiststr_id": "Lynx Eyes",
+    "orartist_id": "globe"
   },
 
 

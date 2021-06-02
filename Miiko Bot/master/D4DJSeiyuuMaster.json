@@ -22,5 +22,125 @@
     "jpname": "志崎樺音",
     "agency": "Ace Crew",
     "birthday": "02-08-199X"
+  },
+  "201": {
+    "name": "Aimi",
+    "jpname": "愛美",
+    "agency": "HiBiKi",
+    "birthday": "12-25-1991"
+  },
+  "202": {
+    "name": "Takagi Miyu",
+    "jpname": "高木美佑",
+    "agency": "81 Produce",
+    "birthday": "09-08-1996"
+  },
+  "203": {
+    "name": "Koizumi Moeka",
+    "jpname": "小泉萌香",
+    "agency": "Amuse",
+    "birthday": "02-27-1996"
+  },
+  "204": {
+    "name": "Kurachi Reo",
+    "jpname": "倉知玲鳳",
+    "agency": "S Inc.",
+    "birthday": "05-22-1997"
+  },
+  "301": {
+    "name": "Tsumugi Risa",
+    "jpname": "紡木吏佐",
+    "agency": "HiBiKi",
+    "birthday": "07-05-1996"
+  },
+  "302": {
+    "name": "Maeshima Ami",
+    "jpname": "前島亜美",
+    "agency": "Avex",
+    "birthday": "11-22-1997"
+  },
+  "303": {
+    "name": "Iwata Haruki",
+    "jpname": "岩田陽葵",
+    "agency": "Mirai Production",
+    "birthday": "04-03-1995"
+  },
+  "304": {
+    "name": "Sato Hinata",
+    "jpname": "佐藤日向",
+    "agency": "Amuse",
+    "birthday": "12-23-1998"
+  },
+  "401": {
+    "name": "Hirajima Natsumi",
+    "jpname": "平嶋夏海",
+    "agency": "One Eight Promotion",
+    "birthday": "05-28-1992"
+  },
+  "402": {
+    "name": "Okada Mei",
+    "jpname": "岡田夢以",
+    "agency": "A-Plus",
+    "birthday": "05-19-1996"
+  },
+  "403": {
+    "name": "Hazuki Himari",
+    "jpname": "葉月ひまり",
+    "agency": "Ace Crew",
+    "birthday": "08-16-1997"
+  },
+  "404": {
+    "name": "Negishi Ai",
+    "jpname": "根岸愛",
+    "agency": "Platinum Production",
+    "birthday": "09-27-1992"
+  },
+  "501": {
+    "name": "Kato Rihona",
+    "jpname": "加藤里保菜",
+    "agency": "Galaxy Promotion",
+    "birthday": "10-03-1995"
+  },
+  "502": {
+    "name": "Otsuka Sae",
+    "jpname": "大塚紗英",
+    "agency": "Ace Crew",
+    "birthday": "10-10-1995"
+  },
+  "503": {
+    "name": "Momono Haruna",
+    "jpname": "もものはるな",
+    "agency": "Haikyo",
+    "birthday": "11-25-1991"
+  },
+  "504": {
+    "name": "Tsunko",
+    "jpname": "つんこ",
+    "agency": "PP Enterprise",
+    "birthday": "01-09-1992"
+  },
+  "601": {
+    "name": "Tanda Hazuki",
+    "jpname": "反田葉月",
+    "agency": "Platinum Production",
+    "birthday": "02-28-2001"
+  },
+  "602": {
+    "name": "Shindou Amane",
+    "jpname": "進藤 あまね",
+    "agency": "HiBiKi",
+    "birthday": "04-20-2004"
+  },
+  "603": {
+    "name": "Fukugawa Ruka",
+    "jpname": "深川瑠華",
+    "agency": "HiBiKi",
+    "birthday": "09-06-2004"
+  },
+  "604": {
+    "name": "Watase Yuzuki",
+    "jpname": "渡瀬結月",
+    "agency": "HiBiKi",
+    "birthday": "02-18-2003"
   }
 }

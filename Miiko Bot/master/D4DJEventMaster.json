@@ -184,7 +184,7 @@
   "0030": {
     "name": "D4DJ D4 FES. -Be Happy- REMIX",
     "artist_rel": [ "Happy Around!", "Peaky P-key", "Photon Maiden", "Merm4id", "RONDO", "Lyrical Lily" ],
-    "eventdate": "2021-05-29T15:30:00",
+    "eventdate": "2021-05-29T15:00:00",
     "livestream": "Paid: [Tickets](http://r-t.jp/d4fes0529_streaming)"
   },
   "0031": {
@@ -443,9 +443,14 @@
     "eventdate": "2021-06-19T17:30:00",
     "livestream": "Paid: [Tickets](https://www.openrec.tv/ppv/d4dj_battle_time)"
   },
-  "1050": { 
+  "1050": {
     "name": "#D4DJ_DJ_TIME 2021.05.21",
     "artist_rel": [ "Koiwai Kotori", "Koyama Momoyo" ],
     "eventdate": "2021-05-21T22:00:00"
+  },
+  "1051": {
+    "name": "#D4DJ_DJTIME 2021.06.04",
+    "artist_rel": [ "Hazuki Himari" ],
+    "eventdate": "2021-06-04T22:00:00"
   }
 }
