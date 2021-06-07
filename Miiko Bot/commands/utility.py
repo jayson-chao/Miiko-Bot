@@ -36,7 +36,7 @@ class Utility(commands.Cog):
             await ctx.voice_client.disconnect()
         await ctx.send('Shutting down, nano!')
         await self.bot.change_presence(status=discord.Status.offline)
-        await self.bot.close() # will throw Runtime Error - apparently this is a known bug on their end
+        await self.bot.close() # Throwing runtime err on windows (but not ubuntu) - apparently this is a known bug in the discord.py library
 
     @commands.command(name='reload', help='reloads all extensions', hidden=True)
     @commands.is_owner()

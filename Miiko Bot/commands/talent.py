@@ -34,7 +34,7 @@ class Talent(commands.Cog):
             seiyuu = seiyuu.filter(Q(name__icontains=word) | Q(jpname__icontains=word))
         return await seiyuu
 
-    @commands.command(name='seiyuu', help='seiyuu embed [WIP]', hidden=True)
+    @commands.command(name='seiyuu', help='seiyuu info')
     async def seiyuu(self, ctx, *, args=None):
         if args:
             arguments = parse_arguments(args)
@@ -50,12 +50,13 @@ class Talent(commands.Cog):
                 infoEmbed = discord.Embed(title=await media_name(s, g.langpref))
                 infoEmbed.set_thumbnail(url=f'https://raw.githubusercontent.com/jayson-chao/Miiko-Assets/main/seiyuu/{s.id}.png')
                 infoEmbed.add_field(name="Birth Date", value=s.birthday)
+                infoEmbed.add_field(name="Agency", value=s.agency, inline=False)
                 embeds.append(infoEmbed)
             asyncio.ensure_future(run_paged_message(ctx, embeds, start=index))
         else:
             await ctx.send('No relevant seiyuu found.')
 
-    @commands.command(name="birthday", aliases=["bday"], help="birthday list [WIP]", hidden=True)
+    @commands.command(name="birthday", aliases=["bday"], help="birthday list, 'next' as arg for next bday")
     async def birthday(self, ctx, *, args=None):
         g = await models.Guild.get_or_none(id=ctx.guild.id)
         if args:
